@@ -1,0 +1,14 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="86.119.30.142.Mediazon2020_DWH_source.mediazon"
+  DTS:DTSID="{297C2D91-97A6-4CA2-894C-5C8852A66426}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=86.119.30.142;User ID=mediazon;Initial Catalog=Mediazon2020_DWH_source;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
+      <DTS:Password
+        DTS:Name="Password"
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA+2Tqu4vG2U2WI9wmPLzYNQAAAAACAAAAAAAQZgAAAAEAACAAAACTqC7SLTd17kGwvZQce6he/LYMZw6Ca7tH3/yf0dsBaQAAAAAOgAAAAAIAACAAAACaZVAE5TJp0igFyRmGh8BHe6Cq3/lW5bud+TO5zz9SdYAAAADl5fRfFxHLjt+OQyTfBmocwgCp0vK7bPtNJegLCt4fv2SkoWJYyDG1seonJC7+ipRxd4KWfecGsgNJ1ef5G26wwNalLLM0b/W0Vw0uPZmVcy2MdGK7z807KnH7lTlbWab3d6KXo5nzqNcUsbsLPoamyU8ZNv7mTiJAGHdMWzq+yUAAAADC1Xqh/9l3b7oz4P9bYXao6DJ81zZTVcs6Jj/FzNo39MJ7mLz+a8ntBDnsOqf5+1y/SvF4n1PQTJ2o2MLdTb1v</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>
