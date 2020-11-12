@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="15"
-  DTS:VersionGUID="{A45C9152-9040-4103-AB8A-F9304735E622}">
+  DTS:VersionBuild="17"
+  DTS:VersionGUID="{3E7D7F1F-B1A2-42A7-B24E-157E6AA31825}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -5413,59 +5413,59 @@ where [refTable].[code] = ?</property>
                       cachedLength="15"
                       cachedName="order_code"
                       cachedSortKeyPosition="1"
-                      lineageId="Package\ETL Ventes\Sort.Outputs[Sort Output].Columns[order_code]" />
+                      lineageId="Package\ETL Ventes\Sort STG.Outputs[Sort Output].Columns[order_code]" />
                     <inputColumn
                       refId="Package\ETL Ventes\Merge Join.Inputs[Merge Join Left Input].Columns[order_date]"
                       cachedDataType="i4"
                       cachedName="order_date"
-                      lineageId="Package\ETL Ventes\Sort.Outputs[Sort Output].Columns[order_date]" />
+                      lineageId="Package\ETL Ventes\Sort STG.Outputs[Sort Output].Columns[order_date]" />
                     <inputColumn
                       refId="Package\ETL Ventes\Merge Join.Inputs[Merge Join Left Input].Columns[type_id]"
                       cachedDataType="i4"
                       cachedName="type_id"
-                      lineageId="Package\ETL Ventes\Sort.Outputs[Sort Output].Columns[type_id]" />
+                      lineageId="Package\ETL Ventes\Sort STG.Outputs[Sort Output].Columns[type_id]" />
                     <inputColumn
                       refId="Package\ETL Ventes\Merge Join.Inputs[Merge Join Left Input].Columns[qty]"
                       cachedDataType="i4"
                       cachedName="qty"
-                      lineageId="Package\ETL Ventes\Sort.Outputs[Sort Output].Columns[qty]" />
+                      lineageId="Package\ETL Ventes\Sort STG.Outputs[Sort Output].Columns[qty]" />
                     <inputColumn
                       refId="Package\ETL Ventes\Merge Join.Inputs[Merge Join Left Input].Columns[price]"
                       cachedDataType="r8"
                       cachedName="price"
-                      lineageId="Package\ETL Ventes\Sort.Outputs[Sort Output].Columns[price]" />
+                      lineageId="Package\ETL Ventes\Sort STG.Outputs[Sort Output].Columns[price]" />
                     <inputColumn
                       refId="Package\ETL Ventes\Merge Join.Inputs[Merge Join Left Input].Columns[price_excl]"
                       cachedDataType="r8"
                       cachedName="price_excl"
-                      lineageId="Package\ETL Ventes\Sort.Outputs[Sort Output].Columns[price_excl]" />
+                      lineageId="Package\ETL Ventes\Sort STG.Outputs[Sort Output].Columns[price_excl]" />
                     <inputColumn
                       refId="Package\ETL Ventes\Merge Join.Inputs[Merge Join Left Input].Columns[sales]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="sales"
-                      lineageId="Package\ETL Ventes\Sort.Outputs[Sort Output].Columns[sales]" />
+                      lineageId="Package\ETL Ventes\Sort STG.Outputs[Sort Output].Columns[sales]" />
                     <inputColumn
                       refId="Package\ETL Ventes\Merge Join.Inputs[Merge Join Left Input].Columns[customer_id]"
                       cachedDataType="i4"
                       cachedName="customer_id"
-                      lineageId="Package\ETL Ventes\Sort.Outputs[Sort Output].Columns[customer_id]" />
+                      lineageId="Package\ETL Ventes\Sort STG.Outputs[Sort Output].Columns[customer_id]" />
                     <inputColumn
                       refId="Package\ETL Ventes\Merge Join.Inputs[Merge Join Left Input].Columns[warehouse_id]"
                       cachedDataType="i4"
                       cachedName="warehouse_id"
-                      lineageId="Package\ETL Ventes\Sort.Outputs[Sort Output].Columns[warehouse_id]" />
+                      lineageId="Package\ETL Ventes\Sort STG.Outputs[Sort Output].Columns[warehouse_id]" />
                     <inputColumn
                       refId="Package\ETL Ventes\Merge Join.Inputs[Merge Join Left Input].Columns[currency_id]"
                       cachedDataType="wstr"
                       cachedLength="3"
                       cachedName="currency_id"
-                      lineageId="Package\ETL Ventes\Sort.Outputs[Sort Output].Columns[currency_id]" />
+                      lineageId="Package\ETL Ventes\Sort STG.Outputs[Sort Output].Columns[currency_id]" />
                     <inputColumn
                       refId="Package\ETL Ventes\Merge Join.Inputs[Merge Join Left Input].Columns[product_id]"
                       cachedDataType="i4"
                       cachedName="product_id"
-                      lineageId="Package\ETL Ventes\Sort.Outputs[Sort Output].Columns[product_id]" />
+                      lineageId="Package\ETL Ventes\Sort STG.Outputs[Sort Output].Columns[product_id]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -5481,59 +5481,59 @@ where [refTable].[code] = ?</property>
                       cachedLength="15"
                       cachedName="order_code"
                       cachedSortKeyPosition="1"
-                      lineageId="Package\ETL Ventes\Sort 1.Outputs[Sort Output].Columns[order_code]" />
+                      lineageId="Package\ETL Ventes\Sort DWH.Outputs[Sort Output].Columns[order_code]" />
                     <inputColumn
                       refId="Package\ETL Ventes\Merge Join.Inputs[Merge Join Right Input].Columns[customer_id]"
                       cachedDataType="i4"
                       cachedName="customer_id"
-                      lineageId="Package\ETL Ventes\Sort 1.Outputs[Sort Output].Columns[customer_id]" />
+                      lineageId="Package\ETL Ventes\Sort DWH.Outputs[Sort Output].Columns[customer_id]" />
                     <inputColumn
                       refId="Package\ETL Ventes\Merge Join.Inputs[Merge Join Right Input].Columns[order_date]"
                       cachedDataType="i4"
                       cachedName="order_date"
-                      lineageId="Package\ETL Ventes\Sort 1.Outputs[Sort Output].Columns[order_date]" />
+                      lineageId="Package\ETL Ventes\Sort DWH.Outputs[Sort Output].Columns[order_date]" />
                     <inputColumn
                       refId="Package\ETL Ventes\Merge Join.Inputs[Merge Join Right Input].Columns[warehouse_id]"
                       cachedDataType="i4"
                       cachedName="warehouse_id"
-                      lineageId="Package\ETL Ventes\Sort 1.Outputs[Sort Output].Columns[warehouse_id]" />
+                      lineageId="Package\ETL Ventes\Sort DWH.Outputs[Sort Output].Columns[warehouse_id]" />
                     <inputColumn
                       refId="Package\ETL Ventes\Merge Join.Inputs[Merge Join Right Input].Columns[currency_id]"
                       cachedDataType="wstr"
                       cachedLength="3"
                       cachedName="currency_id"
-                      lineageId="Package\ETL Ventes\Sort 1.Outputs[Sort Output].Columns[currency_id]" />
+                      lineageId="Package\ETL Ventes\Sort DWH.Outputs[Sort Output].Columns[currency_id]" />
                     <inputColumn
                       refId="Package\ETL Ventes\Merge Join.Inputs[Merge Join Right Input].Columns[product_id]"
                       cachedDataType="i4"
                       cachedName="product_id"
-                      lineageId="Package\ETL Ventes\Sort 1.Outputs[Sort Output].Columns[product_id]" />
+                      lineageId="Package\ETL Ventes\Sort DWH.Outputs[Sort Output].Columns[product_id]" />
                     <inputColumn
                       refId="Package\ETL Ventes\Merge Join.Inputs[Merge Join Right Input].Columns[type_id]"
                       cachedDataType="i4"
                       cachedName="type_id"
-                      lineageId="Package\ETL Ventes\Sort 1.Outputs[Sort Output].Columns[type_id]" />
+                      lineageId="Package\ETL Ventes\Sort DWH.Outputs[Sort Output].Columns[type_id]" />
                     <inputColumn
                       refId="Package\ETL Ventes\Merge Join.Inputs[Merge Join Right Input].Columns[qty]"
                       cachedDataType="i4"
                       cachedName="qty"
-                      lineageId="Package\ETL Ventes\Sort 1.Outputs[Sort Output].Columns[qty]" />
+                      lineageId="Package\ETL Ventes\Sort DWH.Outputs[Sort Output].Columns[qty]" />
                     <inputColumn
                       refId="Package\ETL Ventes\Merge Join.Inputs[Merge Join Right Input].Columns[price]"
                       cachedDataType="r8"
                       cachedName="price"
-                      lineageId="Package\ETL Ventes\Sort 1.Outputs[Sort Output].Columns[price]" />
+                      lineageId="Package\ETL Ventes\Sort DWH.Outputs[Sort Output].Columns[price]" />
                     <inputColumn
                       refId="Package\ETL Ventes\Merge Join.Inputs[Merge Join Right Input].Columns[price_excl]"
                       cachedDataType="r8"
                       cachedName="price_excl"
-                      lineageId="Package\ETL Ventes\Sort 1.Outputs[Sort Output].Columns[price_excl]" />
+                      lineageId="Package\ETL Ventes\Sort DWH.Outputs[Sort Output].Columns[price_excl]" />
                     <inputColumn
                       refId="Package\ETL Ventes\Merge Join.Inputs[Merge Join Right Input].Columns[sales]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="sales"
-                      lineageId="Package\ETL Ventes\Sort 1.Outputs[Sort Output].Columns[sales]" />
+                      lineageId="Package\ETL Ventes\Sort DWH.Outputs[Sort Output].Columns[sales]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -5845,11 +5845,11 @@ where [refTable].[code] = ?</property>
               </outputs>
             </component>
             <component
-              refId="Package\ETL Ventes\Sort"
+              refId="Package\ETL Ventes\Sort DWH"
               componentClassID="Microsoft.Sort"
               contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
               description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
-              name="Sort"
+              name="Sort DWH"
               version="1">
               <properties>
                 <property
@@ -5864,377 +5864,11 @@ where [refTable].[code] = ?</property>
               </properties>
               <inputs>
                 <input
-                  refId="Package\ETL Ventes\Sort.Inputs[Sort Input]"
+                  refId="Package\ETL Ventes\Sort DWH.Inputs[Sort Input]"
                   name="Sort Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\ETL Ventes\Sort.Inputs[Sort Input].Columns[order_code]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="15"
-                      cachedName="order_code"
-                      lineageId="Package\ETL Ventes\STG Ventes.Outputs[OLE DB Source Output].Columns[order_code]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">1</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\ETL Ventes\Sort.Inputs[Sort Input].Columns[order_date]"
-                      cachedDataType="i4"
-                      cachedName="order_date"
-                      lineageId="Package\ETL Ventes\STG Ventes.Outputs[OLE DB Source Output].Columns[order_date]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\ETL Ventes\Sort.Inputs[Sort Input].Columns[type_id]"
-                      cachedDataType="i4"
-                      cachedName="type_id"
-                      lineageId="Package\ETL Ventes\STG Ventes.Outputs[OLE DB Source Output].Columns[type_id]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\ETL Ventes\Sort.Inputs[Sort Input].Columns[qty]"
-                      cachedDataType="i4"
-                      cachedName="qty"
-                      lineageId="Package\ETL Ventes\STG Ventes.Outputs[OLE DB Source Output].Columns[qty]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\ETL Ventes\Sort.Inputs[Sort Input].Columns[price]"
-                      cachedDataType="r8"
-                      cachedName="price"
-                      lineageId="Package\ETL Ventes\STG Ventes.Outputs[OLE DB Source Output].Columns[price]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\ETL Ventes\Sort.Inputs[Sort Input].Columns[price_excl]"
-                      cachedDataType="r8"
-                      cachedName="price_excl"
-                      lineageId="Package\ETL Ventes\STG Ventes.Outputs[OLE DB Source Output].Columns[price_excl]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\ETL Ventes\Sort.Inputs[Sort Input].Columns[sales]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="sales"
-                      lineageId="Package\ETL Ventes\STG Ventes.Outputs[OLE DB Source Output].Columns[sales]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\ETL Ventes\Sort.Inputs[Sort Input].Columns[customer_id]"
-                      cachedDataType="i4"
-                      cachedName="customer_id"
-                      lineageId="Package\ETL Ventes\Lookup client.Outputs[Lookup Match Output].Columns[customer_id]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\ETL Ventes\Sort.Inputs[Sort Input].Columns[warehouse_id]"
-                      cachedDataType="i4"
-                      cachedName="warehouse_id"
-                      lineageId="Package\ETL Ventes\Lookup warehouse.Outputs[Lookup Match Output].Columns[warehouse_id]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\ETL Ventes\Sort.Inputs[Sort Input].Columns[currency_id]"
-                      cachedDataType="wstr"
-                      cachedLength="3"
-                      cachedName="currency_id"
-                      lineageId="Package\ETL Ventes\Lookup currency.Outputs[Lookup Match Output].Columns[currency_id]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\ETL Ventes\Sort.Inputs[Sort Input].Columns[product_id]"
-                      cachedDataType="i4"
-                      cachedName="product_id"
-                      lineageId="Package\ETL Ventes\Lookup product.Outputs[Lookup Match Output].Columns[product_id]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\ETL Ventes\Sort.Outputs[Sort Output]"
-                  isSorted="true"
-                  name="Sort Output">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\ETL Ventes\Sort.Outputs[Sort Output].Columns[order_code]"
-                      codePage="1252"
-                      dataType="str"
-                      length="15"
-                      lineageId="Package\ETL Ventes\Sort.Outputs[Sort Output].Columns[order_code]"
-                      name="order_code"
-                      sortKeyPosition="1">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\ETL Ventes\STG Ventes.Outputs[OLE DB Source Output].Columns[order_code]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\ETL Ventes\Sort.Outputs[Sort Output].Columns[order_date]"
-                      dataType="i4"
-                      lineageId="Package\ETL Ventes\Sort.Outputs[Sort Output].Columns[order_date]"
-                      name="order_date">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\ETL Ventes\STG Ventes.Outputs[OLE DB Source Output].Columns[order_date]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\ETL Ventes\Sort.Outputs[Sort Output].Columns[type_id]"
-                      dataType="i4"
-                      lineageId="Package\ETL Ventes\Sort.Outputs[Sort Output].Columns[type_id]"
-                      name="type_id">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\ETL Ventes\STG Ventes.Outputs[OLE DB Source Output].Columns[type_id]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\ETL Ventes\Sort.Outputs[Sort Output].Columns[qty]"
-                      dataType="i4"
-                      lineageId="Package\ETL Ventes\Sort.Outputs[Sort Output].Columns[qty]"
-                      name="qty">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\ETL Ventes\STG Ventes.Outputs[OLE DB Source Output].Columns[qty]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\ETL Ventes\Sort.Outputs[Sort Output].Columns[price]"
-                      dataType="r8"
-                      lineageId="Package\ETL Ventes\Sort.Outputs[Sort Output].Columns[price]"
-                      name="price">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\ETL Ventes\STG Ventes.Outputs[OLE DB Source Output].Columns[price]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\ETL Ventes\Sort.Outputs[Sort Output].Columns[price_excl]"
-                      dataType="r8"
-                      lineageId="Package\ETL Ventes\Sort.Outputs[Sort Output].Columns[price_excl]"
-                      name="price_excl">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\ETL Ventes\STG Ventes.Outputs[OLE DB Source Output].Columns[price_excl]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\ETL Ventes\Sort.Outputs[Sort Output].Columns[sales]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\ETL Ventes\Sort.Outputs[Sort Output].Columns[sales]"
-                      name="sales">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\ETL Ventes\STG Ventes.Outputs[OLE DB Source Output].Columns[sales]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\ETL Ventes\Sort.Outputs[Sort Output].Columns[customer_id]"
-                      dataType="i4"
-                      lineageId="Package\ETL Ventes\Sort.Outputs[Sort Output].Columns[customer_id]"
-                      name="customer_id">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\ETL Ventes\Lookup client.Outputs[Lookup Match Output].Columns[customer_id]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\ETL Ventes\Sort.Outputs[Sort Output].Columns[warehouse_id]"
-                      dataType="i4"
-                      lineageId="Package\ETL Ventes\Sort.Outputs[Sort Output].Columns[warehouse_id]"
-                      name="warehouse_id">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\ETL Ventes\Lookup warehouse.Outputs[Lookup Match Output].Columns[warehouse_id]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\ETL Ventes\Sort.Outputs[Sort Output].Columns[currency_id]"
-                      dataType="wstr"
-                      length="3"
-                      lineageId="Package\ETL Ventes\Sort.Outputs[Sort Output].Columns[currency_id]"
-                      name="currency_id">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\ETL Ventes\Lookup currency.Outputs[Lookup Match Output].Columns[currency_id]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\ETL Ventes\Sort.Outputs[Sort Output].Columns[product_id]"
-                      dataType="i4"
-                      lineageId="Package\ETL Ventes\Sort.Outputs[Sort Output].Columns[product_id]"
-                      name="product_id">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\ETL Ventes\Lookup product.Outputs[Lookup Match Output].Columns[product_id]}</property>
-                      </properties>
-                    </outputColumn>
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\ETL Ventes\Sort 1"
-              componentClassID="Microsoft.Sort"
-              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
-              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
-              name="Sort 1"
-              version="1">
-              <properties>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
-                  name="EliminateDuplicates">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the maximum number of threads to use for sorting."
-                  expressionType="Notify"
-                  name="MaximumThreads">-1</property>
-              </properties>
-              <inputs>
-                <input
-                  refId="Package\ETL Ventes\Sort 1.Inputs[Sort Input]"
-                  name="Sort Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\ETL Ventes\Sort 1.Inputs[Sort Input].Columns[order_code]"
+                      refId="Package\ETL Ventes\Sort DWH.Inputs[Sort Input].Columns[order_code]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="15"
@@ -6252,7 +5886,7 @@ where [refTable].[code] = ?</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\ETL Ventes\Sort 1.Inputs[Sort Input].Columns[customer_id]"
+                      refId="Package\ETL Ventes\Sort DWH.Inputs[Sort Input].Columns[customer_id]"
                       cachedDataType="i4"
                       cachedName="customer_id"
                       lineageId="Package\ETL Ventes\DWH Ventes join.Outputs[OLE DB Source Output].Columns[customer_id]">
@@ -6268,7 +5902,7 @@ where [refTable].[code] = ?</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\ETL Ventes\Sort 1.Inputs[Sort Input].Columns[order_date]"
+                      refId="Package\ETL Ventes\Sort DWH.Inputs[Sort Input].Columns[order_date]"
                       cachedDataType="i4"
                       cachedName="order_date"
                       lineageId="Package\ETL Ventes\DWH Ventes join.Outputs[OLE DB Source Output].Columns[order_date]">
@@ -6284,7 +5918,7 @@ where [refTable].[code] = ?</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\ETL Ventes\Sort 1.Inputs[Sort Input].Columns[warehouse_id]"
+                      refId="Package\ETL Ventes\Sort DWH.Inputs[Sort Input].Columns[warehouse_id]"
                       cachedDataType="i4"
                       cachedName="warehouse_id"
                       lineageId="Package\ETL Ventes\DWH Ventes join.Outputs[OLE DB Source Output].Columns[warehouse_id]">
@@ -6300,7 +5934,7 @@ where [refTable].[code] = ?</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\ETL Ventes\Sort 1.Inputs[Sort Input].Columns[currency_id]"
+                      refId="Package\ETL Ventes\Sort DWH.Inputs[Sort Input].Columns[currency_id]"
                       cachedDataType="wstr"
                       cachedLength="3"
                       cachedName="currency_id"
@@ -6317,7 +5951,7 @@ where [refTable].[code] = ?</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\ETL Ventes\Sort 1.Inputs[Sort Input].Columns[product_id]"
+                      refId="Package\ETL Ventes\Sort DWH.Inputs[Sort Input].Columns[product_id]"
                       cachedDataType="i4"
                       cachedName="product_id"
                       lineageId="Package\ETL Ventes\DWH Ventes join.Outputs[OLE DB Source Output].Columns[product_id]">
@@ -6333,7 +5967,7 @@ where [refTable].[code] = ?</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\ETL Ventes\Sort 1.Inputs[Sort Input].Columns[type_id]"
+                      refId="Package\ETL Ventes\Sort DWH.Inputs[Sort Input].Columns[type_id]"
                       cachedDataType="i4"
                       cachedName="type_id"
                       lineageId="Package\ETL Ventes\DWH Ventes join.Outputs[OLE DB Source Output].Columns[type_id]">
@@ -6349,7 +5983,7 @@ where [refTable].[code] = ?</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\ETL Ventes\Sort 1.Inputs[Sort Input].Columns[qty]"
+                      refId="Package\ETL Ventes\Sort DWH.Inputs[Sort Input].Columns[qty]"
                       cachedDataType="i4"
                       cachedName="qty"
                       lineageId="Package\ETL Ventes\DWH Ventes join.Outputs[OLE DB Source Output].Columns[qty]">
@@ -6365,7 +5999,7 @@ where [refTable].[code] = ?</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\ETL Ventes\Sort 1.Inputs[Sort Input].Columns[price]"
+                      refId="Package\ETL Ventes\Sort DWH.Inputs[Sort Input].Columns[price]"
                       cachedDataType="r8"
                       cachedName="price"
                       lineageId="Package\ETL Ventes\DWH Ventes join.Outputs[OLE DB Source Output].Columns[price]">
@@ -6381,7 +6015,7 @@ where [refTable].[code] = ?</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\ETL Ventes\Sort 1.Inputs[Sort Input].Columns[price_excl]"
+                      refId="Package\ETL Ventes\Sort DWH.Inputs[Sort Input].Columns[price_excl]"
                       cachedDataType="r8"
                       cachedName="price_excl"
                       lineageId="Package\ETL Ventes\DWH Ventes join.Outputs[OLE DB Source Output].Columns[price_excl]">
@@ -6397,7 +6031,7 @@ where [refTable].[code] = ?</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\ETL Ventes\Sort 1.Inputs[Sort Input].Columns[sales]"
+                      refId="Package\ETL Ventes\Sort DWH.Inputs[Sort Input].Columns[sales]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="sales"
@@ -6419,16 +6053,16 @@ where [refTable].[code] = ?</property>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\ETL Ventes\Sort 1.Outputs[Sort Output]"
+                  refId="Package\ETL Ventes\Sort DWH.Outputs[Sort Output]"
                   isSorted="true"
                   name="Sort Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\ETL Ventes\Sort 1.Outputs[Sort Output].Columns[order_code]"
+                      refId="Package\ETL Ventes\Sort DWH.Outputs[Sort Output].Columns[order_code]"
                       codePage="1252"
                       dataType="str"
                       length="15"
-                      lineageId="Package\ETL Ventes\Sort 1.Outputs[Sort Output].Columns[order_code]"
+                      lineageId="Package\ETL Ventes\Sort DWH.Outputs[Sort Output].Columns[order_code]"
                       name="order_code"
                       sortKeyPosition="1">
                       <properties>
@@ -6440,9 +6074,9 @@ where [refTable].[code] = ?</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\ETL Ventes\Sort 1.Outputs[Sort Output].Columns[customer_id]"
+                      refId="Package\ETL Ventes\Sort DWH.Outputs[Sort Output].Columns[customer_id]"
                       dataType="i4"
-                      lineageId="Package\ETL Ventes\Sort 1.Outputs[Sort Output].Columns[customer_id]"
+                      lineageId="Package\ETL Ventes\Sort DWH.Outputs[Sort Output].Columns[customer_id]"
                       name="customer_id">
                       <properties>
                         <property
@@ -6453,9 +6087,9 @@ where [refTable].[code] = ?</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\ETL Ventes\Sort 1.Outputs[Sort Output].Columns[order_date]"
+                      refId="Package\ETL Ventes\Sort DWH.Outputs[Sort Output].Columns[order_date]"
                       dataType="i4"
-                      lineageId="Package\ETL Ventes\Sort 1.Outputs[Sort Output].Columns[order_date]"
+                      lineageId="Package\ETL Ventes\Sort DWH.Outputs[Sort Output].Columns[order_date]"
                       name="order_date">
                       <properties>
                         <property
@@ -6466,9 +6100,9 @@ where [refTable].[code] = ?</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\ETL Ventes\Sort 1.Outputs[Sort Output].Columns[warehouse_id]"
+                      refId="Package\ETL Ventes\Sort DWH.Outputs[Sort Output].Columns[warehouse_id]"
                       dataType="i4"
-                      lineageId="Package\ETL Ventes\Sort 1.Outputs[Sort Output].Columns[warehouse_id]"
+                      lineageId="Package\ETL Ventes\Sort DWH.Outputs[Sort Output].Columns[warehouse_id]"
                       name="warehouse_id">
                       <properties>
                         <property
@@ -6479,10 +6113,10 @@ where [refTable].[code] = ?</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\ETL Ventes\Sort 1.Outputs[Sort Output].Columns[currency_id]"
+                      refId="Package\ETL Ventes\Sort DWH.Outputs[Sort Output].Columns[currency_id]"
                       dataType="wstr"
                       length="3"
-                      lineageId="Package\ETL Ventes\Sort 1.Outputs[Sort Output].Columns[currency_id]"
+                      lineageId="Package\ETL Ventes\Sort DWH.Outputs[Sort Output].Columns[currency_id]"
                       name="currency_id">
                       <properties>
                         <property
@@ -6493,9 +6127,9 @@ where [refTable].[code] = ?</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\ETL Ventes\Sort 1.Outputs[Sort Output].Columns[product_id]"
+                      refId="Package\ETL Ventes\Sort DWH.Outputs[Sort Output].Columns[product_id]"
                       dataType="i4"
-                      lineageId="Package\ETL Ventes\Sort 1.Outputs[Sort Output].Columns[product_id]"
+                      lineageId="Package\ETL Ventes\Sort DWH.Outputs[Sort Output].Columns[product_id]"
                       name="product_id">
                       <properties>
                         <property
@@ -6506,9 +6140,9 @@ where [refTable].[code] = ?</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\ETL Ventes\Sort 1.Outputs[Sort Output].Columns[type_id]"
+                      refId="Package\ETL Ventes\Sort DWH.Outputs[Sort Output].Columns[type_id]"
                       dataType="i4"
-                      lineageId="Package\ETL Ventes\Sort 1.Outputs[Sort Output].Columns[type_id]"
+                      lineageId="Package\ETL Ventes\Sort DWH.Outputs[Sort Output].Columns[type_id]"
                       name="type_id">
                       <properties>
                         <property
@@ -6519,9 +6153,9 @@ where [refTable].[code] = ?</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\ETL Ventes\Sort 1.Outputs[Sort Output].Columns[qty]"
+                      refId="Package\ETL Ventes\Sort DWH.Outputs[Sort Output].Columns[qty]"
                       dataType="i4"
-                      lineageId="Package\ETL Ventes\Sort 1.Outputs[Sort Output].Columns[qty]"
+                      lineageId="Package\ETL Ventes\Sort DWH.Outputs[Sort Output].Columns[qty]"
                       name="qty">
                       <properties>
                         <property
@@ -6532,9 +6166,9 @@ where [refTable].[code] = ?</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\ETL Ventes\Sort 1.Outputs[Sort Output].Columns[price]"
+                      refId="Package\ETL Ventes\Sort DWH.Outputs[Sort Output].Columns[price]"
                       dataType="r8"
-                      lineageId="Package\ETL Ventes\Sort 1.Outputs[Sort Output].Columns[price]"
+                      lineageId="Package\ETL Ventes\Sort DWH.Outputs[Sort Output].Columns[price]"
                       name="price">
                       <properties>
                         <property
@@ -6545,9 +6179,9 @@ where [refTable].[code] = ?</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\ETL Ventes\Sort 1.Outputs[Sort Output].Columns[price_excl]"
+                      refId="Package\ETL Ventes\Sort DWH.Outputs[Sort Output].Columns[price_excl]"
                       dataType="r8"
-                      lineageId="Package\ETL Ventes\Sort 1.Outputs[Sort Output].Columns[price_excl]"
+                      lineageId="Package\ETL Ventes\Sort DWH.Outputs[Sort Output].Columns[price_excl]"
                       name="price_excl">
                       <properties>
                         <property
@@ -6558,10 +6192,10 @@ where [refTable].[code] = ?</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\ETL Ventes\Sort 1.Outputs[Sort Output].Columns[sales]"
+                      refId="Package\ETL Ventes\Sort DWH.Outputs[Sort Output].Columns[sales]"
                       dataType="wstr"
                       length="255"
-                      lineageId="Package\ETL Ventes\Sort 1.Outputs[Sort Output].Columns[sales]"
+                      lineageId="Package\ETL Ventes\Sort DWH.Outputs[Sort Output].Columns[sales]"
                       name="sales">
                       <properties>
                         <property
@@ -6569,6 +6203,372 @@ where [refTable].[code] = ?</property>
                           dataType="System.Int32"
                           description="Specifies the lineage identifier of the input column that is associated with this output column."
                           name="SortColumnId">#{Package\ETL Ventes\DWH Ventes join.Outputs[OLE DB Source Output].Columns[sales]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ETL Ventes\Sort STG"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort STG"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\ETL Ventes\Sort STG.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ETL Ventes\Sort STG.Inputs[Sort Input].Columns[order_code]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="15"
+                      cachedName="order_code"
+                      lineageId="Package\ETL Ventes\STG Ventes.Outputs[OLE DB Source Output].Columns[order_code]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL Ventes\Sort STG.Inputs[Sort Input].Columns[order_date]"
+                      cachedDataType="i4"
+                      cachedName="order_date"
+                      lineageId="Package\ETL Ventes\STG Ventes.Outputs[OLE DB Source Output].Columns[order_date]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL Ventes\Sort STG.Inputs[Sort Input].Columns[type_id]"
+                      cachedDataType="i4"
+                      cachedName="type_id"
+                      lineageId="Package\ETL Ventes\STG Ventes.Outputs[OLE DB Source Output].Columns[type_id]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL Ventes\Sort STG.Inputs[Sort Input].Columns[qty]"
+                      cachedDataType="i4"
+                      cachedName="qty"
+                      lineageId="Package\ETL Ventes\STG Ventes.Outputs[OLE DB Source Output].Columns[qty]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL Ventes\Sort STG.Inputs[Sort Input].Columns[price]"
+                      cachedDataType="r8"
+                      cachedName="price"
+                      lineageId="Package\ETL Ventes\STG Ventes.Outputs[OLE DB Source Output].Columns[price]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL Ventes\Sort STG.Inputs[Sort Input].Columns[price_excl]"
+                      cachedDataType="r8"
+                      cachedName="price_excl"
+                      lineageId="Package\ETL Ventes\STG Ventes.Outputs[OLE DB Source Output].Columns[price_excl]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL Ventes\Sort STG.Inputs[Sort Input].Columns[sales]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="sales"
+                      lineageId="Package\ETL Ventes\STG Ventes.Outputs[OLE DB Source Output].Columns[sales]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL Ventes\Sort STG.Inputs[Sort Input].Columns[customer_id]"
+                      cachedDataType="i4"
+                      cachedName="customer_id"
+                      lineageId="Package\ETL Ventes\Lookup client.Outputs[Lookup Match Output].Columns[customer_id]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL Ventes\Sort STG.Inputs[Sort Input].Columns[warehouse_id]"
+                      cachedDataType="i4"
+                      cachedName="warehouse_id"
+                      lineageId="Package\ETL Ventes\Lookup warehouse.Outputs[Lookup Match Output].Columns[warehouse_id]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL Ventes\Sort STG.Inputs[Sort Input].Columns[currency_id]"
+                      cachedDataType="wstr"
+                      cachedLength="3"
+                      cachedName="currency_id"
+                      lineageId="Package\ETL Ventes\Lookup currency.Outputs[Lookup Match Output].Columns[currency_id]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL Ventes\Sort STG.Inputs[Sort Input].Columns[product_id]"
+                      cachedDataType="i4"
+                      cachedName="product_id"
+                      lineageId="Package\ETL Ventes\Lookup product.Outputs[Lookup Match Output].Columns[product_id]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ETL Ventes\Sort STG.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL Ventes\Sort STG.Outputs[Sort Output].Columns[order_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      lineageId="Package\ETL Ventes\Sort STG.Outputs[Sort Output].Columns[order_code]"
+                      name="order_code"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\ETL Ventes\STG Ventes.Outputs[OLE DB Source Output].Columns[order_code]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL Ventes\Sort STG.Outputs[Sort Output].Columns[order_date]"
+                      dataType="i4"
+                      lineageId="Package\ETL Ventes\Sort STG.Outputs[Sort Output].Columns[order_date]"
+                      name="order_date">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\ETL Ventes\STG Ventes.Outputs[OLE DB Source Output].Columns[order_date]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL Ventes\Sort STG.Outputs[Sort Output].Columns[type_id]"
+                      dataType="i4"
+                      lineageId="Package\ETL Ventes\Sort STG.Outputs[Sort Output].Columns[type_id]"
+                      name="type_id">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\ETL Ventes\STG Ventes.Outputs[OLE DB Source Output].Columns[type_id]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL Ventes\Sort STG.Outputs[Sort Output].Columns[qty]"
+                      dataType="i4"
+                      lineageId="Package\ETL Ventes\Sort STG.Outputs[Sort Output].Columns[qty]"
+                      name="qty">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\ETL Ventes\STG Ventes.Outputs[OLE DB Source Output].Columns[qty]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL Ventes\Sort STG.Outputs[Sort Output].Columns[price]"
+                      dataType="r8"
+                      lineageId="Package\ETL Ventes\Sort STG.Outputs[Sort Output].Columns[price]"
+                      name="price">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\ETL Ventes\STG Ventes.Outputs[OLE DB Source Output].Columns[price]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL Ventes\Sort STG.Outputs[Sort Output].Columns[price_excl]"
+                      dataType="r8"
+                      lineageId="Package\ETL Ventes\Sort STG.Outputs[Sort Output].Columns[price_excl]"
+                      name="price_excl">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\ETL Ventes\STG Ventes.Outputs[OLE DB Source Output].Columns[price_excl]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL Ventes\Sort STG.Outputs[Sort Output].Columns[sales]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL Ventes\Sort STG.Outputs[Sort Output].Columns[sales]"
+                      name="sales">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\ETL Ventes\STG Ventes.Outputs[OLE DB Source Output].Columns[sales]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL Ventes\Sort STG.Outputs[Sort Output].Columns[customer_id]"
+                      dataType="i4"
+                      lineageId="Package\ETL Ventes\Sort STG.Outputs[Sort Output].Columns[customer_id]"
+                      name="customer_id">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\ETL Ventes\Lookup client.Outputs[Lookup Match Output].Columns[customer_id]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL Ventes\Sort STG.Outputs[Sort Output].Columns[warehouse_id]"
+                      dataType="i4"
+                      lineageId="Package\ETL Ventes\Sort STG.Outputs[Sort Output].Columns[warehouse_id]"
+                      name="warehouse_id">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\ETL Ventes\Lookup warehouse.Outputs[Lookup Match Output].Columns[warehouse_id]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL Ventes\Sort STG.Outputs[Sort Output].Columns[currency_id]"
+                      dataType="wstr"
+                      length="3"
+                      lineageId="Package\ETL Ventes\Sort STG.Outputs[Sort Output].Columns[currency_id]"
+                      name="currency_id">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\ETL Ventes\Lookup currency.Outputs[Lookup Match Output].Columns[currency_id]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL Ventes\Sort STG.Outputs[Sort Output].Columns[product_id]"
+                      dataType="i4"
+                      lineageId="Package\ETL Ventes\Sort STG.Outputs[Sort Output].Columns[product_id]"
+                      name="product_id">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\ETL Ventes\Lookup product.Outputs[Lookup Match Output].Columns[product_id]}</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -7222,7 +7222,7 @@ where [refTable].[code] = ?</property>
               startId="Package\ETL Ventes\Lookup currency.Outputs[Lookup Match Output]" />
             <path
               refId="Package\ETL Ventes.Paths[Lookup Match Output3]"
-              endId="Package\ETL Ventes\Sort.Inputs[Sort Input]"
+              endId="Package\ETL Ventes\Sort STG.Inputs[Sort Input]"
               name="Lookup Match Output"
               startId="Package\ETL Ventes\Lookup product.Outputs[Lookup Match Output]" />
             <path
@@ -7237,19 +7237,19 @@ where [refTable].[code] = ?</property>
               startId="Package\ETL Ventes\STG Ventes.Outputs[OLE DB Source Output]" />
             <path
               refId="Package\ETL Ventes.Paths[OLE DB Source Output1]"
-              endId="Package\ETL Ventes\Sort 1.Inputs[Sort Input]"
+              endId="Package\ETL Ventes\Sort DWH.Inputs[Sort Input]"
               name="OLE DB Source Output"
               startId="Package\ETL Ventes\DWH Ventes join.Outputs[OLE DB Source Output]" />
             <path
               refId="Package\ETL Ventes.Paths[Sort Output]"
               endId="Package\ETL Ventes\Merge Join.Inputs[Merge Join Left Input]"
               name="Sort Output"
-              startId="Package\ETL Ventes\Sort.Outputs[Sort Output]" />
+              startId="Package\ETL Ventes\Sort STG.Outputs[Sort Output]" />
             <path
               refId="Package\ETL Ventes.Paths[Sort Output1]"
               endId="Package\ETL Ventes\Merge Join.Inputs[Merge Join Right Input]"
               name="Sort Output"
-              startId="Package\ETL Ventes\Sort 1.Outputs[Sort Output]" />
+              startId="Package\ETL Ventes\Sort DWH.Outputs[Sort Output]" />
             <path
               refId="Package\ETL Ventes.Paths[Update]"
               endId="Package\ETL Ventes\Update test.Inputs[Conditional Split Input]"
@@ -7486,7 +7486,7 @@ where [refTable].[code] = ?</property>
     design-time-name="Package\Chargement staging commandes">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="160,42"
           Id="Package\Chargement staging commandes\STG Commandes"
@@ -7526,9 +7526,7 @@ where [refTable].[code] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-21.9501171875,46.75,55.650234375,11.228515625"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -7564,15 +7562,15 @@ where [refTable].[code] = ?</property>
     design-time-name="Package\Chargement staging Ventes">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="133,42"
-          Id="Package\Chargement staging Ventes\STG Ventes"
-          TopLeft="74.5,185.5" />
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="139,42"
           Id="Package\Chargement staging Ventes\OLTP Ventes"
           TopLeft="60,60" />
+        <NodeLayout
+          Size="133,42"
+          Id="Package\Chargement staging Ventes\STG Ventes"
+          TopLeft="74.5,185.5" />
         <EdgeLayout
           Id="Package\Chargement staging Ventes.Paths[OLE DB Source Output]"
           TopLeft="129.5,102">
@@ -7604,9 +7602,7 @@ where [refTable].[code] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-22.16056640625,46.75,55.8211328125,11.2431640625"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -7711,7 +7707,7 @@ where [refTable].[code] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-80.51173828125,4.4453125,161.0234765625,11.609375"
+              BoundingBox="-48.19138671875,4.4453125,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -7735,7 +7731,7 @@ where [refTable].[code] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-80.51173828125,2.9453125,161.0234765625,11.609375"
+              BoundingBox="-48.19138671875,2.9453125,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -7819,7 +7815,7 @@ where [refTable].[code] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="8.752109375,9,96.49578125,11.609375"
+              BoundingBox="41.1975,9,31.605,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -7854,9 +7850,7 @@ where [refTable].[code] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-81.5569075520834,28.7082066869301,61.4471484375,11.2431640625"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7890,9 +7884,7 @@ where [refTable].[code] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="21.7582161458333,25.7446808510638,55.650234375,11.228515625"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7926,9 +7918,7 @@ where [refTable].[code] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-37.97357421875,33.5,61.4471484375,11.2431640625"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7950,9 +7940,7 @@ where [refTable].[code] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-27.8251171875,10.1357421875,55.650234375,11.228515625"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7986,9 +7974,7 @@ where [refTable].[code] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-26.22357421875,23,61.4471484375,11.2431640625"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -8011,7 +7997,7 @@ where [refTable].[code] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-80.51173828125,9.4453125,161.0234765625,11.609375"
+              BoundingBox="-48.19138671875,9.4453125,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -8132,13 +8118,25 @@ where [refTable].[code] = ?</property>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="157,42"
-          Id="Package\ETL Ventes\Lookup currency"
-          TopLeft="67,278" />
+          Size="159,42"
+          Id="Package\ETL Ventes\DWH Ventes join"
+          TopLeft="339,359" />
+        <NodeLayout
+          Size="152,42"
+          Id="Package\ETL Ventes\Lookup product"
+          TopLeft="67,372" />
+        <NodeLayout
+          Size="126,42"
+          Id="Package\ETL Ventes\Sort DWH"
+          TopLeft="363,459" />
         <NodeLayout
           Size="133,42"
-          Id="Package\ETL Ventes\STG Ventes"
-          TopLeft="64,60" />
+          Id="Package\ETL Ventes\Update test"
+          TopLeft="548,730" />
+        <NodeLayout
+          Size="152,42"
+          Id="Package\ETL Ventes\UPSERT Ventes"
+          TopLeft="218,717" />
         <NodeLayout
           Size="167,42"
           Id="Package\ETL Ventes\Lookup warehouse"
@@ -8147,338 +8145,54 @@ where [refTable].[code] = ?</property>
           Size="141,42"
           Id="Package\ETL Ventes\Lookup client"
           TopLeft="71,141" />
-        <EdgeLayout
-          Id="Package\ETL Ventes.Paths[Lookup Match Output]"
-          TopLeft="144.5,250">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,28"
-              Start="0,0"
-              End="0,20.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,20.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-80.51173828125,4.4453125,161.0234765625,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\ETL Ventes.Paths[Lookup Match Output1]"
-          TopLeft="142.5,183">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,25"
-              Start="0,0"
-              End="0,17.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,17.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-80.51173828125,2.9453125,161.0234765625,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\ETL Ventes.Paths[OLE DB Source Output]"
-          TopLeft="130.5,102">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="11,39"
-              Start="0,0"
-              End="11,31.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,15.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,15.5"
-                    Point2="0,19.5"
-                    Point3="4,19.5" />
-                  <mssgle:LineSegment
-                    End="7,19.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="7,19.5"
-                    Point2="11,19.5"
-                    Point3="11,23.5" />
-                  <mssgle:LineSegment
-                    End="11,31.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-22.41056640625,24.5,55.8211328125,11.2431640625"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <NodeLayout
-          Size="159,42"
-          Id="Package\ETL Ventes\DWH Ventes join"
-          TopLeft="339,359" />
+          Size="133,42"
+          Id="Package\ETL Ventes\STG Ventes"
+          TopLeft="64,60" />
         <NodeLayout
-          Size="168,42"
-          Id="Package\ETL Ventes\DWH insert Ventes"
-          TopLeft="247,832" />
-        <NodeLayout
-          Size="98,42"
-          Id="Package\ETL Ventes\Sort"
+          Size="121,42"
+          Id="Package\ETL Ventes\Sort STG"
           TopLeft="122,451" />
         <NodeLayout
-          Size="152,42"
-          Id="Package\ETL Ventes\Lookup product"
-          TopLeft="67,372" />
-        <EdgeLayout
-          Id="Package\ETL Ventes.Paths[Lookup Match Output2]"
-          TopLeft="144.25,320">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,52"
-              Start="0,0"
-              End="0,44.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,44.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-80.51173828125,16.4453125,161.0234765625,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\ETL Ventes.Paths[Lookup Match Output3]"
-          TopLeft="143,414">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="28,37"
-              Start="0,0"
-              End="28,29.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,14.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,14.5"
-                    Point2="0,18.5"
-                    Point3="4,18.5" />
-                  <mssgle:LineSegment
-                    End="24,18.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="24,18.5"
-                    Point2="28,18.5"
-                    Point3="28,22.5" />
-                  <mssgle:LineSegment
-                    End="28,29.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-66.51173828125,23.5,161.0234765625,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="107,42"
-          Id="Package\ETL Ventes\Sort 1"
-          TopLeft="363,459" />
-        <EdgeLayout
-          Id="Package\ETL Ventes.Paths[OLE DB Source Output1]"
-          TopLeft="417.5,401">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,58"
-              Start="0,0"
-              End="0,50.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,50.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-34.51447265625,19.6357421875,69.0289453125,11.228515625"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          Size="157,42"
+          Id="Package\ETL Ventes\Lookup currency"
+          TopLeft="67,278" />
         <NodeLayout
           Size="130,42"
           Id="Package\ETL Ventes\Merge Join"
           TopLeft="229,603" />
-        <EdgeLayout
-          Id="Package\ETL Ventes.Paths[Sort Output]"
-          TopLeft="171,493">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="102.666666666667,110"
-              Start="0,0"
-              End="102.666666666667,102.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,61.1975683890577" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,61.1975683890577"
-                    Point2="0,65.1975683890577"
-                    Point3="4,65.1975683890577" />
-                  <mssgle:LineSegment
-                    End="98.6666666666667,65.1975683890577" />
-                  <mssgle:CubicBezierSegment
-                    Point1="98.6666666666667,65.1975683890577"
-                    Point2="102.666666666667,65.1975683890577"
-                    Point3="102.666666666667,69.1975683890577" />
-                  <mssgle:LineSegment
-                    End="102.666666666667,102.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="23.4227669270833,70.1975683890577,55.8211328125,11.2431640625"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\ETL Ventes.Paths[Sort Output1]"
-          TopLeft="416.5,501">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-102.166666666667,102"
-              Start="0,0"
-              End="-102.166666666667,94.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,56.4559270516717" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,56.4559270516717"
-                    Point2="0,60.4559270516717"
-                    Point3="-4,60.4559270516717" />
-                  <mssgle:LineSegment
-                    End="-98.1666666666667,60.4559270516717" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-98.1666666666667,60.4559270516717"
-                    Point2="-102.166666666667,60.4559270516717"
-                    Point3="-102.166666666667,64.4559270516717" />
-                  <mssgle:LineSegment
-                    End="-102.166666666667,94.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-85.5978059895834,65.4559270516717,69.0289453125,11.228515625"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <NodeLayout
-          Size="152,42"
-          Id="Package\ETL Ventes\UPSERT Ventes"
-          TopLeft="218,717" />
-        <EdgeLayout
-          Id="Package\ETL Ventes.Paths[Merge Join Output]"
-          TopLeft="294,645">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,72"
-              Start="0,0"
-              End="0,64.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,64.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-34.51447265625,26.62841796875,69.0289453125,11.2431640625"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\ETL Ventes.Paths[Insert]"
-          TopLeft="294,759">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="37,73"
-              Start="0,0"
-              End="37,65.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,32.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,32.5"
-                    Point2="0,36.5"
-                    Point3="4,36.5" />
-                  <mssgle:LineSegment
-                    End="33,36.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="33,36.5"
-                    Point2="37,36.5"
-                    Point3="37,40.5" />
-                  <mssgle:LineSegment
-                    End="37,65.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-27.57333984375,41.5,92.1466796875,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          Size="174,42"
+          Id="Package\ETL Ventes\DWH update Ventes"
+          TopLeft="534,838" />
         <NodeLayout
-          Size="133,42"
-          Id="Package\ETL Ventes\Update test"
-          TopLeft="548,730" />
+          Size="168,42"
+          Id="Package\ETL Ventes\DWH insert Ventes"
+          TopLeft="247,832" />
+        <EdgeLayout
+          Id="Package\ETL Ventes.Paths[Update1]"
+          TopLeft="617.75,772">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,66"
+              Start="0,0"
+              End="0,58.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,58.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-16.28029296875,23.4453125,32.5605859375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\ETL Ventes.Paths[Update]"
           TopLeft="370,738">
@@ -8515,31 +8229,293 @@ where [refTable].[code] = ?</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="174,42"
-          Id="Package\ETL Ventes\DWH update Ventes"
-          TopLeft="534,838" />
         <EdgeLayout
-          Id="Package\ETL Ventes.Paths[Update1]"
-          TopLeft="617.75,772">
+          Id="Package\ETL Ventes.Paths[Sort Output1]"
+          TopLeft="426,501">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,66"
+              EndConnector="-111.666666666667,102"
               Start="0,0"
-              End="0,58.5">
+              End="-111.666666666667,94.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,58.5" />
+                    End="0,56.4559270516717" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,56.4559270516717"
+                    Point2="0,60.4559270516717"
+                    Point3="-4,60.4559270516717" />
+                  <mssgle:LineSegment
+                    End="-107.666666666667,60.4559270516717" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-107.666666666667,60.4559270516717"
+                    Point2="-111.666666666667,60.4559270516717"
+                    Point3="-111.666666666667,64.4559270516717" />
+                  <mssgle:LineSegment
+                    End="-111.666666666667,94.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ETL Ventes.Paths[Sort Output]"
+          TopLeft="182.5,493">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="91.1666666666667,110"
+              Start="0,0"
+              End="91.1666666666667,102.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,61.1975683890577" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,61.1975683890577"
+                    Point2="0,65.1975683890577"
+                    Point3="4,65.1975683890577" />
+                  <mssgle:LineSegment
+                    End="87.1666666666667,65.1975683890577" />
+                  <mssgle:CubicBezierSegment
+                    Point1="87.1666666666667,65.1975683890577"
+                    Point2="91.1666666666667,65.1975683890577"
+                    Point3="91.1666666666667,69.1975683890577" />
+                  <mssgle:LineSegment
+                    End="91.1666666666667,102.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ETL Ventes.Paths[OLE DB Source Output1]"
+          TopLeft="422.25,401">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,58"
+              Start="0,0"
+              End="0,50.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,50.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ETL Ventes.Paths[OLE DB Source Output]"
+          TopLeft="130.5,102">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="11,39"
+              Start="0,0"
+              End="11,31.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15.5"
+                    Point2="0,19.5"
+                    Point3="4,19.5" />
+                  <mssgle:LineSegment
+                    End="7,19.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="7,19.5"
+                    Point2="11,19.5"
+                    Point3="11,23.5" />
+                  <mssgle:LineSegment
+                    End="11,31.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ETL Ventes.Paths[Merge Join Output]"
+          TopLeft="294,645">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,72"
+              Start="0,0"
+              End="0,64.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,64.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ETL Ventes.Paths[Lookup Match Output3]"
+          TopLeft="143,414">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="39.5,37"
+              Start="0,0"
+              End="39.5,29.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14.5"
+                    Point2="0,18.5"
+                    Point3="4,18.5" />
+                  <mssgle:LineSegment
+                    End="35.5,18.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="35.5,18.5"
+                    Point2="39.5,18.5"
+                    Point3="39.5,22.5" />
+                  <mssgle:LineSegment
+                    End="39.5,29.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-36.29068359375,23.4453125,72.5813671875,11.609375"
+              BoundingBox="-28.44138671875,23.5,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ETL Ventes.Paths[Lookup Match Output2]"
+          TopLeft="144.25,320">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,52"
+              Start="0,0"
+              End="0,44.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,16.4453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ETL Ventes.Paths[Lookup Match Output1]"
+          TopLeft="142.5,183">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,25"
+              Start="0,0"
+              End="0,17.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,2.9453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ETL Ventes.Paths[Lookup Match Output]"
+          TopLeft="144.5,250">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,28"
+              Start="0,0"
+              End="0,20.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,4.4453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ETL Ventes.Paths[Insert]"
+          TopLeft="294,759">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="37,73"
+              Start="0,0"
+              End="37,65.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,32.5"
+                    Point2="0,36.5"
+                    Point3="4,36.5" />
+                  <mssgle:LineSegment
+                    End="33,36.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="33,36.5"
+                    Point2="37,36.5"
+                    Point3="37,40.5" />
+                  <mssgle:LineSegment
+                    End="37,65.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="4.74701171875,41.5,27.5059765625,9.40234375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -8547,22 +8523,58 @@ where [refTable].[code] = ?</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\ETL Ventes\Lookup currency">
+    design-time-name="Package\ETL Ventes\DWH Ventes join">
     <Properties>
       <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[DimDevises]</Value>
+        <Name>DataSourceViewID</Name>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\ETL Ventes\Lookup product">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DimProduits]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\ETL Ventes\Lookup client">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DimClients]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -8583,38 +8595,25 @@ where [refTable].[code] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\ETL Ventes\Lookup client">
+    design-time-name="Package\ETL Ventes\Lookup currency">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
         <Value
-          type="q3:string">[dbo].[DimClients]</Value>
+          type="q3:string">[dbo].[DimDevises]</Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\ETL Ventes\DWH Ventes join">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
@@ -8628,29 +8627,6 @@ where [refTable].[code] = ?</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\ETL Ventes\Lookup product">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[DimProduits]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
