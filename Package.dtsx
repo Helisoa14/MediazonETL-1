@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="17"
-  DTS:VersionGUID="{3E7D7F1F-B1A2-42A7-B24E-157E6AA31825}">
+  DTS:VersionBuild="24"
+  DTS:VersionGUID="{13594F97-127C-45AB-A984-F1FFF385C50B}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -511,6 +511,316 @@
               endId="Package\Chargement staging commandes\STG Commandes.Inputs[OLE DB Destination Input]"
               name="OLE DB Source Output"
               startId="Package\Chargement staging commandes\OLTP Commandes.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Chargement staging Exchange"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{26d94adc-be34-4e0c-9678-927c7df0d8ec}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Chargement staging Exchange"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Chargement staging Exchange\OLTP Exchange"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLTP Exchange"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[UTILExchange]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Chargement staging Exchange\OLTP Exchange.Connections[OleDbConnection]"
+                  connectionManagerID="{297C2D91-97A6-4CA2-894C-5C8852A66426}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[86.119.30.142.Mediazon2020_DWH_source.mediazon]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Chargement staging Exchange\OLTP Exchange.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Chargement staging Exchange\OLTP Exchange.Outputs[OLE DB Source Output].Columns[Date]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement staging Exchange\OLTP Exchange.Outputs[OLE DB Source Output].ExternalColumns[Date]"
+                      lineageId="Package\Chargement staging Exchange\OLTP Exchange.Outputs[OLE DB Source Output].Columns[Date]"
+                      name="Date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Chargement staging Exchange\OLTP Exchange.Outputs[OLE DB Source Output].Columns[Currency]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement staging Exchange\OLTP Exchange.Outputs[OLE DB Source Output].ExternalColumns[Currency]"
+                      length="3"
+                      lineageId="Package\Chargement staging Exchange\OLTP Exchange.Outputs[OLE DB Source Output].Columns[Currency]"
+                      name="Currency"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Chargement staging Exchange\OLTP Exchange.Outputs[OLE DB Source Output].Columns[Exchange]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement staging Exchange\OLTP Exchange.Outputs[OLE DB Source Output].ExternalColumns[Exchange]"
+                      lineageId="Package\Chargement staging Exchange\OLTP Exchange.Outputs[OLE DB Source Output].Columns[Exchange]"
+                      name="Exchange"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Chargement staging Exchange\OLTP Exchange.Outputs[OLE DB Source Output].ExternalColumns[Date]"
+                      dataType="i4"
+                      name="Date" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement staging Exchange\OLTP Exchange.Outputs[OLE DB Source Output].ExternalColumns[Currency]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="Currency" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement staging Exchange\OLTP Exchange.Outputs[OLE DB Source Output].ExternalColumns[Exchange]"
+                      dataType="r4"
+                      name="Exchange" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Chargement staging Exchange\OLTP Exchange.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Chargement staging Exchange\OLTP Exchange.Outputs[OLE DB Source Error Output].Columns[Date]"
+                      dataType="i4"
+                      lineageId="Package\Chargement staging Exchange\OLTP Exchange.Outputs[OLE DB Source Error Output].Columns[Date]"
+                      name="Date" />
+                    <outputColumn
+                      refId="Package\Chargement staging Exchange\OLTP Exchange.Outputs[OLE DB Source Error Output].Columns[Currency]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      lineageId="Package\Chargement staging Exchange\OLTP Exchange.Outputs[OLE DB Source Error Output].Columns[Currency]"
+                      name="Currency" />
+                    <outputColumn
+                      refId="Package\Chargement staging Exchange\OLTP Exchange.Outputs[OLE DB Source Error Output].Columns[Exchange]"
+                      dataType="r4"
+                      lineageId="Package\Chargement staging Exchange\OLTP Exchange.Outputs[OLE DB Source Error Output].Columns[Exchange]"
+                      name="Exchange" />
+                    <outputColumn
+                      refId="Package\Chargement staging Exchange\OLTP Exchange.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Chargement staging Exchange\OLTP Exchange.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Chargement staging Exchange\OLTP Exchange.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Chargement staging Exchange\OLTP Exchange.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Chargement staging Exchange\STG Exchange"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="STG Exchange"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[UTILExchange]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Chargement staging Exchange\STG Exchange.Connections[OleDbConnection]"
+                  connectionManagerID="{42B9EF19-6DF7-4E7B-84E5-BFB199E5915E}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[WServer2019.MediazonStaging]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Chargement staging Exchange\STG Exchange.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Chargement staging Exchange\STG Exchange.Inputs[OLE DB Destination Input].Columns[Date]"
+                      cachedDataType="i4"
+                      cachedName="Date"
+                      externalMetadataColumnId="Package\Chargement staging Exchange\STG Exchange.Inputs[OLE DB Destination Input].ExternalColumns[Date]"
+                      lineageId="Package\Chargement staging Exchange\OLTP Exchange.Outputs[OLE DB Source Output].Columns[Date]" />
+                    <inputColumn
+                      refId="Package\Chargement staging Exchange\STG Exchange.Inputs[OLE DB Destination Input].Columns[Currency]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="Currency"
+                      externalMetadataColumnId="Package\Chargement staging Exchange\STG Exchange.Inputs[OLE DB Destination Input].ExternalColumns[Currency]"
+                      lineageId="Package\Chargement staging Exchange\OLTP Exchange.Outputs[OLE DB Source Output].Columns[Currency]" />
+                    <inputColumn
+                      refId="Package\Chargement staging Exchange\STG Exchange.Inputs[OLE DB Destination Input].Columns[Exchange]"
+                      cachedDataType="r4"
+                      cachedName="Exchange"
+                      externalMetadataColumnId="Package\Chargement staging Exchange\STG Exchange.Inputs[OLE DB Destination Input].ExternalColumns[Exchange]"
+                      lineageId="Package\Chargement staging Exchange\OLTP Exchange.Outputs[OLE DB Source Output].Columns[Exchange]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Chargement staging Exchange\STG Exchange.Inputs[OLE DB Destination Input].ExternalColumns[Date]"
+                      dataType="i4"
+                      name="Date" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement staging Exchange\STG Exchange.Inputs[OLE DB Destination Input].ExternalColumns[Currency]"
+                      dataType="wstr"
+                      length="50"
+                      name="Currency" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement staging Exchange\STG Exchange.Inputs[OLE DB Destination Input].ExternalColumns[Exchange]"
+                      dataType="r4"
+                      name="Exchange" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Chargement staging Exchange\STG Exchange.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Chargement staging Exchange\STG Exchange.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Chargement staging Exchange\STG Exchange.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Chargement staging Exchange\STG Exchange.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Chargement staging Exchange\STG Exchange.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Chargement staging Exchange\STG Exchange.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Chargement staging Exchange.Paths[OLE DB Source Output]"
+              endId="Package\Chargement staging Exchange\STG Exchange.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Chargement staging Exchange\OLTP Exchange.Outputs[OLE DB Source Output]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -3918,6 +4228,1199 @@ WHERE [order_code]=? </property>
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
+      DTS:refId="Package\ETL Exchange"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{6f220cf8-7bb2-4182-b5d9-9b34ae894fb9}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="ETL Exchange"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\ETL Exchange\DWH Exchange join"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="DWH Exchange join"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[DimExchange]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ETL Exchange\DWH Exchange join.Connections[OleDbConnection]"
+                  connectionManagerID="{7DF0D481-6944-4555-AFB8-DDD5F75EBA66}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[WServer2019.MediazonDWH]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\ETL Exchange\DWH Exchange join.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL Exchange\DWH Exchange join.Outputs[OLE DB Source Output].Columns[Date]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL Exchange\DWH Exchange join.Outputs[OLE DB Source Output].ExternalColumns[Date]"
+                      lineageId="Package\ETL Exchange\DWH Exchange join.Outputs[OLE DB Source Output].Columns[Date]"
+                      name="Date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL Exchange\DWH Exchange join.Outputs[OLE DB Source Output].Columns[Currency]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL Exchange\DWH Exchange join.Outputs[OLE DB Source Output].ExternalColumns[Currency]"
+                      length="50"
+                      lineageId="Package\ETL Exchange\DWH Exchange join.Outputs[OLE DB Source Output].Columns[Currency]"
+                      name="Currency"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL Exchange\DWH Exchange join.Outputs[OLE DB Source Output].Columns[Exchange]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL Exchange\DWH Exchange join.Outputs[OLE DB Source Output].ExternalColumns[Exchange]"
+                      lineageId="Package\ETL Exchange\DWH Exchange join.Outputs[OLE DB Source Output].Columns[Exchange]"
+                      name="Exchange"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\ETL Exchange\DWH Exchange join.Outputs[OLE DB Source Output].ExternalColumns[Date]"
+                      dataType="i4"
+                      name="Date" />
+                    <externalMetadataColumn
+                      refId="Package\ETL Exchange\DWH Exchange join.Outputs[OLE DB Source Output].ExternalColumns[Currency]"
+                      dataType="wstr"
+                      length="50"
+                      name="Currency" />
+                    <externalMetadataColumn
+                      refId="Package\ETL Exchange\DWH Exchange join.Outputs[OLE DB Source Output].ExternalColumns[Exchange]"
+                      dataType="r8"
+                      name="Exchange" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\ETL Exchange\DWH Exchange join.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL Exchange\DWH Exchange join.Outputs[OLE DB Source Error Output].Columns[Date]"
+                      dataType="i4"
+                      lineageId="Package\ETL Exchange\DWH Exchange join.Outputs[OLE DB Source Error Output].Columns[Date]"
+                      name="Date" />
+                    <outputColumn
+                      refId="Package\ETL Exchange\DWH Exchange join.Outputs[OLE DB Source Error Output].Columns[Currency]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\ETL Exchange\DWH Exchange join.Outputs[OLE DB Source Error Output].Columns[Currency]"
+                      name="Currency" />
+                    <outputColumn
+                      refId="Package\ETL Exchange\DWH Exchange join.Outputs[OLE DB Source Error Output].Columns[Exchange]"
+                      dataType="r8"
+                      lineageId="Package\ETL Exchange\DWH Exchange join.Outputs[OLE DB Source Error Output].Columns[Exchange]"
+                      name="Exchange" />
+                    <outputColumn
+                      refId="Package\ETL Exchange\DWH Exchange join.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ETL Exchange\DWH Exchange join.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ETL Exchange\DWH Exchange join.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ETL Exchange\DWH Exchange join.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ETL Exchange\DWH insert Ventes"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="DWH insert Ventes"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[DimExchange]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ETL Exchange\DWH insert Ventes.Connections[OleDbConnection]"
+                  connectionManagerID="{7DF0D481-6944-4555-AFB8-DDD5F75EBA66}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[WServer2019.MediazonDWH]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\ETL Exchange\DWH insert Ventes.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ETL Exchange\DWH insert Ventes.Inputs[OLE DB Destination Input].Columns[Date]"
+                      cachedDataType="i4"
+                      cachedName="Date"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\ETL Exchange\DWH insert Ventes.Inputs[OLE DB Destination Input].ExternalColumns[Date]"
+                      lineageId="Package\ETL Exchange\Merge Join.Outputs[Merge Join Output].Columns[Date]" />
+                    <inputColumn
+                      refId="Package\ETL Exchange\DWH insert Ventes.Inputs[OLE DB Destination Input].Columns[Currency]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Currency"
+                      cachedSortKeyPosition="2"
+                      externalMetadataColumnId="Package\ETL Exchange\DWH insert Ventes.Inputs[OLE DB Destination Input].ExternalColumns[Currency]"
+                      lineageId="Package\ETL Exchange\Merge Join.Outputs[Merge Join Output].Columns[Currency]" />
+                    <inputColumn
+                      refId="Package\ETL Exchange\DWH insert Ventes.Inputs[OLE DB Destination Input].Columns[Exchange]"
+                      cachedDataType="r4"
+                      cachedName="Exchange"
+                      externalMetadataColumnId="Package\ETL Exchange\DWH insert Ventes.Inputs[OLE DB Destination Input].ExternalColumns[Exchange]"
+                      lineageId="Package\ETL Exchange\Merge Join.Outputs[Merge Join Output].Columns[Exchange]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\ETL Exchange\DWH insert Ventes.Inputs[OLE DB Destination Input].ExternalColumns[Date]"
+                      dataType="i4"
+                      name="Date" />
+                    <externalMetadataColumn
+                      refId="Package\ETL Exchange\DWH insert Ventes.Inputs[OLE DB Destination Input].ExternalColumns[Currency]"
+                      dataType="wstr"
+                      length="50"
+                      name="Currency" />
+                    <externalMetadataColumn
+                      refId="Package\ETL Exchange\DWH insert Ventes.Inputs[OLE DB Destination Input].ExternalColumns[Exchange]"
+                      dataType="r8"
+                      name="Exchange" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ETL Exchange\DWH insert Ventes.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\ETL Exchange\DWH insert Ventes.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL Exchange\DWH insert Ventes.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ETL Exchange\DWH insert Ventes.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ETL Exchange\DWH insert Ventes.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ETL Exchange\DWH insert Ventes.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ETL Exchange\DWH update Exchange"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="DWH update Exchange"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">UPDATE [DimExchange] SET [Exchange]=?
+WHERE [Date]=? AND [Currency]=?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ETL Exchange\DWH update Exchange.Connections[OleDbConnection]"
+                  connectionManagerID="{7DF0D481-6944-4555-AFB8-DDD5F75EBA66}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[WServer2019.MediazonDWH]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\ETL Exchange\DWH update Exchange.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ETL Exchange\DWH update Exchange.Inputs[OLE DB Command Input].Columns[Exchange]"
+                      cachedDataType="r4"
+                      cachedName="Exchange"
+                      externalMetadataColumnId="Package\ETL Exchange\DWH update Exchange.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\ETL Exchange\Merge Join.Outputs[Merge Join Output].Columns[Exchange]" />
+                    <inputColumn
+                      refId="Package\ETL Exchange\DWH update Exchange.Inputs[OLE DB Command Input].Columns[Date]"
+                      cachedDataType="i4"
+                      cachedName="Date"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\ETL Exchange\DWH update Exchange.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\ETL Exchange\Merge Join.Outputs[Merge Join Output].Columns[Date]" />
+                    <inputColumn
+                      refId="Package\ETL Exchange\DWH update Exchange.Inputs[OLE DB Command Input].Columns[Currency]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Currency"
+                      cachedSortKeyPosition="2"
+                      externalMetadataColumnId="Package\ETL Exchange\DWH update Exchange.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      lineageId="Package\ETL Exchange\Merge Join.Outputs[Merge Join Output].Columns[Currency]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\ETL Exchange\DWH update Exchange.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      dataType="r8"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\ETL Exchange\DWH update Exchange.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      dataType="i4"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\ETL Exchange\DWH update Exchange.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      dataType="wstr"
+                      length="50"
+                      name="Param_2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ETL Exchange\DWH update Exchange.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\ETL Exchange\DWH update Exchange.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\ETL Exchange\DWH update Exchange.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\ETL Exchange\DWH update Exchange.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL Exchange\DWH update Exchange.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ETL Exchange\DWH update Exchange.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ETL Exchange\DWH update Exchange.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ETL Exchange\DWH update Exchange.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ETL Exchange\Merge Join"
+              componentClassID="Microsoft.MergeJoin"
+              contactInfo="Merge Join;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combine two sorted data flows into one using the FULL, LEFT, or INNER join. We recommend this transformation when data flows can be sorted at their sources."
+              name="Merge Join"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of join to perform."
+                  name="JoinType"
+                  typeConverter="JoinType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the number of columns in the ordering key."
+                  name="NumKeyColumns">2</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the null values are treated as equal values."
+                  name="TreatNullsAsEqual">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Indicates the requested maximum buffers per input before blocking."
+                  name="MaxBuffersPerInput">5</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\ETL Exchange\Merge Join.Inputs[Merge Join Left Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Left Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ETL Exchange\Merge Join.Inputs[Merge Join Left Input].Columns[Date]"
+                      cachedDataType="i4"
+                      cachedName="Date"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\ETL Exchange\Sort STG.Outputs[Sort Output].Columns[Date]" />
+                    <inputColumn
+                      refId="Package\ETL Exchange\Merge Join.Inputs[Merge Join Left Input].Columns[Currency]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Currency"
+                      cachedSortKeyPosition="2"
+                      lineageId="Package\ETL Exchange\Sort STG.Outputs[Sort Output].Columns[Currency]" />
+                    <inputColumn
+                      refId="Package\ETL Exchange\Merge Join.Inputs[Merge Join Left Input].Columns[Exchange]"
+                      cachedDataType="r4"
+                      cachedName="Exchange"
+                      lineageId="Package\ETL Exchange\Sort STG.Outputs[Sort Output].Columns[Exchange]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\ETL Exchange\Merge Join.Inputs[Merge Join Right Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Right Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ETL Exchange\Merge Join.Inputs[Merge Join Right Input].Columns[Date]"
+                      cachedDataType="i4"
+                      cachedName="Date"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\ETL Exchange\Sort DWH.Outputs[Sort Output].Columns[Date]" />
+                    <inputColumn
+                      refId="Package\ETL Exchange\Merge Join.Inputs[Merge Join Right Input].Columns[Currency]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Currency"
+                      cachedSortKeyPosition="2"
+                      lineageId="Package\ETL Exchange\Sort DWH.Outputs[Sort Output].Columns[Currency]" />
+                    <inputColumn
+                      refId="Package\ETL Exchange\Merge Join.Inputs[Merge Join Right Input].Columns[Exchange]"
+                      cachedDataType="r8"
+                      cachedName="Exchange"
+                      lineageId="Package\ETL Exchange\Sort DWH.Outputs[Sort Output].Columns[Exchange]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ETL Exchange\Merge Join.Outputs[Merge Join Output]"
+                  isSorted="true"
+                  name="Merge Join Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL Exchange\Merge Join.Outputs[Merge Join Output].Columns[Date]"
+                      dataType="i4"
+                      lineageId="Package\ETL Exchange\Merge Join.Outputs[Merge Join Output].Columns[Date]"
+                      name="Date"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\ETL Exchange\Merge Join.Inputs[Merge Join Left Input].Columns[Date]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL Exchange\Merge Join.Outputs[Merge Join Output].Columns[Currency]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\ETL Exchange\Merge Join.Outputs[Merge Join Output].Columns[Currency]"
+                      name="Currency"
+                      sortKeyPosition="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\ETL Exchange\Merge Join.Inputs[Merge Join Left Input].Columns[Currency]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL Exchange\Merge Join.Outputs[Merge Join Output].Columns[Exchange]"
+                      dataType="r4"
+                      lineageId="Package\ETL Exchange\Merge Join.Outputs[Merge Join Output].Columns[Exchange]"
+                      name="Exchange">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\ETL Exchange\Merge Join.Inputs[Merge Join Left Input].Columns[Exchange]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL Exchange\Merge Join.Outputs[Merge Join Output].Columns[Date (1)]"
+                      dataType="i4"
+                      lineageId="Package\ETL Exchange\Merge Join.Outputs[Merge Join Output].Columns[Date (1)]"
+                      name="Date (1)">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\ETL Exchange\Merge Join.Inputs[Merge Join Right Input].Columns[Date]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL Exchange\Merge Join.Outputs[Merge Join Output].Columns[Currency (1)]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\ETL Exchange\Merge Join.Outputs[Merge Join Output].Columns[Currency (1)]"
+                      name="Currency (1)">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\ETL Exchange\Merge Join.Inputs[Merge Join Right Input].Columns[Currency]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL Exchange\Merge Join.Outputs[Merge Join Output].Columns[Exchange (1)]"
+                      dataType="r8"
+                      lineageId="Package\ETL Exchange\Merge Join.Outputs[Merge Join Output].Columns[Exchange (1)]"
+                      name="Exchange (1)">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\ETL Exchange\Merge Join.Inputs[Merge Join Right Input].Columns[Exchange]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ETL Exchange\Sort DWH"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort DWH"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\ETL Exchange\Sort DWH.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ETL Exchange\Sort DWH.Inputs[Sort Input].Columns[Date]"
+                      cachedDataType="i4"
+                      cachedName="Date"
+                      lineageId="Package\ETL Exchange\DWH Exchange join.Outputs[OLE DB Source Output].Columns[Date]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL Exchange\Sort DWH.Inputs[Sort Input].Columns[Currency]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Currency"
+                      lineageId="Package\ETL Exchange\DWH Exchange join.Outputs[OLE DB Source Output].Columns[Currency]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL Exchange\Sort DWH.Inputs[Sort Input].Columns[Exchange]"
+                      cachedDataType="r8"
+                      cachedName="Exchange"
+                      lineageId="Package\ETL Exchange\DWH Exchange join.Outputs[OLE DB Source Output].Columns[Exchange]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ETL Exchange\Sort DWH.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL Exchange\Sort DWH.Outputs[Sort Output].Columns[Date]"
+                      dataType="i4"
+                      lineageId="Package\ETL Exchange\Sort DWH.Outputs[Sort Output].Columns[Date]"
+                      name="Date"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\ETL Exchange\DWH Exchange join.Outputs[OLE DB Source Output].Columns[Date]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL Exchange\Sort DWH.Outputs[Sort Output].Columns[Currency]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\ETL Exchange\Sort DWH.Outputs[Sort Output].Columns[Currency]"
+                      name="Currency"
+                      sortKeyPosition="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\ETL Exchange\DWH Exchange join.Outputs[OLE DB Source Output].Columns[Currency]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL Exchange\Sort DWH.Outputs[Sort Output].Columns[Exchange]"
+                      dataType="r8"
+                      lineageId="Package\ETL Exchange\Sort DWH.Outputs[Sort Output].Columns[Exchange]"
+                      name="Exchange">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\ETL Exchange\DWH Exchange join.Outputs[OLE DB Source Output].Columns[Exchange]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ETL Exchange\Sort STG"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort STG"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\ETL Exchange\Sort STG.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ETL Exchange\Sort STG.Inputs[Sort Input].Columns[Date]"
+                      cachedDataType="i4"
+                      cachedName="Date"
+                      lineageId="Package\ETL Exchange\STG Exchange.Outputs[OLE DB Source Output].Columns[Date]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL Exchange\Sort STG.Inputs[Sort Input].Columns[Currency]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Currency"
+                      lineageId="Package\ETL Exchange\STG Exchange.Outputs[OLE DB Source Output].Columns[Currency]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL Exchange\Sort STG.Inputs[Sort Input].Columns[Exchange]"
+                      cachedDataType="r4"
+                      cachedName="Exchange"
+                      lineageId="Package\ETL Exchange\STG Exchange.Outputs[OLE DB Source Output].Columns[Exchange]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ETL Exchange\Sort STG.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL Exchange\Sort STG.Outputs[Sort Output].Columns[Date]"
+                      dataType="i4"
+                      lineageId="Package\ETL Exchange\Sort STG.Outputs[Sort Output].Columns[Date]"
+                      name="Date"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\ETL Exchange\STG Exchange.Outputs[OLE DB Source Output].Columns[Date]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL Exchange\Sort STG.Outputs[Sort Output].Columns[Currency]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\ETL Exchange\Sort STG.Outputs[Sort Output].Columns[Currency]"
+                      name="Currency"
+                      sortKeyPosition="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\ETL Exchange\STG Exchange.Outputs[OLE DB Source Output].Columns[Currency]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL Exchange\Sort STG.Outputs[Sort Output].Columns[Exchange]"
+                      dataType="r4"
+                      lineageId="Package\ETL Exchange\Sort STG.Outputs[Sort Output].Columns[Exchange]"
+                      name="Exchange">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\ETL Exchange\STG Exchange.Outputs[OLE DB Source Output].Columns[Exchange]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ETL Exchange\STG Exchange"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="STG Exchange"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[UTILExchange]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ETL Exchange\STG Exchange.Connections[OleDbConnection]"
+                  connectionManagerID="{42B9EF19-6DF7-4E7B-84E5-BFB199E5915E}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[WServer2019.MediazonStaging]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\ETL Exchange\STG Exchange.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL Exchange\STG Exchange.Outputs[OLE DB Source Output].Columns[Date]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL Exchange\STG Exchange.Outputs[OLE DB Source Output].ExternalColumns[Date]"
+                      lineageId="Package\ETL Exchange\STG Exchange.Outputs[OLE DB Source Output].Columns[Date]"
+                      name="Date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL Exchange\STG Exchange.Outputs[OLE DB Source Output].Columns[Currency]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL Exchange\STG Exchange.Outputs[OLE DB Source Output].ExternalColumns[Currency]"
+                      length="50"
+                      lineageId="Package\ETL Exchange\STG Exchange.Outputs[OLE DB Source Output].Columns[Currency]"
+                      name="Currency"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL Exchange\STG Exchange.Outputs[OLE DB Source Output].Columns[Exchange]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL Exchange\STG Exchange.Outputs[OLE DB Source Output].ExternalColumns[Exchange]"
+                      lineageId="Package\ETL Exchange\STG Exchange.Outputs[OLE DB Source Output].Columns[Exchange]"
+                      name="Exchange"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\ETL Exchange\STG Exchange.Outputs[OLE DB Source Output].ExternalColumns[Date]"
+                      dataType="i4"
+                      name="Date" />
+                    <externalMetadataColumn
+                      refId="Package\ETL Exchange\STG Exchange.Outputs[OLE DB Source Output].ExternalColumns[Currency]"
+                      dataType="wstr"
+                      length="50"
+                      name="Currency" />
+                    <externalMetadataColumn
+                      refId="Package\ETL Exchange\STG Exchange.Outputs[OLE DB Source Output].ExternalColumns[Exchange]"
+                      dataType="r4"
+                      name="Exchange" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\ETL Exchange\STG Exchange.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL Exchange\STG Exchange.Outputs[OLE DB Source Error Output].Columns[Date]"
+                      dataType="i4"
+                      lineageId="Package\ETL Exchange\STG Exchange.Outputs[OLE DB Source Error Output].Columns[Date]"
+                      name="Date" />
+                    <outputColumn
+                      refId="Package\ETL Exchange\STG Exchange.Outputs[OLE DB Source Error Output].Columns[Currency]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\ETL Exchange\STG Exchange.Outputs[OLE DB Source Error Output].Columns[Currency]"
+                      name="Currency" />
+                    <outputColumn
+                      refId="Package\ETL Exchange\STG Exchange.Outputs[OLE DB Source Error Output].Columns[Exchange]"
+                      dataType="r4"
+                      lineageId="Package\ETL Exchange\STG Exchange.Outputs[OLE DB Source Error Output].Columns[Exchange]"
+                      name="Exchange" />
+                    <outputColumn
+                      refId="Package\ETL Exchange\STG Exchange.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ETL Exchange\STG Exchange.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ETL Exchange\STG Exchange.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ETL Exchange\STG Exchange.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ETL Exchange\UPSERT Exchange"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="UPSERT Exchange"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\ETL Exchange\UPSERT Exchange.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ETL Exchange\UPSERT Exchange.Inputs[Conditional Split Input].Columns[Date]"
+                      cachedDataType="i4"
+                      cachedName="Date"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\ETL Exchange\Merge Join.Outputs[Merge Join Output].Columns[Date]" />
+                    <inputColumn
+                      refId="Package\ETL Exchange\UPSERT Exchange.Inputs[Conditional Split Input].Columns[Currency]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Currency"
+                      cachedSortKeyPosition="2"
+                      lineageId="Package\ETL Exchange\Merge Join.Outputs[Merge Join Output].Columns[Currency]" />
+                    <inputColumn
+                      refId="Package\ETL Exchange\UPSERT Exchange.Inputs[Conditional Split Input].Columns[Exchange]"
+                      cachedDataType="r4"
+                      cachedName="Exchange"
+                      lineageId="Package\ETL Exchange\Merge Join.Outputs[Merge Join Output].Columns[Exchange]" />
+                    <inputColumn
+                      refId="Package\ETL Exchange\UPSERT Exchange.Inputs[Conditional Split Input].Columns[Date (1)]"
+                      cachedDataType="i4"
+                      cachedName="Date (1)"
+                      lineageId="Package\ETL Exchange\Merge Join.Outputs[Merge Join Output].Columns[Date (1)]" />
+                    <inputColumn
+                      refId="Package\ETL Exchange\UPSERT Exchange.Inputs[Conditional Split Input].Columns[Currency (1)]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Currency (1)"
+                      lineageId="Package\ETL Exchange\Merge Join.Outputs[Merge Join Output].Columns[Currency (1)]" />
+                    <inputColumn
+                      refId="Package\ETL Exchange\UPSERT Exchange.Inputs[Conditional Split Input].Columns[Exchange (1)]"
+                      cachedDataType="r8"
+                      cachedName="Exchange (1)"
+                      lineageId="Package\ETL Exchange\Merge Join.Outputs[Merge Join Output].Columns[Exchange (1)]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ETL Exchange\UPSERT Exchange.Outputs[Insert]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Insert"
+                  synchronousInputId="Package\ETL Exchange\UPSERT Exchange.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">![ISNULL](#{Package\ETL Exchange\Merge Join.Outputs[Merge Join Output].Columns[Date]}) &amp;&amp; ![ISNULL](#{Package\ETL Exchange\Merge Join.Outputs[Merge Join Output].Columns[Currency]}) &amp;&amp; [ISNULL](#{Package\ETL Exchange\Merge Join.Outputs[Merge Join Output].Columns[Date (1)]}) &amp;&amp; [ISNULL](#{Package\ETL Exchange\Merge Join.Outputs[Merge Join Output].Columns[Currency (1)]})</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">!ISNULL(Date) &amp;&amp; !ISNULL(Currency) &amp;&amp; ISNULL([Date (1)]) &amp;&amp; ISNULL([Currency (1)])</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\ETL Exchange\UPSERT Exchange.Outputs[Update]"
+                  description="Output 2 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Update"
+                  synchronousInputId="Package\ETL Exchange\UPSERT Exchange.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">![ISNULL](#{Package\ETL Exchange\Merge Join.Outputs[Merge Join Output].Columns[Date]}) &amp;&amp; ![ISNULL](#{Package\ETL Exchange\Merge Join.Outputs[Merge Join Output].Columns[Currency]}) &amp;&amp; ![ISNULL](#{Package\ETL Exchange\Merge Join.Outputs[Merge Join Output].Columns[Date (1)]}) &amp;&amp; ![ISNULL](#{Package\ETL Exchange\Merge Join.Outputs[Merge Join Output].Columns[Currency (1)]}) &amp;&amp; #{Package\ETL Exchange\Merge Join.Outputs[Merge Join Output].Columns[Exchange]} != #{Package\ETL Exchange\Merge Join.Outputs[Merge Join Output].Columns[Exchange (1)]}</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">!ISNULL(Date) &amp;&amp; !ISNULL(Currency) &amp;&amp; !ISNULL([Date (1)]) &amp;&amp; !ISNULL([Currency (1)]) &amp;&amp; Exchange != [Exchange (1)]</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">1</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\ETL Exchange\UPSERT Exchange.Outputs[Conditional Split Default Output]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="Conditional Split Default Output"
+                  synchronousInputId="Package\ETL Exchange\UPSERT Exchange.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\ETL Exchange\UPSERT Exchange.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\ETL Exchange\UPSERT Exchange.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL Exchange\UPSERT Exchange.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ETL Exchange\UPSERT Exchange.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ETL Exchange\UPSERT Exchange.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ETL Exchange\UPSERT Exchange.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\ETL Exchange.Paths[Insert]"
+              endId="Package\ETL Exchange\DWH insert Ventes.Inputs[OLE DB Destination Input]"
+              name="Insert"
+              startId="Package\ETL Exchange\UPSERT Exchange.Outputs[Insert]" />
+            <path
+              refId="Package\ETL Exchange.Paths[Merge Join Output]"
+              endId="Package\ETL Exchange\UPSERT Exchange.Inputs[Conditional Split Input]"
+              name="Merge Join Output"
+              startId="Package\ETL Exchange\Merge Join.Outputs[Merge Join Output]" />
+            <path
+              refId="Package\ETL Exchange.Paths[OLE DB Source Output]"
+              endId="Package\ETL Exchange\Sort DWH.Inputs[Sort Input]"
+              name="OLE DB Source Output"
+              startId="Package\ETL Exchange\DWH Exchange join.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\ETL Exchange.Paths[OLE DB Source Output1]"
+              endId="Package\ETL Exchange\Sort STG.Inputs[Sort Input]"
+              name="OLE DB Source Output"
+              startId="Package\ETL Exchange\STG Exchange.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\ETL Exchange.Paths[Sort Output]"
+              endId="Package\ETL Exchange\Merge Join.Inputs[Merge Join Left Input]"
+              name="Sort Output"
+              startId="Package\ETL Exchange\Sort STG.Outputs[Sort Output]" />
+            <path
+              refId="Package\ETL Exchange.Paths[Sort Output1]"
+              endId="Package\ETL Exchange\Merge Join.Inputs[Merge Join Right Input]"
+              name="Sort Output"
+              startId="Package\ETL Exchange\Sort DWH.Outputs[Sort Output]" />
+            <path
+              refId="Package\ETL Exchange.Paths[Update]"
+              endId="Package\ETL Exchange\DWH update Exchange.Inputs[OLE DB Command Input]"
+              name="Update"
+              startId="Package\ETL Exchange\UPSERT Exchange.Outputs[Update]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
       DTS:refId="Package\ETL Ventes"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
@@ -4011,69 +5514,70 @@ WHERE [order_code]=? </property>
                       cachedName="order_code"
                       cachedSortKeyPosition="1"
                       externalMetadataColumnId="Package\ETL Ventes\DWH insert Ventes.Inputs[OLE DB Destination Input].ExternalColumns[order_code]"
-                      lineageId="Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[order_code]" />
+                      lineageId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[order_code]" />
                     <inputColumn
                       refId="Package\ETL Ventes\DWH insert Ventes.Inputs[OLE DB Destination Input].Columns[order_date]"
                       cachedDataType="i4"
                       cachedName="order_date"
                       externalMetadataColumnId="Package\ETL Ventes\DWH insert Ventes.Inputs[OLE DB Destination Input].ExternalColumns[order_date]"
-                      lineageId="Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[order_date]" />
+                      lineageId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[order_date]" />
                     <inputColumn
                       refId="Package\ETL Ventes\DWH insert Ventes.Inputs[OLE DB Destination Input].Columns[customer_id]"
                       cachedDataType="i4"
                       cachedName="customer_id"
                       externalMetadataColumnId="Package\ETL Ventes\DWH insert Ventes.Inputs[OLE DB Destination Input].ExternalColumns[customer_id]"
-                      lineageId="Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[customer_id]" />
+                      lineageId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[customer_id]" />
                     <inputColumn
                       refId="Package\ETL Ventes\DWH insert Ventes.Inputs[OLE DB Destination Input].Columns[warehouse_id]"
                       cachedDataType="i4"
                       cachedName="warehouse_id"
                       externalMetadataColumnId="Package\ETL Ventes\DWH insert Ventes.Inputs[OLE DB Destination Input].ExternalColumns[warehouse_id]"
-                      lineageId="Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[warehouse_id]" />
+                      lineageId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[warehouse_id]" />
                     <inputColumn
                       refId="Package\ETL Ventes\DWH insert Ventes.Inputs[OLE DB Destination Input].Columns[currency_id]"
                       cachedDataType="wstr"
                       cachedLength="3"
                       cachedName="currency_id"
                       externalMetadataColumnId="Package\ETL Ventes\DWH insert Ventes.Inputs[OLE DB Destination Input].ExternalColumns[currency_id]"
-                      lineageId="Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[currency_id]" />
+                      lineageId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[currency_id]" />
                     <inputColumn
                       refId="Package\ETL Ventes\DWH insert Ventes.Inputs[OLE DB Destination Input].Columns[type_id]"
                       cachedDataType="i4"
                       cachedName="type_id"
                       externalMetadataColumnId="Package\ETL Ventes\DWH insert Ventes.Inputs[OLE DB Destination Input].ExternalColumns[type_id]"
-                      lineageId="Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[type_id]" />
+                      lineageId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[type_id]" />
                     <inputColumn
                       refId="Package\ETL Ventes\DWH insert Ventes.Inputs[OLE DB Destination Input].Columns[qty]"
                       cachedDataType="i4"
                       cachedName="qty"
                       externalMetadataColumnId="Package\ETL Ventes\DWH insert Ventes.Inputs[OLE DB Destination Input].ExternalColumns[qty]"
-                      lineageId="Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[qty]" />
+                      lineageId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[qty]" />
                     <inputColumn
                       refId="Package\ETL Ventes\DWH insert Ventes.Inputs[OLE DB Destination Input].Columns[price]"
                       cachedDataType="r8"
                       cachedName="price"
                       externalMetadataColumnId="Package\ETL Ventes\DWH insert Ventes.Inputs[OLE DB Destination Input].ExternalColumns[price]"
-                      lineageId="Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[price]" />
+                      lineageId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[price]" />
                     <inputColumn
                       refId="Package\ETL Ventes\DWH insert Ventes.Inputs[OLE DB Destination Input].Columns[price_excl]"
                       cachedDataType="r8"
                       cachedName="price_excl"
                       externalMetadataColumnId="Package\ETL Ventes\DWH insert Ventes.Inputs[OLE DB Destination Input].ExternalColumns[price_excl]"
-                      lineageId="Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[price_excl]" />
+                      lineageId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[price_excl]" />
                     <inputColumn
                       refId="Package\ETL Ventes\DWH insert Ventes.Inputs[OLE DB Destination Input].Columns[sales]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="sales"
                       externalMetadataColumnId="Package\ETL Ventes\DWH insert Ventes.Inputs[OLE DB Destination Input].ExternalColumns[sales]"
-                      lineageId="Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[sales]" />
+                      lineageId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[sales]" />
                     <inputColumn
                       refId="Package\ETL Ventes\DWH insert Ventes.Inputs[OLE DB Destination Input].Columns[product_id]"
                       cachedDataType="i4"
                       cachedName="product_id"
+                      cachedSortKeyPosition="2"
                       externalMetadataColumnId="Package\ETL Ventes\DWH insert Ventes.Inputs[OLE DB Destination Input].ExternalColumns[product_id]"
-                      lineageId="Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[product_id]" />
+                      lineageId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[product_id]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -4210,63 +5714,64 @@ WHERE [order_code]=?
                       cachedDataType="i4"
                       cachedName="customer_id"
                       externalMetadataColumnId="Package\ETL Ventes\DWH update Ventes.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
-                      lineageId="Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[customer_id]" />
+                      lineageId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[customer_id]" />
                     <inputColumn
                       refId="Package\ETL Ventes\DWH update Ventes.Inputs[OLE DB Command Input].Columns[order_date]"
                       cachedDataType="i4"
                       cachedName="order_date"
                       externalMetadataColumnId="Package\ETL Ventes\DWH update Ventes.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
-                      lineageId="Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[order_date]" />
+                      lineageId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[order_date]" />
                     <inputColumn
                       refId="Package\ETL Ventes\DWH update Ventes.Inputs[OLE DB Command Input].Columns[warehouse_id]"
                       cachedDataType="i4"
                       cachedName="warehouse_id"
                       externalMetadataColumnId="Package\ETL Ventes\DWH update Ventes.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
-                      lineageId="Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[warehouse_id]" />
+                      lineageId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[warehouse_id]" />
                     <inputColumn
                       refId="Package\ETL Ventes\DWH update Ventes.Inputs[OLE DB Command Input].Columns[product_id]"
                       cachedDataType="i4"
                       cachedName="product_id"
+                      cachedSortKeyPosition="2"
                       externalMetadataColumnId="Package\ETL Ventes\DWH update Ventes.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
-                      lineageId="Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[product_id]" />
+                      lineageId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[product_id]" />
                     <inputColumn
                       refId="Package\ETL Ventes\DWH update Ventes.Inputs[OLE DB Command Input].Columns[type_id]"
                       cachedDataType="i4"
                       cachedName="type_id"
                       externalMetadataColumnId="Package\ETL Ventes\DWH update Ventes.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
-                      lineageId="Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[type_id]" />
+                      lineageId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[type_id]" />
                     <inputColumn
                       refId="Package\ETL Ventes\DWH update Ventes.Inputs[OLE DB Command Input].Columns[currency_id]"
                       cachedDataType="wstr"
                       cachedLength="3"
                       cachedName="currency_id"
                       externalMetadataColumnId="Package\ETL Ventes\DWH update Ventes.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
-                      lineageId="Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[currency_id]" />
+                      lineageId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[currency_id]" />
                     <inputColumn
                       refId="Package\ETL Ventes\DWH update Ventes.Inputs[OLE DB Command Input].Columns[qty]"
                       cachedDataType="i4"
                       cachedName="qty"
                       externalMetadataColumnId="Package\ETL Ventes\DWH update Ventes.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
-                      lineageId="Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[qty]" />
+                      lineageId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[qty]" />
                     <inputColumn
                       refId="Package\ETL Ventes\DWH update Ventes.Inputs[OLE DB Command Input].Columns[price]"
                       cachedDataType="r8"
                       cachedName="price"
                       externalMetadataColumnId="Package\ETL Ventes\DWH update Ventes.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
-                      lineageId="Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[price]" />
+                      lineageId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[price]" />
                     <inputColumn
                       refId="Package\ETL Ventes\DWH update Ventes.Inputs[OLE DB Command Input].Columns[price_excl]"
                       cachedDataType="r8"
                       cachedName="price_excl"
                       externalMetadataColumnId="Package\ETL Ventes\DWH update Ventes.Inputs[OLE DB Command Input].ExternalColumns[Param_8]"
-                      lineageId="Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[price_excl]" />
+                      lineageId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[price_excl]" />
                     <inputColumn
                       refId="Package\ETL Ventes\DWH update Ventes.Inputs[OLE DB Command Input].Columns[sales]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="sales"
                       externalMetadataColumnId="Package\ETL Ventes\DWH update Ventes.Inputs[OLE DB Command Input].ExternalColumns[Param_9]"
-                      lineageId="Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[sales]" />
+                      lineageId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[sales]" />
                     <inputColumn
                       refId="Package\ETL Ventes\DWH update Ventes.Inputs[OLE DB Command Input].Columns[order_code]"
                       cachedCodepage="1252"
@@ -4275,7 +5780,7 @@ WHERE [order_code]=?
                       cachedName="order_code"
                       cachedSortKeyPosition="1"
                       externalMetadataColumnId="Package\ETL Ventes\DWH update Ventes.Inputs[OLE DB Command Input].ExternalColumns[Param_10]"
-                      lineageId="Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[order_code]" />
+                      lineageId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[order_code]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -5375,22 +6880,22 @@ where [refTable].[code] = ?</property>
               </outputs>
             </component>
             <component
-              refId="Package\ETL Ventes\Merge Join"
+              refId="Package\ETL Ventes\Merge Join 1"
               componentClassID="Microsoft.MergeJoin"
               contactInfo="Merge Join;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
               description="Combine two sorted data flows into one using the FULL, LEFT, or INNER join. We recommend this transformation when data flows can be sorted at their sources."
-              name="Merge Join"
+              name="Merge Join 1"
               version="1">
               <properties>
                 <property
                   dataType="System.Int32"
                   description="Specifies the type of join to perform."
                   name="JoinType"
-                  typeConverter="JoinType">0</property>
+                  typeConverter="JoinType">2</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the number of columns in the ordering key."
-                  name="NumKeyColumns">1</property>
+                  name="NumKeyColumns">2</property>
                 <property
                   dataType="System.Boolean"
                   description="Indicates whether the null values are treated as equal values."
@@ -5402,12 +6907,12 @@ where [refTable].[code] = ?</property>
               </properties>
               <inputs>
                 <input
-                  refId="Package\ETL Ventes\Merge Join.Inputs[Merge Join Left Input]"
+                  refId="Package\ETL Ventes\Merge Join 1.Inputs[Merge Join Left Input]"
                   hasSideEffects="true"
                   name="Merge Join Left Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\ETL Ventes\Merge Join.Inputs[Merge Join Left Input].Columns[order_code]"
+                      refId="Package\ETL Ventes\Merge Join 1.Inputs[Merge Join Left Input].Columns[order_code]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="15"
@@ -5415,67 +6920,68 @@ where [refTable].[code] = ?</property>
                       cachedSortKeyPosition="1"
                       lineageId="Package\ETL Ventes\Sort STG.Outputs[Sort Output].Columns[order_code]" />
                     <inputColumn
-                      refId="Package\ETL Ventes\Merge Join.Inputs[Merge Join Left Input].Columns[order_date]"
+                      refId="Package\ETL Ventes\Merge Join 1.Inputs[Merge Join Left Input].Columns[product_id]"
+                      cachedDataType="i4"
+                      cachedName="product_id"
+                      cachedSortKeyPosition="2"
+                      lineageId="Package\ETL Ventes\Sort STG.Outputs[Sort Output].Columns[product_id]" />
+                    <inputColumn
+                      refId="Package\ETL Ventes\Merge Join 1.Inputs[Merge Join Left Input].Columns[order_date]"
                       cachedDataType="i4"
                       cachedName="order_date"
                       lineageId="Package\ETL Ventes\Sort STG.Outputs[Sort Output].Columns[order_date]" />
                     <inputColumn
-                      refId="Package\ETL Ventes\Merge Join.Inputs[Merge Join Left Input].Columns[type_id]"
+                      refId="Package\ETL Ventes\Merge Join 1.Inputs[Merge Join Left Input].Columns[type_id]"
                       cachedDataType="i4"
                       cachedName="type_id"
                       lineageId="Package\ETL Ventes\Sort STG.Outputs[Sort Output].Columns[type_id]" />
                     <inputColumn
-                      refId="Package\ETL Ventes\Merge Join.Inputs[Merge Join Left Input].Columns[qty]"
+                      refId="Package\ETL Ventes\Merge Join 1.Inputs[Merge Join Left Input].Columns[qty]"
                       cachedDataType="i4"
                       cachedName="qty"
                       lineageId="Package\ETL Ventes\Sort STG.Outputs[Sort Output].Columns[qty]" />
                     <inputColumn
-                      refId="Package\ETL Ventes\Merge Join.Inputs[Merge Join Left Input].Columns[price]"
+                      refId="Package\ETL Ventes\Merge Join 1.Inputs[Merge Join Left Input].Columns[price]"
                       cachedDataType="r8"
                       cachedName="price"
                       lineageId="Package\ETL Ventes\Sort STG.Outputs[Sort Output].Columns[price]" />
                     <inputColumn
-                      refId="Package\ETL Ventes\Merge Join.Inputs[Merge Join Left Input].Columns[price_excl]"
+                      refId="Package\ETL Ventes\Merge Join 1.Inputs[Merge Join Left Input].Columns[price_excl]"
                       cachedDataType="r8"
                       cachedName="price_excl"
                       lineageId="Package\ETL Ventes\Sort STG.Outputs[Sort Output].Columns[price_excl]" />
                     <inputColumn
-                      refId="Package\ETL Ventes\Merge Join.Inputs[Merge Join Left Input].Columns[sales]"
+                      refId="Package\ETL Ventes\Merge Join 1.Inputs[Merge Join Left Input].Columns[sales]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="sales"
                       lineageId="Package\ETL Ventes\Sort STG.Outputs[Sort Output].Columns[sales]" />
                     <inputColumn
-                      refId="Package\ETL Ventes\Merge Join.Inputs[Merge Join Left Input].Columns[customer_id]"
+                      refId="Package\ETL Ventes\Merge Join 1.Inputs[Merge Join Left Input].Columns[customer_id]"
                       cachedDataType="i4"
                       cachedName="customer_id"
                       lineageId="Package\ETL Ventes\Sort STG.Outputs[Sort Output].Columns[customer_id]" />
                     <inputColumn
-                      refId="Package\ETL Ventes\Merge Join.Inputs[Merge Join Left Input].Columns[warehouse_id]"
+                      refId="Package\ETL Ventes\Merge Join 1.Inputs[Merge Join Left Input].Columns[warehouse_id]"
                       cachedDataType="i4"
                       cachedName="warehouse_id"
                       lineageId="Package\ETL Ventes\Sort STG.Outputs[Sort Output].Columns[warehouse_id]" />
                     <inputColumn
-                      refId="Package\ETL Ventes\Merge Join.Inputs[Merge Join Left Input].Columns[currency_id]"
+                      refId="Package\ETL Ventes\Merge Join 1.Inputs[Merge Join Left Input].Columns[currency_id]"
                       cachedDataType="wstr"
                       cachedLength="3"
                       cachedName="currency_id"
                       lineageId="Package\ETL Ventes\Sort STG.Outputs[Sort Output].Columns[currency_id]" />
-                    <inputColumn
-                      refId="Package\ETL Ventes\Merge Join.Inputs[Merge Join Left Input].Columns[product_id]"
-                      cachedDataType="i4"
-                      cachedName="product_id"
-                      lineageId="Package\ETL Ventes\Sort STG.Outputs[Sort Output].Columns[product_id]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
                 <input
-                  refId="Package\ETL Ventes\Merge Join.Inputs[Merge Join Right Input]"
+                  refId="Package\ETL Ventes\Merge Join 1.Inputs[Merge Join Right Input]"
                   hasSideEffects="true"
                   name="Merge Join Right Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\ETL Ventes\Merge Join.Inputs[Merge Join Right Input].Columns[order_code]"
+                      refId="Package\ETL Ventes\Merge Join 1.Inputs[Merge Join Right Input].Columns[order_code]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="15"
@@ -5483,53 +6989,54 @@ where [refTable].[code] = ?</property>
                       cachedSortKeyPosition="1"
                       lineageId="Package\ETL Ventes\Sort DWH.Outputs[Sort Output].Columns[order_code]" />
                     <inputColumn
-                      refId="Package\ETL Ventes\Merge Join.Inputs[Merge Join Right Input].Columns[customer_id]"
+                      refId="Package\ETL Ventes\Merge Join 1.Inputs[Merge Join Right Input].Columns[product_id]"
+                      cachedDataType="i4"
+                      cachedName="product_id"
+                      cachedSortKeyPosition="2"
+                      lineageId="Package\ETL Ventes\Sort DWH.Outputs[Sort Output].Columns[product_id]" />
+                    <inputColumn
+                      refId="Package\ETL Ventes\Merge Join 1.Inputs[Merge Join Right Input].Columns[customer_id]"
                       cachedDataType="i4"
                       cachedName="customer_id"
                       lineageId="Package\ETL Ventes\Sort DWH.Outputs[Sort Output].Columns[customer_id]" />
                     <inputColumn
-                      refId="Package\ETL Ventes\Merge Join.Inputs[Merge Join Right Input].Columns[order_date]"
+                      refId="Package\ETL Ventes\Merge Join 1.Inputs[Merge Join Right Input].Columns[order_date]"
                       cachedDataType="i4"
                       cachedName="order_date"
                       lineageId="Package\ETL Ventes\Sort DWH.Outputs[Sort Output].Columns[order_date]" />
                     <inputColumn
-                      refId="Package\ETL Ventes\Merge Join.Inputs[Merge Join Right Input].Columns[warehouse_id]"
+                      refId="Package\ETL Ventes\Merge Join 1.Inputs[Merge Join Right Input].Columns[warehouse_id]"
                       cachedDataType="i4"
                       cachedName="warehouse_id"
                       lineageId="Package\ETL Ventes\Sort DWH.Outputs[Sort Output].Columns[warehouse_id]" />
                     <inputColumn
-                      refId="Package\ETL Ventes\Merge Join.Inputs[Merge Join Right Input].Columns[currency_id]"
+                      refId="Package\ETL Ventes\Merge Join 1.Inputs[Merge Join Right Input].Columns[currency_id]"
                       cachedDataType="wstr"
                       cachedLength="3"
                       cachedName="currency_id"
                       lineageId="Package\ETL Ventes\Sort DWH.Outputs[Sort Output].Columns[currency_id]" />
                     <inputColumn
-                      refId="Package\ETL Ventes\Merge Join.Inputs[Merge Join Right Input].Columns[product_id]"
-                      cachedDataType="i4"
-                      cachedName="product_id"
-                      lineageId="Package\ETL Ventes\Sort DWH.Outputs[Sort Output].Columns[product_id]" />
-                    <inputColumn
-                      refId="Package\ETL Ventes\Merge Join.Inputs[Merge Join Right Input].Columns[type_id]"
+                      refId="Package\ETL Ventes\Merge Join 1.Inputs[Merge Join Right Input].Columns[type_id]"
                       cachedDataType="i4"
                       cachedName="type_id"
                       lineageId="Package\ETL Ventes\Sort DWH.Outputs[Sort Output].Columns[type_id]" />
                     <inputColumn
-                      refId="Package\ETL Ventes\Merge Join.Inputs[Merge Join Right Input].Columns[qty]"
+                      refId="Package\ETL Ventes\Merge Join 1.Inputs[Merge Join Right Input].Columns[qty]"
                       cachedDataType="i4"
                       cachedName="qty"
                       lineageId="Package\ETL Ventes\Sort DWH.Outputs[Sort Output].Columns[qty]" />
                     <inputColumn
-                      refId="Package\ETL Ventes\Merge Join.Inputs[Merge Join Right Input].Columns[price]"
+                      refId="Package\ETL Ventes\Merge Join 1.Inputs[Merge Join Right Input].Columns[price]"
                       cachedDataType="r8"
                       cachedName="price"
                       lineageId="Package\ETL Ventes\Sort DWH.Outputs[Sort Output].Columns[price]" />
                     <inputColumn
-                      refId="Package\ETL Ventes\Merge Join.Inputs[Merge Join Right Input].Columns[price_excl]"
+                      refId="Package\ETL Ventes\Merge Join 1.Inputs[Merge Join Right Input].Columns[price_excl]"
                       cachedDataType="r8"
                       cachedName="price_excl"
                       lineageId="Package\ETL Ventes\Sort DWH.Outputs[Sort Output].Columns[price_excl]" />
                     <inputColumn
-                      refId="Package\ETL Ventes\Merge Join.Inputs[Merge Join Right Input].Columns[sales]"
+                      refId="Package\ETL Ventes\Merge Join 1.Inputs[Merge Join Right Input].Columns[sales]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="sales"
@@ -5540,16 +7047,16 @@ where [refTable].[code] = ?</property>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\ETL Ventes\Merge Join.Outputs[Merge Join Output]"
+                  refId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output]"
                   isSorted="true"
                   name="Merge Join Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[order_code]"
+                      refId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[order_code]"
                       codePage="1252"
                       dataType="str"
                       length="15"
-                      lineageId="Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[order_code]"
+                      lineageId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[order_code]"
                       name="order_code"
                       sortKeyPosition="1">
                       <properties>
@@ -5557,286 +7064,287 @@ where [refTable].[code] = ?</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="The input column associated with this output column"
-                          name="InputColumnID">#{Package\ETL Ventes\Merge Join.Inputs[Merge Join Left Input].Columns[order_code]}</property>
+                          name="InputColumnID">#{Package\ETL Ventes\Merge Join 1.Inputs[Merge Join Left Input].Columns[order_code]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[order_date]"
+                      refId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[order_date]"
                       dataType="i4"
-                      lineageId="Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[order_date]"
+                      lineageId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[order_date]"
                       name="order_date">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="The input column associated with this output column"
-                          name="InputColumnID">#{Package\ETL Ventes\Merge Join.Inputs[Merge Join Left Input].Columns[order_date]}</property>
+                          name="InputColumnID">#{Package\ETL Ventes\Merge Join 1.Inputs[Merge Join Left Input].Columns[order_date]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[type_id]"
+                      refId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[type_id]"
                       dataType="i4"
-                      lineageId="Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[type_id]"
+                      lineageId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[type_id]"
                       name="type_id">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="The input column associated with this output column"
-                          name="InputColumnID">#{Package\ETL Ventes\Merge Join.Inputs[Merge Join Left Input].Columns[type_id]}</property>
+                          name="InputColumnID">#{Package\ETL Ventes\Merge Join 1.Inputs[Merge Join Left Input].Columns[type_id]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[qty]"
+                      refId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[qty]"
                       dataType="i4"
-                      lineageId="Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[qty]"
+                      lineageId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[qty]"
                       name="qty">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="The input column associated with this output column"
-                          name="InputColumnID">#{Package\ETL Ventes\Merge Join.Inputs[Merge Join Left Input].Columns[qty]}</property>
+                          name="InputColumnID">#{Package\ETL Ventes\Merge Join 1.Inputs[Merge Join Left Input].Columns[qty]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[price]"
+                      refId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[price]"
                       dataType="r8"
-                      lineageId="Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[price]"
+                      lineageId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[price]"
                       name="price">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="The input column associated with this output column"
-                          name="InputColumnID">#{Package\ETL Ventes\Merge Join.Inputs[Merge Join Left Input].Columns[price]}</property>
+                          name="InputColumnID">#{Package\ETL Ventes\Merge Join 1.Inputs[Merge Join Left Input].Columns[price]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[price_excl]"
+                      refId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[price_excl]"
                       dataType="r8"
-                      lineageId="Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[price_excl]"
+                      lineageId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[price_excl]"
                       name="price_excl">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="The input column associated with this output column"
-                          name="InputColumnID">#{Package\ETL Ventes\Merge Join.Inputs[Merge Join Left Input].Columns[price_excl]}</property>
+                          name="InputColumnID">#{Package\ETL Ventes\Merge Join 1.Inputs[Merge Join Left Input].Columns[price_excl]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[sales]"
+                      refId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[sales]"
                       dataType="wstr"
                       length="255"
-                      lineageId="Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[sales]"
+                      lineageId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[sales]"
                       name="sales">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="The input column associated with this output column"
-                          name="InputColumnID">#{Package\ETL Ventes\Merge Join.Inputs[Merge Join Left Input].Columns[sales]}</property>
+                          name="InputColumnID">#{Package\ETL Ventes\Merge Join 1.Inputs[Merge Join Left Input].Columns[sales]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[customer_id]"
+                      refId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[customer_id]"
                       dataType="i4"
-                      lineageId="Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[customer_id]"
+                      lineageId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[customer_id]"
                       name="customer_id">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="The input column associated with this output column"
-                          name="InputColumnID">#{Package\ETL Ventes\Merge Join.Inputs[Merge Join Left Input].Columns[customer_id]}</property>
+                          name="InputColumnID">#{Package\ETL Ventes\Merge Join 1.Inputs[Merge Join Left Input].Columns[customer_id]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[warehouse_id]"
+                      refId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[warehouse_id]"
                       dataType="i4"
-                      lineageId="Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[warehouse_id]"
+                      lineageId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[warehouse_id]"
                       name="warehouse_id">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="The input column associated with this output column"
-                          name="InputColumnID">#{Package\ETL Ventes\Merge Join.Inputs[Merge Join Left Input].Columns[warehouse_id]}</property>
+                          name="InputColumnID">#{Package\ETL Ventes\Merge Join 1.Inputs[Merge Join Left Input].Columns[warehouse_id]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[currency_id]"
+                      refId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[currency_id]"
                       dataType="wstr"
                       length="3"
-                      lineageId="Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[currency_id]"
+                      lineageId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[currency_id]"
                       name="currency_id">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="The input column associated with this output column"
-                          name="InputColumnID">#{Package\ETL Ventes\Merge Join.Inputs[Merge Join Left Input].Columns[currency_id]}</property>
+                          name="InputColumnID">#{Package\ETL Ventes\Merge Join 1.Inputs[Merge Join Left Input].Columns[currency_id]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[product_id]"
+                      refId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[product_id]"
                       dataType="i4"
-                      lineageId="Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[product_id]"
-                      name="product_id">
+                      lineageId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[product_id]"
+                      name="product_id"
+                      sortKeyPosition="2">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="The input column associated with this output column"
-                          name="InputColumnID">#{Package\ETL Ventes\Merge Join.Inputs[Merge Join Left Input].Columns[product_id]}</property>
+                          name="InputColumnID">#{Package\ETL Ventes\Merge Join 1.Inputs[Merge Join Left Input].Columns[product_id]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[customer_id (1)]"
-                      dataType="i4"
-                      lineageId="Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[customer_id (1)]"
-                      name="customer_id (1)">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The input column associated with this output column"
-                          name="InputColumnID">#{Package\ETL Ventes\Merge Join.Inputs[Merge Join Right Input].Columns[customer_id]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[order_date (1)]"
-                      dataType="i4"
-                      lineageId="Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[order_date (1)]"
-                      name="order_date (1)">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The input column associated with this output column"
-                          name="InputColumnID">#{Package\ETL Ventes\Merge Join.Inputs[Merge Join Right Input].Columns[order_date]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[warehouse_id (1)]"
-                      dataType="i4"
-                      lineageId="Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[warehouse_id (1)]"
-                      name="warehouse_id (1)">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The input column associated with this output column"
-                          name="InputColumnID">#{Package\ETL Ventes\Merge Join.Inputs[Merge Join Right Input].Columns[warehouse_id]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[currency_id (1)]"
-                      dataType="wstr"
-                      length="3"
-                      lineageId="Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[currency_id (1)]"
-                      name="currency_id (1)">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The input column associated with this output column"
-                          name="InputColumnID">#{Package\ETL Ventes\Merge Join.Inputs[Merge Join Right Input].Columns[currency_id]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[product_id (1)]"
-                      dataType="i4"
-                      lineageId="Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[product_id (1)]"
-                      name="product_id (1)">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The input column associated with this output column"
-                          name="InputColumnID">#{Package\ETL Ventes\Merge Join.Inputs[Merge Join Right Input].Columns[product_id]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[type_id (1)]"
-                      dataType="i4"
-                      lineageId="Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[type_id (1)]"
-                      name="type_id (1)">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The input column associated with this output column"
-                          name="InputColumnID">#{Package\ETL Ventes\Merge Join.Inputs[Merge Join Right Input].Columns[type_id]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[qty (1)]"
-                      dataType="i4"
-                      lineageId="Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[qty (1)]"
-                      name="qty (1)">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The input column associated with this output column"
-                          name="InputColumnID">#{Package\ETL Ventes\Merge Join.Inputs[Merge Join Right Input].Columns[qty]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[price (1)]"
-                      dataType="r8"
-                      lineageId="Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[price (1)]"
-                      name="price (1)">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The input column associated with this output column"
-                          name="InputColumnID">#{Package\ETL Ventes\Merge Join.Inputs[Merge Join Right Input].Columns[price]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[price_excl (1)]"
-                      dataType="r8"
-                      lineageId="Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[price_excl (1)]"
-                      name="price_excl (1)">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The input column associated with this output column"
-                          name="InputColumnID">#{Package\ETL Ventes\Merge Join.Inputs[Merge Join Right Input].Columns[price_excl]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[sales (1)]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[sales (1)]"
-                      name="sales (1)">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The input column associated with this output column"
-                          name="InputColumnID">#{Package\ETL Ventes\Merge Join.Inputs[Merge Join Right Input].Columns[sales]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[order_code (1)]"
+                      refId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[order_code (1)]"
                       codePage="1252"
                       dataType="str"
                       length="15"
-                      lineageId="Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[order_code (1)]"
+                      lineageId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[order_code (1)]"
                       name="order_code (1)">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="The input column associated with this output column"
-                          name="InputColumnID">#{Package\ETL Ventes\Merge Join.Inputs[Merge Join Right Input].Columns[order_code]}</property>
+                          name="InputColumnID">#{Package\ETL Ventes\Merge Join 1.Inputs[Merge Join Right Input].Columns[order_code]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[customer_id (1)]"
+                      dataType="i4"
+                      lineageId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[customer_id (1)]"
+                      name="customer_id (1)">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\ETL Ventes\Merge Join 1.Inputs[Merge Join Right Input].Columns[customer_id]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[order_date (1)]"
+                      dataType="i4"
+                      lineageId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[order_date (1)]"
+                      name="order_date (1)">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\ETL Ventes\Merge Join 1.Inputs[Merge Join Right Input].Columns[order_date]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[warehouse_id (1)]"
+                      dataType="i4"
+                      lineageId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[warehouse_id (1)]"
+                      name="warehouse_id (1)">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\ETL Ventes\Merge Join 1.Inputs[Merge Join Right Input].Columns[warehouse_id]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[currency_id (1)]"
+                      dataType="wstr"
+                      length="3"
+                      lineageId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[currency_id (1)]"
+                      name="currency_id (1)">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\ETL Ventes\Merge Join 1.Inputs[Merge Join Right Input].Columns[currency_id]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[product_id (1)]"
+                      dataType="i4"
+                      lineageId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[product_id (1)]"
+                      name="product_id (1)">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\ETL Ventes\Merge Join 1.Inputs[Merge Join Right Input].Columns[product_id]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[type_id (1)]"
+                      dataType="i4"
+                      lineageId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[type_id (1)]"
+                      name="type_id (1)">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\ETL Ventes\Merge Join 1.Inputs[Merge Join Right Input].Columns[type_id]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[qty (1)]"
+                      dataType="i4"
+                      lineageId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[qty (1)]"
+                      name="qty (1)">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\ETL Ventes\Merge Join 1.Inputs[Merge Join Right Input].Columns[qty]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[price (1)]"
+                      dataType="r8"
+                      lineageId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[price (1)]"
+                      name="price (1)">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\ETL Ventes\Merge Join 1.Inputs[Merge Join Right Input].Columns[price]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[price_excl (1)]"
+                      dataType="r8"
+                      lineageId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[price_excl (1)]"
+                      name="price_excl (1)">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\ETL Ventes\Merge Join 1.Inputs[Merge Join Right Input].Columns[price_excl]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[sales (1)]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[sales (1)]"
+                      name="sales (1)">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\ETL Ventes\Merge Join 1.Inputs[Merge Join Right Input].Columns[sales]}</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -5963,7 +7471,7 @@ where [refTable].[code] = ?</property>
                         <property
                           dataType="System.Int32"
                           description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">0</property>
+                          name="NewSortKeyPosition">2</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
@@ -6130,7 +7638,8 @@ where [refTable].[code] = ?</property>
                       refId="Package\ETL Ventes\Sort DWH.Outputs[Sort Output].Columns[product_id]"
                       dataType="i4"
                       lineageId="Package\ETL Ventes\Sort DWH.Outputs[Sort Output].Columns[product_id]"
-                      name="product_id">
+                      name="product_id"
+                      sortKeyPosition="2">
                       <properties>
                         <property
                           containsID="true"
@@ -6410,7 +7919,7 @@ where [refTable].[code] = ?</property>
                         <property
                           dataType="System.Int32"
                           description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">0</property>
+                          name="NewSortKeyPosition">2</property>
                       </properties>
                     </inputColumn>
                   </inputColumns>
@@ -6562,7 +8071,8 @@ where [refTable].[code] = ?</property>
                       refId="Package\ETL Ventes\Sort STG.Outputs[Sort Output].Columns[product_id]"
                       dataType="i4"
                       lineageId="Package\ETL Ventes\Sort STG.Outputs[Sort Output].Columns[product_id]"
-                      name="product_id">
+                      name="product_id"
+                      sortKeyPosition="2">
                       <properties>
                         <property
                           containsID="true"
@@ -6900,106 +8410,107 @@ where [refTable].[code] = ?</property>
                       refId="Package\ETL Ventes\Update test.Inputs[Conditional Split Input].Columns[order_date]"
                       cachedDataType="i4"
                       cachedName="order_date"
-                      lineageId="Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[order_date]" />
+                      lineageId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[order_date]" />
                     <inputColumn
                       refId="Package\ETL Ventes\Update test.Inputs[Conditional Split Input].Columns[type_id]"
                       cachedDataType="i4"
                       cachedName="type_id"
-                      lineageId="Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[type_id]" />
+                      lineageId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[type_id]" />
                     <inputColumn
                       refId="Package\ETL Ventes\Update test.Inputs[Conditional Split Input].Columns[qty]"
                       cachedDataType="i4"
                       cachedName="qty"
-                      lineageId="Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[qty]" />
+                      lineageId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[qty]" />
                     <inputColumn
                       refId="Package\ETL Ventes\Update test.Inputs[Conditional Split Input].Columns[price]"
                       cachedDataType="r8"
                       cachedName="price"
-                      lineageId="Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[price]" />
+                      lineageId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[price]" />
                     <inputColumn
                       refId="Package\ETL Ventes\Update test.Inputs[Conditional Split Input].Columns[price_excl]"
                       cachedDataType="r8"
                       cachedName="price_excl"
-                      lineageId="Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[price_excl]" />
+                      lineageId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[price_excl]" />
                     <inputColumn
                       refId="Package\ETL Ventes\Update test.Inputs[Conditional Split Input].Columns[sales]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="sales"
-                      lineageId="Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[sales]" />
+                      lineageId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[sales]" />
                     <inputColumn
                       refId="Package\ETL Ventes\Update test.Inputs[Conditional Split Input].Columns[customer_id]"
                       cachedDataType="i4"
                       cachedName="customer_id"
-                      lineageId="Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[customer_id]" />
+                      lineageId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[customer_id]" />
                     <inputColumn
                       refId="Package\ETL Ventes\Update test.Inputs[Conditional Split Input].Columns[warehouse_id]"
                       cachedDataType="i4"
                       cachedName="warehouse_id"
-                      lineageId="Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[warehouse_id]" />
+                      lineageId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[warehouse_id]" />
                     <inputColumn
                       refId="Package\ETL Ventes\Update test.Inputs[Conditional Split Input].Columns[currency_id]"
                       cachedDataType="wstr"
                       cachedLength="3"
                       cachedName="currency_id"
-                      lineageId="Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[currency_id]" />
+                      lineageId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[currency_id]" />
                     <inputColumn
                       refId="Package\ETL Ventes\Update test.Inputs[Conditional Split Input].Columns[product_id]"
                       cachedDataType="i4"
                       cachedName="product_id"
-                      lineageId="Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[product_id]" />
+                      cachedSortKeyPosition="2"
+                      lineageId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[product_id]" />
                     <inputColumn
                       refId="Package\ETL Ventes\Update test.Inputs[Conditional Split Input].Columns[customer_id (1)]"
                       cachedDataType="i4"
                       cachedName="customer_id (1)"
-                      lineageId="Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[customer_id (1)]" />
+                      lineageId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[customer_id (1)]" />
                     <inputColumn
                       refId="Package\ETL Ventes\Update test.Inputs[Conditional Split Input].Columns[order_date (1)]"
                       cachedDataType="i4"
                       cachedName="order_date (1)"
-                      lineageId="Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[order_date (1)]" />
+                      lineageId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[order_date (1)]" />
                     <inputColumn
                       refId="Package\ETL Ventes\Update test.Inputs[Conditional Split Input].Columns[warehouse_id (1)]"
                       cachedDataType="i4"
                       cachedName="warehouse_id (1)"
-                      lineageId="Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[warehouse_id (1)]" />
+                      lineageId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[warehouse_id (1)]" />
                     <inputColumn
                       refId="Package\ETL Ventes\Update test.Inputs[Conditional Split Input].Columns[currency_id (1)]"
                       cachedDataType="wstr"
                       cachedLength="3"
                       cachedName="currency_id (1)"
-                      lineageId="Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[currency_id (1)]" />
+                      lineageId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[currency_id (1)]" />
                     <inputColumn
                       refId="Package\ETL Ventes\Update test.Inputs[Conditional Split Input].Columns[product_id (1)]"
                       cachedDataType="i4"
                       cachedName="product_id (1)"
-                      lineageId="Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[product_id (1)]" />
+                      lineageId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[product_id (1)]" />
                     <inputColumn
                       refId="Package\ETL Ventes\Update test.Inputs[Conditional Split Input].Columns[type_id (1)]"
                       cachedDataType="i4"
                       cachedName="type_id (1)"
-                      lineageId="Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[type_id (1)]" />
+                      lineageId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[type_id (1)]" />
                     <inputColumn
                       refId="Package\ETL Ventes\Update test.Inputs[Conditional Split Input].Columns[qty (1)]"
                       cachedDataType="i4"
                       cachedName="qty (1)"
-                      lineageId="Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[qty (1)]" />
+                      lineageId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[qty (1)]" />
                     <inputColumn
                       refId="Package\ETL Ventes\Update test.Inputs[Conditional Split Input].Columns[price (1)]"
                       cachedDataType="r8"
                       cachedName="price (1)"
-                      lineageId="Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[price (1)]" />
+                      lineageId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[price (1)]" />
                     <inputColumn
                       refId="Package\ETL Ventes\Update test.Inputs[Conditional Split Input].Columns[price_excl (1)]"
                       cachedDataType="r8"
                       cachedName="price_excl (1)"
-                      lineageId="Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[price_excl (1)]" />
+                      lineageId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[price_excl (1)]" />
                     <inputColumn
                       refId="Package\ETL Ventes\Update test.Inputs[Conditional Split Input].Columns[sales (1)]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="sales (1)"
-                      lineageId="Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[sales (1)]" />
+                      lineageId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[sales (1)]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -7019,7 +8530,7 @@ where [refTable].[code] = ?</property>
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
-                      name="Expression">(#{Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[customer_id]} != #{Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[customer_id (1)]}) || (#{Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[order_date]} != #{Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[order_date (1)]}) || (#{Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[warehouse_id]} != #{Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[warehouse_id (1)]}) || (#{Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[product_id]} != #{Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[product_id (1)]}) || (#{Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[type_id]} != #{Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[type_id (1)]}) || (#{Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[currency_id]} != #{Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[currency_id (1)]}) || (#{Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[qty]} != #{Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[qty (1)]}) || (#{Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[price]} != #{Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[price (1)]}) || (#{Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[price_excl]} != #{Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[price_excl (1)]}) || (#{Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[sales]} != #{Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[sales (1)]})</property>
+                      name="Expression">(#{Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[customer_id]} != #{Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[customer_id (1)]}) || (#{Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[order_date]} != #{Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[order_date (1)]}) || (#{Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[warehouse_id]} != #{Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[warehouse_id (1)]}) || (#{Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[product_id]} != #{Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[product_id (1)]}) || (#{Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[type_id]} != #{Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[type_id (1)]}) || (#{Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[currency_id]} != #{Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[currency_id (1)]}) || (#{Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[qty]} != #{Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[qty (1)]}) || (#{Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[price]} != #{Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[price (1)]}) || (#{Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[price_excl]} != #{Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[price_excl (1)]}) || (#{Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[sales]} != #{Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[sales (1)]})</property>
                     <property
                       containsID="true"
                       dataType="System.String"
@@ -7091,14 +8602,14 @@ where [refTable].[code] = ?</property>
                       cachedLength="15"
                       cachedName="order_code"
                       cachedSortKeyPosition="1"
-                      lineageId="Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[order_code]" />
+                      lineageId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[order_code]" />
                     <inputColumn
                       refId="Package\ETL Ventes\UPSERT Ventes.Inputs[Conditional Split Input].Columns[order_code (1)]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="15"
                       cachedName="order_code (1)"
-                      lineageId="Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[order_code (1)]" />
+                      lineageId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[order_code (1)]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -7118,7 +8629,7 @@ where [refTable].[code] = ?</property>
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
-                      name="Expression">![ISNULL](#{Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[order_code]}) &amp;&amp; [ISNULL](#{Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[order_code (1)]})</property>
+                      name="Expression">![ISNULL](#{Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[order_code]}) &amp;&amp; [ISNULL](#{Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[order_code (1)]})</property>
                     <property
                       containsID="true"
                       dataType="System.String"
@@ -7146,7 +8657,7 @@ where [refTable].[code] = ?</property>
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
-                      name="Expression">![ISNULL](#{Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[order_code]}) &amp;&amp; ![ISNULL](#{Package\ETL Ventes\Merge Join.Outputs[Merge Join Output].Columns[order_code (1)]})</property>
+                      name="Expression">![ISNULL](#{Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[order_code]}) &amp;&amp; ![ISNULL](#{Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[order_code (1)]})</property>
                     <property
                       containsID="true"
                       dataType="System.String"
@@ -7229,7 +8740,7 @@ where [refTable].[code] = ?</property>
               refId="Package\ETL Ventes.Paths[Merge Join Output]"
               endId="Package\ETL Ventes\UPSERT Ventes.Inputs[Conditional Split Input]"
               name="Merge Join Output"
-              startId="Package\ETL Ventes\Merge Join.Outputs[Merge Join Output]" />
+              startId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output]" />
             <path
               refId="Package\ETL Ventes.Paths[OLE DB Source Output]"
               endId="Package\ETL Ventes\Lookup client.Inputs[Lookup Input]"
@@ -7242,12 +8753,12 @@ where [refTable].[code] = ?</property>
               startId="Package\ETL Ventes\DWH Ventes join.Outputs[OLE DB Source Output]" />
             <path
               refId="Package\ETL Ventes.Paths[Sort Output]"
-              endId="Package\ETL Ventes\Merge Join.Inputs[Merge Join Left Input]"
+              endId="Package\ETL Ventes\Merge Join 1.Inputs[Merge Join Left Input]"
               name="Sort Output"
               startId="Package\ETL Ventes\Sort STG.Outputs[Sort Output]" />
             <path
               refId="Package\ETL Ventes.Paths[Sort Output1]"
-              endId="Package\ETL Ventes\Merge Join.Inputs[Merge Join Right Input]"
+              endId="Package\ETL Ventes\Merge Join 1.Inputs[Merge Join Right Input]"
               name="Sort Output"
               startId="Package\ETL Ventes\Sort DWH.Outputs[Sort Output]" />
             <path
@@ -7278,6 +8789,23 @@ where [refTable].[code] = ?</property>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{42B9EF19-6DF7-4E7B-84E5-BFB199E5915E}"
           SQLTask:SqlStatementSource="TRUNCATE TABLE dbo.OLTPCommandes" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Vide staging Exchange"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{26685dcb-4508-41c7-a438-38c12a547c09}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Vide staging Exchange"
+      DTS:ThreadHint="2">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{42B9EF19-6DF7-4E7B-84E5-BFB199E5915E}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE dbo.UTILExchange" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -7330,6 +8858,22 @@ where [refTable].[code] = ?</property>
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 3"
       DTS:To="Package\ETL Ventes" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{D19C37F5-37F7-402D-A016-2E065A4AAFDB}"
+      DTS:From="Package\Vide staging Exchange"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\Chargement staging Exchange" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
+      DTS:CreationName=""
+      DTS:DTSID="{FA70C41E-41F3-43A2-834F-B8AB3959EC76}"
+      DTS:From="Package\Chargement staging Exchange"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 5"
+      DTS:To="Package\ETL Exchange" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -7471,6 +9015,74 @@ where [refTable].[code] = ?</property>
                     Point3="34.5,28.5" />
                   <mssgle:LineSegment
                     End="34.5,41.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="185,42"
+          Id="Package\Vide staging Exchange"
+          TopLeft="160,330" />
+        <NodeLayout
+          Size="222,42"
+          Id="Package\Chargement staging Exchange"
+          TopLeft="143.25,425" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="253.375,372">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,53"
+              Start="0,0"
+              End="0,45.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,45.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="145,42"
+          Id="Package\ETL Exchange"
+          TopLeft="200,511" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="254.25,467">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="18.25,44"
+              Start="0,0"
+              End="18.25,36.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18"
+                    Point2="0,22"
+                    Point3="4,22" />
+                  <mssgle:LineSegment
+                    End="14.25,22" />
+                  <mssgle:CubicBezierSegment
+                    Point1="14.25,22"
+                    Point2="18.25,22"
+                    Point3="18.25,26" />
+                  <mssgle:LineSegment
+                    End="18.25,36.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -8158,10 +9770,6 @@ where [refTable].[code] = ?</property>
           Id="Package\ETL Ventes\Lookup currency"
           TopLeft="67,278" />
         <NodeLayout
-          Size="130,42"
-          Id="Package\ETL Ventes\Merge Join"
-          TopLeft="229,603" />
-        <NodeLayout
           Size="174,42"
           Id="Package\ETL Ventes\DWH update Ventes"
           TopLeft="534,838" />
@@ -8230,74 +9838,6 @@ where [refTable].[code] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\ETL Ventes.Paths[Sort Output1]"
-          TopLeft="426,501">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-111.666666666667,102"
-              Start="0,0"
-              End="-111.666666666667,94.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,56.4559270516717" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,56.4559270516717"
-                    Point2="0,60.4559270516717"
-                    Point3="-4,60.4559270516717" />
-                  <mssgle:LineSegment
-                    End="-107.666666666667,60.4559270516717" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-107.666666666667,60.4559270516717"
-                    Point2="-111.666666666667,60.4559270516717"
-                    Point3="-111.666666666667,64.4559270516717" />
-                  <mssgle:LineSegment
-                    End="-111.666666666667,94.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\ETL Ventes.Paths[Sort Output]"
-          TopLeft="182.5,493">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="91.1666666666667,110"
-              Start="0,0"
-              End="91.1666666666667,102.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,61.1975683890577" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,61.1975683890577"
-                    Point2="0,65.1975683890577"
-                    Point3="4,65.1975683890577" />
-                  <mssgle:LineSegment
-                    End="87.1666666666667,65.1975683890577" />
-                  <mssgle:CubicBezierSegment
-                    Point1="87.1666666666667,65.1975683890577"
-                    Point2="91.1666666666667,65.1975683890577"
-                    Point3="91.1666666666667,69.1975683890577" />
-                  <mssgle:LineSegment
-                    End="91.1666666666667,102.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package\ETL Ventes.Paths[OLE DB Source Output1]"
           TopLeft="422.25,401">
           <EdgeLayout.Curve>
@@ -8345,28 +9885,6 @@ where [refTable].[code] = ?</property>
                     Point3="11,23.5" />
                   <mssgle:LineSegment
                     End="11,31.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\ETL Ventes.Paths[Merge Join Output]"
-          TopLeft="294,645">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,72"
-              Start="0,0"
-              End="0,64.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,64.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -8519,6 +10037,100 @@ where [refTable].[code] = ?</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="139,42"
+          Id="Package\ETL Ventes\Merge Join 1"
+          TopLeft="224,603" />
+        <EdgeLayout
+          Id="Package\ETL Ventes.Paths[Sort Output]"
+          TopLeft="182.5,493">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="111,110"
+              Start="0,0"
+              End="111,102.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,51" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,51"
+                    Point2="0,55"
+                    Point3="4,55" />
+                  <mssgle:LineSegment
+                    End="107,55" />
+                  <mssgle:CubicBezierSegment
+                    Point1="107,55"
+                    Point2="111,55"
+                    Point3="111,59" />
+                  <mssgle:LineSegment
+                    End="111,102.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ETL Ventes.Paths[Sort Output1]"
+          TopLeft="426,501">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-110.666666666667,102"
+              Start="0,0"
+              End="-110.666666666667,94.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,56.5035561877667" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,56.5035561877667"
+                    Point2="0,60.5035561877667"
+                    Point3="-4,60.5035561877667" />
+                  <mssgle:LineSegment
+                    End="-106.666666666667,60.5035561877667" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-106.666666666667,60.5035561877667"
+                    Point2="-110.666666666667,60.5035561877667"
+                    Point3="-110.666666666667,64.5035561877667" />
+                  <mssgle:LineSegment
+                    End="-110.666666666667,94.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ETL Ventes.Paths[Merge Join Output]"
+          TopLeft="293.75,645">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,72"
+              Start="0,0"
+              End="0,64.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,64.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
@@ -8619,6 +10231,355 @@ where [refTable].[code] = ?</property>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\ETL Ventes\DWH insert Ventes">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Chargement staging Exchange">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="152,42"
+          Id="Package\Chargement staging Exchange\OLTP Exchange"
+          TopLeft="79,48" />
+        <NodeLayout
+          Size="147,42"
+          Id="Package\Chargement staging Exchange\STG Exchange"
+          TopLeft="74.5,185.5" />
+        <EdgeLayout
+          Id="Package\Chargement staging Exchange.Paths[OLE DB Source Output]"
+          TopLeft="151.5,90">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,95.5"
+              Start="0,0"
+              End="0,88">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,88" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Chargement staging Exchange\OLTP Exchange">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">View</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Chargement staging Exchange\STG Exchange">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\ETL Exchange">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="172,42"
+          Id="Package\ETL Exchange\DWH Exchange join"
+          TopLeft="339,359" />
+        <NodeLayout
+          Size="126,42"
+          Id="Package\ETL Exchange\Sort DWH"
+          TopLeft="363,459" />
+        <NodeLayout
+          Size="165,42"
+          Id="Package\ETL Exchange\UPSERT Exchange"
+          TopLeft="218,717" />
+        <NodeLayout
+          Size="147,42"
+          Id="Package\ETL Exchange\STG Exchange"
+          TopLeft="64,60" />
+        <NodeLayout
+          Size="121,42"
+          Id="Package\ETL Exchange\Sort STG"
+          TopLeft="79,451" />
+        <NodeLayout
+          Size="130,42"
+          Id="Package\ETL Exchange\Merge Join"
+          TopLeft="229,603" />
+        <NodeLayout
+          Size="187,42"
+          Id="Package\ETL Exchange\DWH update Exchange"
+          TopLeft="534,838" />
+        <NodeLayout
+          Size="168,42"
+          Id="Package\ETL Exchange\DWH insert Ventes"
+          TopLeft="229,836" />
+        <EdgeLayout
+          Id="Package\ETL Exchange.Paths[Insert]"
+          TopLeft="274.333333333333,759">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="38.6666666666667,77"
+              Start="0,0"
+              End="38.6666666666667,69.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.2436974789916" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27.2436974789916"
+                    Point2="0,31.2436974789916"
+                    Point3="4,31.2436974789916" />
+                  <mssgle:LineSegment
+                    End="34.6666666666667,31.2436974789916" />
+                  <mssgle:CubicBezierSegment
+                    Point1="34.6666666666667,31.2436974789916"
+                    Point2="38.6666666666667,31.2436974789916"
+                    Point3="38.6666666666667,35.2436974789916" />
+                  <mssgle:LineSegment
+                    End="38.6666666666667,69.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="5.58034505208334,36.2436974789916,27.5059765625,9.40234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ETL Exchange.Paths[Sort Output1]"
+          TopLeft="426,501">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-111.666666666667,102"
+              Start="0,0"
+              End="-111.666666666667,94.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,56.4559270516717" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,56.4559270516717"
+                    Point2="0,60.4559270516717"
+                    Point3="-4,60.4559270516717" />
+                  <mssgle:LineSegment
+                    End="-107.666666666667,60.4559270516717" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-107.666666666667,60.4559270516717"
+                    Point2="-111.666666666667,60.4559270516717"
+                    Point3="-111.666666666667,64.4559270516717" />
+                  <mssgle:LineSegment
+                    End="-111.666666666667,94.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ETL Exchange.Paths[Sort Output]"
+          TopLeft="139.5,493">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="134.166666666667,110"
+              Start="0,0"
+              End="134.166666666667,102.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,61.1975683890577" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,61.1975683890577"
+                    Point2="0,65.1975683890577"
+                    Point3="4,65.1975683890577" />
+                  <mssgle:LineSegment
+                    End="130.166666666667,65.1975683890577" />
+                  <mssgle:CubicBezierSegment
+                    Point1="130.166666666667,65.1975683890577"
+                    Point2="134.166666666667,65.1975683890577"
+                    Point3="134.166666666667,69.1975683890577" />
+                  <mssgle:LineSegment
+                    End="134.166666666667,102.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ETL Exchange.Paths[OLE DB Source Output]"
+          TopLeft="425.5,401">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,58"
+              Start="0,0"
+              End="0,50.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,50.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ETL Exchange.Paths[Merge Join Output]"
+          TopLeft="297.25,645">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,72"
+              Start="0,0"
+              End="0,64.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,64.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ETL Exchange.Paths[OLE DB Source Output1]"
+          TopLeft="138.5,102">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,349"
+              Start="0,0"
+              End="0,341.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,341.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ETL Exchange.Paths[Update]"
+          TopLeft="326.666666666667,759">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="300.833333333333,79"
+              Start="0,0"
+              End="300.833333333333,71.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.0552220888355" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,28.0552220888355"
+                    Point2="0,32.0552220888355"
+                    Point3="4,32.0552220888355" />
+                  <mssgle:LineSegment
+                    End="296.833333333333,32.0552220888355" />
+                  <mssgle:CubicBezierSegment
+                    Point1="296.833333333333,32.0552220888355"
+                    Point2="300.833333333333,32.0552220888355"
+                    Point3="300.833333333333,36.0552220888355" />
+                  <mssgle:LineSegment
+                    End="300.833333333333,71.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="134.136373697917,37.0552220888355,32.5605859375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\ETL Exchange\DWH Exchange join">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\ETL Exchange\STG Exchange">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\ETL Exchange\DWH insert Ventes">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
