@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="36"
-  DTS:VersionGUID="{892B23E0-E23F-48F0-8DEB-490F5EA9FCB8}">
+  DTS:VersionBuild="38"
+  DTS:VersionGUID="{51E26C3E-A17B-46A6-BAB1-56A8CCE40F1D}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -21,6 +21,7 @@
       DTS:refId="Package\Chargement staging commandes"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
       DTS:DTSID="{F0C45664-1B32-4458-9499-9ECCAB51EDC0}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -519,6 +520,7 @@
       DTS:refId="Package\Chargement staging Exchange"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
       DTS:DTSID="{26d94adc-be34-4e0c-9678-927c7df0d8ec}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -910,6 +912,7 @@
       DTS:refId="Package\Chargement staging Ventes"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
       DTS:DTSID="{5A415F13-2EC5-40A8-9A3E-303AF07CFE68}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -1466,9 +1469,599 @@
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
+      DTS:refId="Package\Chargement STG Clients"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{E6FEE6A5-0EA6-4CCD-9519-1BDF26EC3A7E}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Chargement STG Clients"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Chargement STG Clients\Chargement Clients"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Chargement Clients"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[OLTPClients]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Chargement STG Clients\Chargement Clients.Connections[OleDbConnection]"
+                  connectionManagerID="{42B9EF19-6DF7-4E7B-84E5-BFB199E5915E}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[WServer2019.MediazonStaging]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Chargement STG Clients\Chargement Clients.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Chargement STG Clients\Chargement Clients.Inputs[OLE DB Destination Input].Columns[code]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="code"
+                      externalMetadataColumnId="Package\Chargement STG Clients\Chargement Clients.Inputs[OLE DB Destination Input].ExternalColumns[code]"
+                      lineageId="Package\Chargement STG Clients\Extraction Clients.Outputs[OLE DB Source Output].Columns[code]" />
+                    <inputColumn
+                      refId="Package\Chargement STG Clients\Chargement Clients.Inputs[OLE DB Destination Input].Columns[lastname]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="lastname"
+                      externalMetadataColumnId="Package\Chargement STG Clients\Chargement Clients.Inputs[OLE DB Destination Input].ExternalColumns[lastname]"
+                      lineageId="Package\Chargement STG Clients\Extraction Clients.Outputs[OLE DB Source Output].Columns[lastname]" />
+                    <inputColumn
+                      refId="Package\Chargement STG Clients\Chargement Clients.Inputs[OLE DB Destination Input].Columns[firstname]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="firstname"
+                      externalMetadataColumnId="Package\Chargement STG Clients\Chargement Clients.Inputs[OLE DB Destination Input].ExternalColumns[firstname]"
+                      lineageId="Package\Chargement STG Clients\Extraction Clients.Outputs[OLE DB Source Output].Columns[firstname]" />
+                    <inputColumn
+                      refId="Package\Chargement STG Clients\Chargement Clients.Inputs[OLE DB Destination Input].Columns[street]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="street"
+                      externalMetadataColumnId="Package\Chargement STG Clients\Chargement Clients.Inputs[OLE DB Destination Input].ExternalColumns[street]"
+                      lineageId="Package\Chargement STG Clients\Extraction Clients.Outputs[OLE DB Source Output].Columns[street]" />
+                    <inputColumn
+                      refId="Package\Chargement STG Clients\Chargement Clients.Inputs[OLE DB Destination Input].Columns[geography_id]"
+                      cachedDataType="i4"
+                      cachedName="geography_id"
+                      externalMetadataColumnId="Package\Chargement STG Clients\Chargement Clients.Inputs[OLE DB Destination Input].ExternalColumns[geography_id]"
+                      lineageId="Package\Chargement STG Clients\Extraction Clients.Outputs[OLE DB Source Output].Columns[geography_id]" />
+                    <inputColumn
+                      refId="Package\Chargement STG Clients\Chargement Clients.Inputs[OLE DB Destination Input].Columns[phone]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="phone"
+                      externalMetadataColumnId="Package\Chargement STG Clients\Chargement Clients.Inputs[OLE DB Destination Input].ExternalColumns[phone]"
+                      lineageId="Package\Chargement STG Clients\Extraction Clients.Outputs[OLE DB Source Output].Columns[phone]" />
+                    <inputColumn
+                      refId="Package\Chargement STG Clients\Chargement Clients.Inputs[OLE DB Destination Input].Columns[email]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="email"
+                      externalMetadataColumnId="Package\Chargement STG Clients\Chargement Clients.Inputs[OLE DB Destination Input].ExternalColumns[email]"
+                      lineageId="Package\Chargement STG Clients\Extraction Clients.Outputs[OLE DB Source Output].Columns[email]" />
+                    <inputColumn
+                      refId="Package\Chargement STG Clients\Chargement Clients.Inputs[OLE DB Destination Input].Columns[language]"
+                      cachedDataType="i4"
+                      cachedName="language"
+                      externalMetadataColumnId="Package\Chargement STG Clients\Chargement Clients.Inputs[OLE DB Destination Input].ExternalColumns[language]"
+                      lineageId="Package\Chargement STG Clients\Extraction Clients.Outputs[OLE DB Source Output].Columns[language]" />
+                    <inputColumn
+                      refId="Package\Chargement STG Clients\Chargement Clients.Inputs[OLE DB Destination Input].Columns[gender]"
+                      cachedDataType="wstr"
+                      cachedLength="1"
+                      cachedName="gender"
+                      externalMetadataColumnId="Package\Chargement STG Clients\Chargement Clients.Inputs[OLE DB Destination Input].ExternalColumns[gender]"
+                      lineageId="Package\Chargement STG Clients\Extraction Clients.Outputs[OLE DB Source Output].Columns[gender]" />
+                    <inputColumn
+                      refId="Package\Chargement STG Clients\Chargement Clients.Inputs[OLE DB Destination Input].Columns[civility]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="civility"
+                      externalMetadataColumnId="Package\Chargement STG Clients\Chargement Clients.Inputs[OLE DB Destination Input].ExternalColumns[civility]"
+                      lineageId="Package\Chargement STG Clients\Extraction Clients.Outputs[OLE DB Source Output].Columns[civility]" />
+                    <inputColumn
+                      refId="Package\Chargement STG Clients\Chargement Clients.Inputs[OLE DB Destination Input].Columns[birthdate]"
+                      cachedDataType="dbDate"
+                      cachedName="birthdate"
+                      externalMetadataColumnId="Package\Chargement STG Clients\Chargement Clients.Inputs[OLE DB Destination Input].ExternalColumns[birthdate]"
+                      lineageId="Package\Chargement STG Clients\Extraction Clients.Outputs[OLE DB Source Output].Columns[birthdate]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Chargement STG Clients\Chargement Clients.Inputs[OLE DB Destination Input].ExternalColumns[code]"
+                      dataType="wstr"
+                      length="10"
+                      name="code" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement STG Clients\Chargement Clients.Inputs[OLE DB Destination Input].ExternalColumns[lastname]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="lastname" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement STG Clients\Chargement Clients.Inputs[OLE DB Destination Input].ExternalColumns[firstname]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="firstname" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement STG Clients\Chargement Clients.Inputs[OLE DB Destination Input].ExternalColumns[street]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="street" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement STG Clients\Chargement Clients.Inputs[OLE DB Destination Input].ExternalColumns[geography_id]"
+                      dataType="i4"
+                      name="geography_id" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement STG Clients\Chargement Clients.Inputs[OLE DB Destination Input].ExternalColumns[phone]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="phone" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement STG Clients\Chargement Clients.Inputs[OLE DB Destination Input].ExternalColumns[email]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="email" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement STG Clients\Chargement Clients.Inputs[OLE DB Destination Input].ExternalColumns[language]"
+                      dataType="i4"
+                      name="language" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement STG Clients\Chargement Clients.Inputs[OLE DB Destination Input].ExternalColumns[gender]"
+                      dataType="wstr"
+                      length="1"
+                      name="gender" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement STG Clients\Chargement Clients.Inputs[OLE DB Destination Input].ExternalColumns[civility]"
+                      dataType="wstr"
+                      length="20"
+                      name="civility" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement STG Clients\Chargement Clients.Inputs[OLE DB Destination Input].ExternalColumns[birthdate]"
+                      dataType="dbDate"
+                      name="birthdate" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Chargement STG Clients\Chargement Clients.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Chargement STG Clients\Chargement Clients.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Chargement STG Clients\Chargement Clients.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Chargement STG Clients\Chargement Clients.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Chargement STG Clients\Chargement Clients.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Chargement STG Clients\Chargement Clients.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Chargement STG Clients\Extraction Clients"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Extraction Clients"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[OLTPClients]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Chargement STG Clients\Extraction Clients.Connections[OleDbConnection]"
+                  connectionManagerID="{297C2D91-97A6-4CA2-894C-5C8852A66426}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[86.119.30.142.Mediazon2020_DWH_source.mediazon]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Chargement STG Clients\Extraction Clients.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Chargement STG Clients\Extraction Clients.Outputs[OLE DB Source Output].Columns[code]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement STG Clients\Extraction Clients.Outputs[OLE DB Source Output].ExternalColumns[code]"
+                      length="10"
+                      lineageId="Package\Chargement STG Clients\Extraction Clients.Outputs[OLE DB Source Output].Columns[code]"
+                      name="code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Chargement STG Clients\Extraction Clients.Outputs[OLE DB Source Output].Columns[lastname]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement STG Clients\Extraction Clients.Outputs[OLE DB Source Output].ExternalColumns[lastname]"
+                      length="100"
+                      lineageId="Package\Chargement STG Clients\Extraction Clients.Outputs[OLE DB Source Output].Columns[lastname]"
+                      name="lastname"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Chargement STG Clients\Extraction Clients.Outputs[OLE DB Source Output].Columns[firstname]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement STG Clients\Extraction Clients.Outputs[OLE DB Source Output].ExternalColumns[firstname]"
+                      length="100"
+                      lineageId="Package\Chargement STG Clients\Extraction Clients.Outputs[OLE DB Source Output].Columns[firstname]"
+                      name="firstname"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Chargement STG Clients\Extraction Clients.Outputs[OLE DB Source Output].Columns[street]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement STG Clients\Extraction Clients.Outputs[OLE DB Source Output].ExternalColumns[street]"
+                      length="100"
+                      lineageId="Package\Chargement STG Clients\Extraction Clients.Outputs[OLE DB Source Output].Columns[street]"
+                      name="street"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Chargement STG Clients\Extraction Clients.Outputs[OLE DB Source Output].Columns[geography_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement STG Clients\Extraction Clients.Outputs[OLE DB Source Output].ExternalColumns[geography_id]"
+                      lineageId="Package\Chargement STG Clients\Extraction Clients.Outputs[OLE DB Source Output].Columns[geography_id]"
+                      name="geography_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Chargement STG Clients\Extraction Clients.Outputs[OLE DB Source Output].Columns[phone]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement STG Clients\Extraction Clients.Outputs[OLE DB Source Output].ExternalColumns[phone]"
+                      length="25"
+                      lineageId="Package\Chargement STG Clients\Extraction Clients.Outputs[OLE DB Source Output].Columns[phone]"
+                      name="phone"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Chargement STG Clients\Extraction Clients.Outputs[OLE DB Source Output].Columns[email]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement STG Clients\Extraction Clients.Outputs[OLE DB Source Output].ExternalColumns[email]"
+                      length="100"
+                      lineageId="Package\Chargement STG Clients\Extraction Clients.Outputs[OLE DB Source Output].Columns[email]"
+                      name="email"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Chargement STG Clients\Extraction Clients.Outputs[OLE DB Source Output].Columns[language]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement STG Clients\Extraction Clients.Outputs[OLE DB Source Output].ExternalColumns[language]"
+                      lineageId="Package\Chargement STG Clients\Extraction Clients.Outputs[OLE DB Source Output].Columns[language]"
+                      name="language"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Chargement STG Clients\Extraction Clients.Outputs[OLE DB Source Output].Columns[gender]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement STG Clients\Extraction Clients.Outputs[OLE DB Source Output].ExternalColumns[gender]"
+                      length="1"
+                      lineageId="Package\Chargement STG Clients\Extraction Clients.Outputs[OLE DB Source Output].Columns[gender]"
+                      name="gender"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Chargement STG Clients\Extraction Clients.Outputs[OLE DB Source Output].Columns[civility]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement STG Clients\Extraction Clients.Outputs[OLE DB Source Output].ExternalColumns[civility]"
+                      length="20"
+                      lineageId="Package\Chargement STG Clients\Extraction Clients.Outputs[OLE DB Source Output].Columns[civility]"
+                      name="civility"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Chargement STG Clients\Extraction Clients.Outputs[OLE DB Source Output].Columns[birthdate]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement STG Clients\Extraction Clients.Outputs[OLE DB Source Output].ExternalColumns[birthdate]"
+                      lineageId="Package\Chargement STG Clients\Extraction Clients.Outputs[OLE DB Source Output].Columns[birthdate]"
+                      name="birthdate"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Chargement STG Clients\Extraction Clients.Outputs[OLE DB Source Output].ExternalColumns[code]"
+                      dataType="wstr"
+                      length="10"
+                      name="code" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement STG Clients\Extraction Clients.Outputs[OLE DB Source Output].ExternalColumns[lastname]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="lastname" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement STG Clients\Extraction Clients.Outputs[OLE DB Source Output].ExternalColumns[firstname]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="firstname" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement STG Clients\Extraction Clients.Outputs[OLE DB Source Output].ExternalColumns[street]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="street" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement STG Clients\Extraction Clients.Outputs[OLE DB Source Output].ExternalColumns[geography_id]"
+                      dataType="i4"
+                      name="geography_id" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement STG Clients\Extraction Clients.Outputs[OLE DB Source Output].ExternalColumns[phone]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="phone" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement STG Clients\Extraction Clients.Outputs[OLE DB Source Output].ExternalColumns[email]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="email" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement STG Clients\Extraction Clients.Outputs[OLE DB Source Output].ExternalColumns[language]"
+                      dataType="i4"
+                      name="language" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement STG Clients\Extraction Clients.Outputs[OLE DB Source Output].ExternalColumns[gender]"
+                      dataType="wstr"
+                      length="1"
+                      name="gender" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement STG Clients\Extraction Clients.Outputs[OLE DB Source Output].ExternalColumns[civility]"
+                      dataType="wstr"
+                      length="20"
+                      name="civility" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement STG Clients\Extraction Clients.Outputs[OLE DB Source Output].ExternalColumns[birthdate]"
+                      dataType="dbDate"
+                      name="birthdate" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Chargement STG Clients\Extraction Clients.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Chargement STG Clients\Extraction Clients.Outputs[OLE DB Source Error Output].Columns[code]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\Chargement STG Clients\Extraction Clients.Outputs[OLE DB Source Error Output].Columns[code]"
+                      name="code" />
+                    <outputColumn
+                      refId="Package\Chargement STG Clients\Extraction Clients.Outputs[OLE DB Source Error Output].Columns[lastname]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Chargement STG Clients\Extraction Clients.Outputs[OLE DB Source Error Output].Columns[lastname]"
+                      name="lastname" />
+                    <outputColumn
+                      refId="Package\Chargement STG Clients\Extraction Clients.Outputs[OLE DB Source Error Output].Columns[firstname]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Chargement STG Clients\Extraction Clients.Outputs[OLE DB Source Error Output].Columns[firstname]"
+                      name="firstname" />
+                    <outputColumn
+                      refId="Package\Chargement STG Clients\Extraction Clients.Outputs[OLE DB Source Error Output].Columns[street]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Chargement STG Clients\Extraction Clients.Outputs[OLE DB Source Error Output].Columns[street]"
+                      name="street" />
+                    <outputColumn
+                      refId="Package\Chargement STG Clients\Extraction Clients.Outputs[OLE DB Source Error Output].Columns[geography_id]"
+                      dataType="i4"
+                      lineageId="Package\Chargement STG Clients\Extraction Clients.Outputs[OLE DB Source Error Output].Columns[geography_id]"
+                      name="geography_id" />
+                    <outputColumn
+                      refId="Package\Chargement STG Clients\Extraction Clients.Outputs[OLE DB Source Error Output].Columns[phone]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      lineageId="Package\Chargement STG Clients\Extraction Clients.Outputs[OLE DB Source Error Output].Columns[phone]"
+                      name="phone" />
+                    <outputColumn
+                      refId="Package\Chargement STG Clients\Extraction Clients.Outputs[OLE DB Source Error Output].Columns[email]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Chargement STG Clients\Extraction Clients.Outputs[OLE DB Source Error Output].Columns[email]"
+                      name="email" />
+                    <outputColumn
+                      refId="Package\Chargement STG Clients\Extraction Clients.Outputs[OLE DB Source Error Output].Columns[language]"
+                      dataType="i4"
+                      lineageId="Package\Chargement STG Clients\Extraction Clients.Outputs[OLE DB Source Error Output].Columns[language]"
+                      name="language" />
+                    <outputColumn
+                      refId="Package\Chargement STG Clients\Extraction Clients.Outputs[OLE DB Source Error Output].Columns[gender]"
+                      dataType="wstr"
+                      length="1"
+                      lineageId="Package\Chargement STG Clients\Extraction Clients.Outputs[OLE DB Source Error Output].Columns[gender]"
+                      name="gender" />
+                    <outputColumn
+                      refId="Package\Chargement STG Clients\Extraction Clients.Outputs[OLE DB Source Error Output].Columns[civility]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\Chargement STG Clients\Extraction Clients.Outputs[OLE DB Source Error Output].Columns[civility]"
+                      name="civility" />
+                    <outputColumn
+                      refId="Package\Chargement STG Clients\Extraction Clients.Outputs[OLE DB Source Error Output].Columns[birthdate]"
+                      dataType="dbDate"
+                      lineageId="Package\Chargement STG Clients\Extraction Clients.Outputs[OLE DB Source Error Output].Columns[birthdate]"
+                      name="birthdate" />
+                    <outputColumn
+                      refId="Package\Chargement STG Clients\Extraction Clients.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Chargement STG Clients\Extraction Clients.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Chargement STG Clients\Extraction Clients.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Chargement STG Clients\Extraction Clients.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Chargement STG Clients.Paths[OLE DB Source Output]"
+              endId="Package\Chargement STG Clients\Chargement Clients.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Chargement STG Clients\Extraction Clients.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
       DTS:refId="Package\Chargement STG ShippingPrice"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
       DTS:DTSID="{085E3FF5-B8FB-4E0A-ADC9-FFF4A58E92D9}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -1786,9 +2379,2059 @@
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
+      DTS:refId="Package\ETL Clients"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{6E63D57A-50ED-481E-84B4-772BB40EEE41}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="ETL Clients"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\ETL Clients\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\ETL Clients\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ETL Clients\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\ETL Clients\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL Clients\Derived Column.Outputs[Derived Column Output].Columns[current_record]"
+                      dataType="bool"
+                      description="current_record"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ETL Clients\Derived Column.Outputs[Derived Column Output].Columns[current_record]"
+                      name="current_record"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_BOOL)("0")</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_BOOL)("0")</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\ETL Clients\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\ETL Clients\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL Clients\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ETL Clients\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ETL Clients\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ETL Clients\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ETL Clients\Derived Column 1"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column 1"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\ETL Clients\Derived Column 1.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ETL Clients\Derived Column 1.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\ETL Clients\Derived Column 1.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL Clients\Derived Column 1.Outputs[Derived Column Output].Columns[current_record]"
+                      dataType="bool"
+                      description="current_record"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ETL Clients\Derived Column 1.Outputs[Derived Column Output].Columns[current_record]"
+                      name="current_record"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_BOOL)("1")</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_BOOL)("1")</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\ETL Clients\Derived Column 1.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\ETL Clients\Derived Column 1.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL Clients\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ETL Clients\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ETL Clients\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ETL Clients\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ETL Clients\Insert Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Insert Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[DimClients]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ETL Clients\Insert Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{7DF0D481-6944-4555-AFB8-DDD5F75EBA66}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[WServer2019.MediazonDWH]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\ETL Clients\Insert Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ETL Clients\Insert Destination.Inputs[OLE DB Destination Input].Columns[code]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="code"
+                      externalMetadataColumnId="Package\ETL Clients\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[code]"
+                      lineageId="Package\ETL Clients\Union All.Outputs[Union All Output 1].Columns[code]" />
+                    <inputColumn
+                      refId="Package\ETL Clients\Insert Destination.Inputs[OLE DB Destination Input].Columns[lastname]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="lastname"
+                      externalMetadataColumnId="Package\ETL Clients\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[lastname]"
+                      lineageId="Package\ETL Clients\Union All.Outputs[Union All Output 1].Columns[lastname]" />
+                    <inputColumn
+                      refId="Package\ETL Clients\Insert Destination.Inputs[OLE DB Destination Input].Columns[firstname]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="firstname"
+                      externalMetadataColumnId="Package\ETL Clients\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[firstname]"
+                      lineageId="Package\ETL Clients\Union All.Outputs[Union All Output 1].Columns[firstname]" />
+                    <inputColumn
+                      refId="Package\ETL Clients\Insert Destination.Inputs[OLE DB Destination Input].Columns[street]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="street"
+                      externalMetadataColumnId="Package\ETL Clients\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[street]"
+                      lineageId="Package\ETL Clients\Union All.Outputs[Union All Output 1].Columns[street]" />
+                    <inputColumn
+                      refId="Package\ETL Clients\Insert Destination.Inputs[OLE DB Destination Input].Columns[geography_id]"
+                      cachedDataType="i4"
+                      cachedName="geography_id"
+                      externalMetadataColumnId="Package\ETL Clients\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[geography_id]"
+                      lineageId="Package\ETL Clients\Union All.Outputs[Union All Output 1].Columns[geography_id]" />
+                    <inputColumn
+                      refId="Package\ETL Clients\Insert Destination.Inputs[OLE DB Destination Input].Columns[phone]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="phone"
+                      externalMetadataColumnId="Package\ETL Clients\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[phone]"
+                      lineageId="Package\ETL Clients\Union All.Outputs[Union All Output 1].Columns[phone]" />
+                    <inputColumn
+                      refId="Package\ETL Clients\Insert Destination.Inputs[OLE DB Destination Input].Columns[email]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="email"
+                      externalMetadataColumnId="Package\ETL Clients\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[email]"
+                      lineageId="Package\ETL Clients\Union All.Outputs[Union All Output 1].Columns[email]" />
+                    <inputColumn
+                      refId="Package\ETL Clients\Insert Destination.Inputs[OLE DB Destination Input].Columns[language]"
+                      cachedDataType="i4"
+                      cachedName="language"
+                      externalMetadataColumnId="Package\ETL Clients\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[language]"
+                      lineageId="Package\ETL Clients\Union All.Outputs[Union All Output 1].Columns[language]" />
+                    <inputColumn
+                      refId="Package\ETL Clients\Insert Destination.Inputs[OLE DB Destination Input].Columns[birthdate]"
+                      cachedDataType="dbDate"
+                      cachedName="birthdate"
+                      externalMetadataColumnId="Package\ETL Clients\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[birthdate]"
+                      lineageId="Package\ETL Clients\Union All.Outputs[Union All Output 1].Columns[birthdate]" />
+                    <inputColumn
+                      refId="Package\ETL Clients\Insert Destination.Inputs[OLE DB Destination Input].Columns[current_record]"
+                      cachedDataType="bool"
+                      cachedName="current_record"
+                      externalMetadataColumnId="Package\ETL Clients\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[current_record]"
+                      lineageId="Package\ETL Clients\Derived Column 1.Outputs[Derived Column Output].Columns[current_record]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\ETL Clients\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[id]"
+                      dataType="i4"
+                      name="id" />
+                    <externalMetadataColumn
+                      refId="Package\ETL Clients\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[code]"
+                      dataType="wstr"
+                      length="10"
+                      name="code" />
+                    <externalMetadataColumn
+                      refId="Package\ETL Clients\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[lastname]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="lastname" />
+                    <externalMetadataColumn
+                      refId="Package\ETL Clients\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[firstname]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="firstname" />
+                    <externalMetadataColumn
+                      refId="Package\ETL Clients\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[street]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="street" />
+                    <externalMetadataColumn
+                      refId="Package\ETL Clients\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[geography_id]"
+                      dataType="i4"
+                      name="geography_id" />
+                    <externalMetadataColumn
+                      refId="Package\ETL Clients\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[phone]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="phone" />
+                    <externalMetadataColumn
+                      refId="Package\ETL Clients\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[email]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="email" />
+                    <externalMetadataColumn
+                      refId="Package\ETL Clients\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[language]"
+                      dataType="i4"
+                      name="language" />
+                    <externalMetadataColumn
+                      refId="Package\ETL Clients\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[birthdate]"
+                      dataType="dbDate"
+                      name="birthdate" />
+                    <externalMetadataColumn
+                      refId="Package\ETL Clients\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[current_record]"
+                      dataType="bool"
+                      name="current_record" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ETL Clients\Insert Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\ETL Clients\Insert Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL Clients\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ETL Clients\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ETL Clients\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ETL Clients\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ETL Clients\OLE DB Command"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="OLE DB Command"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">UPDATE [dbo].[DimClients] SET [current_record] = ? WHERE [code] = ? AND [current_record] = '1'</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ETL Clients\OLE DB Command.Connections[OleDbConnection]"
+                  connectionManagerID="{7DF0D481-6944-4555-AFB8-DDD5F75EBA66}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[WServer2019.MediazonDWH]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\ETL Clients\OLE DB Command.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ETL Clients\OLE DB Command.Inputs[OLE DB Command Input].Columns[code]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="code"
+                      externalMetadataColumnId="Package\ETL Clients\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Output].Columns[code]" />
+                    <inputColumn
+                      refId="Package\ETL Clients\OLE DB Command.Inputs[OLE DB Command Input].Columns[current_record]"
+                      cachedDataType="bool"
+                      cachedName="current_record"
+                      externalMetadataColumnId="Package\ETL Clients\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\ETL Clients\Derived Column.Outputs[Derived Column Output].Columns[current_record]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\ETL Clients\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      dataType="bool"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\ETL Clients\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      dataType="wstr"
+                      length="10"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ETL Clients\OLE DB Command.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\ETL Clients\OLE DB Command.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\ETL Clients\OLE DB Command.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\ETL Clients\OLE DB Command.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL Clients\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ETL Clients\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ETL Clients\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ETL Clients\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ETL Clients\OLE DB Command 1"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="OLE DB Command 1"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">UPDATE [dbo].[DimClients] SET [birthdate] = ?,[email] = ?,[firstname] = ?,[geography_id] = ?,[language] = ?,[lastname] = ?,[phone] = ?,[street] = ? WHERE [code] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ETL Clients\OLE DB Command 1.Connections[OleDbConnection]"
+                  connectionManagerID="{7DF0D481-6944-4555-AFB8-DDD5F75EBA66}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[WServer2019.MediazonDWH]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\ETL Clients\OLE DB Command 1.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ETL Clients\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[birthdate]"
+                      cachedDataType="dbDate"
+                      cachedName="birthdate"
+                      externalMetadataColumnId="Package\ETL Clients\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Output].Columns[birthdate]" />
+                    <inputColumn
+                      refId="Package\ETL Clients\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[code]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="code"
+                      externalMetadataColumnId="Package\ETL Clients\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_8]"
+                      lineageId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Output].Columns[code]" />
+                    <inputColumn
+                      refId="Package\ETL Clients\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[email]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="email"
+                      externalMetadataColumnId="Package\ETL Clients\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Output].Columns[email]" />
+                    <inputColumn
+                      refId="Package\ETL Clients\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[firstname]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="firstname"
+                      externalMetadataColumnId="Package\ETL Clients\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      lineageId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Output].Columns[firstname]" />
+                    <inputColumn
+                      refId="Package\ETL Clients\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[geography_id]"
+                      cachedDataType="i4"
+                      cachedName="geography_id"
+                      externalMetadataColumnId="Package\ETL Clients\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      lineageId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Output].Columns[geography_id]" />
+                    <inputColumn
+                      refId="Package\ETL Clients\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[language]"
+                      cachedDataType="i4"
+                      cachedName="language"
+                      externalMetadataColumnId="Package\ETL Clients\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      lineageId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Output].Columns[language]" />
+                    <inputColumn
+                      refId="Package\ETL Clients\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[lastname]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="lastname"
+                      externalMetadataColumnId="Package\ETL Clients\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                      lineageId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Output].Columns[lastname]" />
+                    <inputColumn
+                      refId="Package\ETL Clients\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[phone]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="phone"
+                      externalMetadataColumnId="Package\ETL Clients\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
+                      lineageId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Output].Columns[phone]" />
+                    <inputColumn
+                      refId="Package\ETL Clients\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[street]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="street"
+                      externalMetadataColumnId="Package\ETL Clients\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
+                      lineageId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Output].Columns[street]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\ETL Clients\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      dataType="dbDate"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\ETL Clients\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\ETL Clients\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Param_2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\ETL Clients\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      dataType="i4"
+                      name="Param_3">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\ETL Clients\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      dataType="i4"
+                      name="Param_4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\ETL Clients\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Param_5">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\ETL Clients\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="Param_6">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\ETL Clients\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Param_7">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\ETL Clients\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_8]"
+                      dataType="wstr"
+                      length="10"
+                      name="Param_8">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ETL Clients\OLE DB Command 1.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\ETL Clients\OLE DB Command 1.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\ETL Clients\OLE DB Command 1.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\ETL Clients\OLE DB Command 1.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL Clients\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ETL Clients\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ETL Clients\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ETL Clients\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ETL Clients\OLE DB Command 2"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="OLE DB Command 2"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">UPDATE [dbo].[DimClients] SET [email] = ?,[firstname] = ?,[language] = ?,[lastname] = ?,[phone] = ? WHERE [code] = ? AND [current_record] = '1'</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ETL Clients\OLE DB Command 2.Connections[OleDbConnection]"
+                  connectionManagerID="{7DF0D481-6944-4555-AFB8-DDD5F75EBA66}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[WServer2019.MediazonDWH]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\ETL Clients\OLE DB Command 2.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ETL Clients\OLE DB Command 2.Inputs[OLE DB Command Input].Columns[code]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="code"
+                      externalMetadataColumnId="Package\ETL Clients\OLE DB Command 2.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                      lineageId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Output].Columns[code]" />
+                    <inputColumn
+                      refId="Package\ETL Clients\OLE DB Command 2.Inputs[OLE DB Command Input].Columns[email]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="email"
+                      externalMetadataColumnId="Package\ETL Clients\OLE DB Command 2.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Output].Columns[email]" />
+                    <inputColumn
+                      refId="Package\ETL Clients\OLE DB Command 2.Inputs[OLE DB Command Input].Columns[firstname]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="firstname"
+                      externalMetadataColumnId="Package\ETL Clients\OLE DB Command 2.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Output].Columns[firstname]" />
+                    <inputColumn
+                      refId="Package\ETL Clients\OLE DB Command 2.Inputs[OLE DB Command Input].Columns[language]"
+                      cachedDataType="i4"
+                      cachedName="language"
+                      externalMetadataColumnId="Package\ETL Clients\OLE DB Command 2.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      lineageId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Output].Columns[language]" />
+                    <inputColumn
+                      refId="Package\ETL Clients\OLE DB Command 2.Inputs[OLE DB Command Input].Columns[lastname]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="lastname"
+                      externalMetadataColumnId="Package\ETL Clients\OLE DB Command 2.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      lineageId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Output].Columns[lastname]" />
+                    <inputColumn
+                      refId="Package\ETL Clients\OLE DB Command 2.Inputs[OLE DB Command Input].Columns[phone]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="phone"
+                      externalMetadataColumnId="Package\ETL Clients\OLE DB Command 2.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      lineageId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Output].Columns[phone]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\ETL Clients\OLE DB Command 2.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\ETL Clients\OLE DB Command 2.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\ETL Clients\OLE DB Command 2.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      dataType="i4"
+                      name="Param_2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\ETL Clients\OLE DB Command 2.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Param_3">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\ETL Clients\OLE DB Command 2.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="Param_4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\ETL Clients\OLE DB Command 2.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                      dataType="wstr"
+                      length="10"
+                      name="Param_5">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ETL Clients\OLE DB Command 2.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\ETL Clients\OLE DB Command 2.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\ETL Clients\OLE DB Command 2.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\ETL Clients\OLE DB Command 2.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL Clients\OLE DB Command 2.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ETL Clients\OLE DB Command 2.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ETL Clients\OLE DB Command 2.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ETL Clients\OLE DB Command 2.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ETL Clients\Slowly Changing Dimension"
+              componentClassID="Microsoft.SCD"
+              contactInfo="Slowly Changing Dimension;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;3"
+              description="Updates a SQL Server Analysis Services data warehouse dimension. Update dimension records that are already present and  insert dimension records that aren't. For example, update the DimProduct table of the AdventureWorksDW OLAP database with data from the Products table in the AdventureWorks OLTP database."
+              name="Slowly Changing Dimension"
+              version="3">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SELECT statement used to create a schema rowset."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT [birthdate], [code], [email], [firstname], [geography_id], [language], [lastname], [phone], [street],[current_record] FROM [dbo].[DimClients]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the WHERE clause in the SELECT statement that selects the current row among rows with identical business keys."
+                  name="CurrentRowWhere">[current_record] = '1'</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether historical attribute updates are directed to the transformation output for changing attribute updates."
+                  name="UpdateChangingAttributeHistory">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the transformation fails when columns with fixed attributes contain changes."
+                  name="FailOnFixedAttributeChange">true</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the column name for the inferred member."
+                  name="InferredMemberIndicator"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether inferred member updates are detected."
+                  name="EnableInferredMember">true</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the transformation fails when a lookup of an existing record fails."
+                  name="FailOnLookupFailure">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies that all rows in the input are new or the transformation detects the change type."
+                  name="IncomingRowChangeType"
+                  typeConverter="IncomingRowChangeType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ETL Clients\Slowly Changing Dimension.Connections[LookupConnection]"
+                  connectionManagerID="{7DF0D481-6944-4555-AFB8-DDD5F75EBA66}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[WServer2019.MediazonDWH]"
+                  description="Defines the connection to use for lookups in the dimension table"
+                  name="LookupConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\ETL Clients\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]"
+                  name="Slowly Changing Dimension Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ETL Clients\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[birthdate]"
+                      cachedDataType="dbDate"
+                      cachedName="birthdate"
+                      externalMetadataColumnId="Package\ETL Clients\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[birthdate]"
+                      lineageId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Output].Columns[birthdate]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">4</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL Clients\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[code]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="code"
+                      externalMetadataColumnId="Package\ETL Clients\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[code]"
+                      lineageId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Output].Columns[code]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL Clients\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[email]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="email"
+                      externalMetadataColumnId="Package\ETL Clients\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[email]"
+                      lineageId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Output].Columns[email]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL Clients\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[firstname]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="firstname"
+                      externalMetadataColumnId="Package\ETL Clients\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[firstname]"
+                      lineageId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Output].Columns[firstname]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL Clients\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[geography_id]"
+                      cachedDataType="i4"
+                      cachedName="geography_id"
+                      externalMetadataColumnId="Package\ETL Clients\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[geography_id]"
+                      lineageId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Output].Columns[geography_id]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">3</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL Clients\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[language]"
+                      cachedDataType="i4"
+                      cachedName="language"
+                      externalMetadataColumnId="Package\ETL Clients\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[language]"
+                      lineageId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Output].Columns[language]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL Clients\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[lastname]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="lastname"
+                      externalMetadataColumnId="Package\ETL Clients\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[lastname]"
+                      lineageId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Output].Columns[lastname]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL Clients\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[phone]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="phone"
+                      externalMetadataColumnId="Package\ETL Clients\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[phone]"
+                      lineageId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Output].Columns[phone]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL Clients\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[street]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="street"
+                      externalMetadataColumnId="Package\ETL Clients\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[street]"
+                      lineageId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Output].Columns[street]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">3</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\ETL Clients\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[birthdate]"
+                      dataType="dbDate"
+                      name="birthdate" />
+                    <externalMetadataColumn
+                      refId="Package\ETL Clients\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[code]"
+                      dataType="wstr"
+                      length="10"
+                      name="code" />
+                    <externalMetadataColumn
+                      refId="Package\ETL Clients\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[email]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="email" />
+                    <externalMetadataColumn
+                      refId="Package\ETL Clients\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[firstname]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="firstname" />
+                    <externalMetadataColumn
+                      refId="Package\ETL Clients\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[geography_id]"
+                      dataType="i4"
+                      name="geography_id" />
+                    <externalMetadataColumn
+                      refId="Package\ETL Clients\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[language]"
+                      dataType="i4"
+                      name="language" />
+                    <externalMetadataColumn
+                      refId="Package\ETL Clients\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[lastname]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="lastname" />
+                    <externalMetadataColumn
+                      refId="Package\ETL Clients\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[phone]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="phone" />
+                    <externalMetadataColumn
+                      refId="Package\ETL Clients\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[street]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="street" />
+                    <externalMetadataColumn
+                      refId="Package\ETL Clients\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[current_record]"
+                      dataType="bool"
+                      name="current_record" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ETL Clients\Slowly Changing Dimension.Outputs[Unchanged Output]"
+                  description="Unchanged rows"
+                  exclusionGroup="1"
+                  name="Unchanged Output"
+                  synchronousInputId="Package\ETL Clients\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\ETL Clients\Slowly Changing Dimension.Outputs[New Output]"
+                  description="New rows"
+                  exclusionGroup="1"
+                  name="New Output"
+                  synchronousInputId="Package\ETL Clients\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\ETL Clients\Slowly Changing Dimension.Outputs[Fixed Attribute Output]"
+                  description="Rows with changes in columns tagged FixedAttribute"
+                  exclusionGroup="1"
+                  name="Fixed Attribute Output"
+                  synchronousInputId="Package\ETL Clients\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\ETL Clients\Slowly Changing Dimension.Outputs[Changing Attribute Updates Output]"
+                  description="These rows contain new information for ChangingAttribute (Type 1) column changes"
+                  exclusionGroup="1"
+                  name="Changing Attribute Updates Output"
+                  synchronousInputId="Package\ETL Clients\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\ETL Clients\Slowly Changing Dimension.Outputs[Historical Attribute Inserts Output]"
+                  description="HistoricalAttribute (Type 2) changes result in these new rows"
+                  exclusionGroup="2"
+                  name="Historical Attribute Inserts Output"
+                  synchronousInputId="Package\ETL Clients\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\ETL Clients\Slowly Changing Dimension.Outputs[Inferred Member Updates Output]"
+                  description="Information to update unpopulated initial dimension row"
+                  exclusionGroup="1"
+                  name="Inferred Member Updates Output"
+                  synchronousInputId="Package\ETL Clients\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ETL Clients\Source OLTPClients STG"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Source OLTPClients STG"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[OLTPClients]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ETL Clients\Source OLTPClients STG.Connections[OleDbConnection]"
+                  connectionManagerID="{42B9EF19-6DF7-4E7B-84E5-BFB199E5915E}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[WServer2019.MediazonStaging]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Output].Columns[code]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Output].ExternalColumns[code]"
+                      length="10"
+                      lineageId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Output].Columns[code]"
+                      name="code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Output].Columns[lastname]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Output].ExternalColumns[lastname]"
+                      length="100"
+                      lineageId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Output].Columns[lastname]"
+                      name="lastname"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Output].Columns[firstname]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Output].ExternalColumns[firstname]"
+                      length="100"
+                      lineageId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Output].Columns[firstname]"
+                      name="firstname"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Output].Columns[street]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Output].ExternalColumns[street]"
+                      length="100"
+                      lineageId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Output].Columns[street]"
+                      name="street"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Output].Columns[geography_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Output].ExternalColumns[geography_id]"
+                      lineageId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Output].Columns[geography_id]"
+                      name="geography_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Output].Columns[phone]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Output].ExternalColumns[phone]"
+                      length="25"
+                      lineageId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Output].Columns[phone]"
+                      name="phone"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Output].Columns[email]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Output].ExternalColumns[email]"
+                      length="100"
+                      lineageId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Output].Columns[email]"
+                      name="email"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Output].Columns[language]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Output].ExternalColumns[language]"
+                      lineageId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Output].Columns[language]"
+                      name="language"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Output].Columns[gender]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Output].ExternalColumns[gender]"
+                      length="1"
+                      lineageId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Output].Columns[gender]"
+                      name="gender"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Output].Columns[civility]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Output].ExternalColumns[civility]"
+                      length="20"
+                      lineageId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Output].Columns[civility]"
+                      name="civility"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Output].Columns[birthdate]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Output].ExternalColumns[birthdate]"
+                      lineageId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Output].Columns[birthdate]"
+                      name="birthdate"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Output].ExternalColumns[code]"
+                      dataType="wstr"
+                      length="10"
+                      name="code" />
+                    <externalMetadataColumn
+                      refId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Output].ExternalColumns[lastname]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="lastname" />
+                    <externalMetadataColumn
+                      refId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Output].ExternalColumns[firstname]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="firstname" />
+                    <externalMetadataColumn
+                      refId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Output].ExternalColumns[street]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="street" />
+                    <externalMetadataColumn
+                      refId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Output].ExternalColumns[geography_id]"
+                      dataType="i4"
+                      name="geography_id" />
+                    <externalMetadataColumn
+                      refId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Output].ExternalColumns[phone]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="phone" />
+                    <externalMetadataColumn
+                      refId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Output].ExternalColumns[email]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="email" />
+                    <externalMetadataColumn
+                      refId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Output].ExternalColumns[language]"
+                      dataType="i4"
+                      name="language" />
+                    <externalMetadataColumn
+                      refId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Output].ExternalColumns[gender]"
+                      dataType="wstr"
+                      length="1"
+                      name="gender" />
+                    <externalMetadataColumn
+                      refId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Output].ExternalColumns[civility]"
+                      dataType="wstr"
+                      length="20"
+                      name="civility" />
+                    <externalMetadataColumn
+                      refId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Output].ExternalColumns[birthdate]"
+                      dataType="dbDate"
+                      name="birthdate" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Error Output].Columns[code]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Error Output].Columns[code]"
+                      name="code" />
+                    <outputColumn
+                      refId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Error Output].Columns[lastname]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Error Output].Columns[lastname]"
+                      name="lastname" />
+                    <outputColumn
+                      refId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Error Output].Columns[firstname]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Error Output].Columns[firstname]"
+                      name="firstname" />
+                    <outputColumn
+                      refId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Error Output].Columns[street]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Error Output].Columns[street]"
+                      name="street" />
+                    <outputColumn
+                      refId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Error Output].Columns[geography_id]"
+                      dataType="i4"
+                      lineageId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Error Output].Columns[geography_id]"
+                      name="geography_id" />
+                    <outputColumn
+                      refId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Error Output].Columns[phone]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      lineageId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Error Output].Columns[phone]"
+                      name="phone" />
+                    <outputColumn
+                      refId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Error Output].Columns[email]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Error Output].Columns[email]"
+                      name="email" />
+                    <outputColumn
+                      refId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Error Output].Columns[language]"
+                      dataType="i4"
+                      lineageId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Error Output].Columns[language]"
+                      name="language" />
+                    <outputColumn
+                      refId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Error Output].Columns[gender]"
+                      dataType="wstr"
+                      length="1"
+                      lineageId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Error Output].Columns[gender]"
+                      name="gender" />
+                    <outputColumn
+                      refId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Error Output].Columns[civility]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Error Output].Columns[civility]"
+                      name="civility" />
+                    <outputColumn
+                      refId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Error Output].Columns[birthdate]"
+                      dataType="dbDate"
+                      lineageId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Error Output].Columns[birthdate]"
+                      name="birthdate" />
+                    <outputColumn
+                      refId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ETL Clients\Union All"
+              componentClassID="Microsoft.UnionAll"
+              contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
+              name="Union All"
+              version="1">
+              <inputs>
+                <input
+                  refId="Package\ETL Clients\Union All.Inputs[Union All Input 1]"
+                  name="Union All Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ETL Clients\Union All.Inputs[Union All Input 1].Columns[code]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="code"
+                      lineageId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Output].Columns[code]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL Clients\Union All.Outputs[Union All Output 1].Columns[code]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL Clients\Union All.Inputs[Union All Input 1].Columns[lastname]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="lastname"
+                      lineageId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Output].Columns[lastname]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL Clients\Union All.Outputs[Union All Output 1].Columns[lastname]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL Clients\Union All.Inputs[Union All Input 1].Columns[firstname]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="firstname"
+                      lineageId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Output].Columns[firstname]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL Clients\Union All.Outputs[Union All Output 1].Columns[firstname]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL Clients\Union All.Inputs[Union All Input 1].Columns[street]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="street"
+                      lineageId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Output].Columns[street]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL Clients\Union All.Outputs[Union All Output 1].Columns[street]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL Clients\Union All.Inputs[Union All Input 1].Columns[geography_id]"
+                      cachedDataType="i4"
+                      cachedName="geography_id"
+                      lineageId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Output].Columns[geography_id]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL Clients\Union All.Outputs[Union All Output 1].Columns[geography_id]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL Clients\Union All.Inputs[Union All Input 1].Columns[phone]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="phone"
+                      lineageId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Output].Columns[phone]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL Clients\Union All.Outputs[Union All Output 1].Columns[phone]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL Clients\Union All.Inputs[Union All Input 1].Columns[email]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="email"
+                      lineageId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Output].Columns[email]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL Clients\Union All.Outputs[Union All Output 1].Columns[email]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL Clients\Union All.Inputs[Union All Input 1].Columns[language]"
+                      cachedDataType="i4"
+                      cachedName="language"
+                      lineageId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Output].Columns[language]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL Clients\Union All.Outputs[Union All Output 1].Columns[language]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL Clients\Union All.Inputs[Union All Input 1].Columns[gender]"
+                      cachedDataType="wstr"
+                      cachedLength="1"
+                      cachedName="gender"
+                      lineageId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Output].Columns[gender]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL Clients\Union All.Outputs[Union All Output 1].Columns[gender]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL Clients\Union All.Inputs[Union All Input 1].Columns[civility]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="civility"
+                      lineageId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Output].Columns[civility]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL Clients\Union All.Outputs[Union All Output 1].Columns[civility]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL Clients\Union All.Inputs[Union All Input 1].Columns[birthdate]"
+                      cachedDataType="dbDate"
+                      cachedName="birthdate"
+                      lineageId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Output].Columns[birthdate]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL Clients\Union All.Outputs[Union All Output 1].Columns[birthdate]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\ETL Clients\Union All.Inputs[Union All Input 2]"
+                  hasSideEffects="true"
+                  name="Union All Input 2">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ETL Clients\Union All.Inputs[Union All Input 2].Columns[code]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="code"
+                      lineageId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Output].Columns[code]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL Clients\Union All.Outputs[Union All Output 1].Columns[code]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL Clients\Union All.Inputs[Union All Input 2].Columns[lastname]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="lastname"
+                      lineageId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Output].Columns[lastname]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL Clients\Union All.Outputs[Union All Output 1].Columns[lastname]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL Clients\Union All.Inputs[Union All Input 2].Columns[firstname]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="firstname"
+                      lineageId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Output].Columns[firstname]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL Clients\Union All.Outputs[Union All Output 1].Columns[firstname]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL Clients\Union All.Inputs[Union All Input 2].Columns[street]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="street"
+                      lineageId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Output].Columns[street]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL Clients\Union All.Outputs[Union All Output 1].Columns[street]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL Clients\Union All.Inputs[Union All Input 2].Columns[geography_id]"
+                      cachedDataType="i4"
+                      cachedName="geography_id"
+                      lineageId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Output].Columns[geography_id]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL Clients\Union All.Outputs[Union All Output 1].Columns[geography_id]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL Clients\Union All.Inputs[Union All Input 2].Columns[phone]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="phone"
+                      lineageId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Output].Columns[phone]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL Clients\Union All.Outputs[Union All Output 1].Columns[phone]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL Clients\Union All.Inputs[Union All Input 2].Columns[email]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="email"
+                      lineageId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Output].Columns[email]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL Clients\Union All.Outputs[Union All Output 1].Columns[email]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL Clients\Union All.Inputs[Union All Input 2].Columns[language]"
+                      cachedDataType="i4"
+                      cachedName="language"
+                      lineageId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Output].Columns[language]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL Clients\Union All.Outputs[Union All Output 1].Columns[language]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL Clients\Union All.Inputs[Union All Input 2].Columns[gender]"
+                      cachedDataType="wstr"
+                      cachedLength="1"
+                      cachedName="gender"
+                      lineageId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Output].Columns[gender]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL Clients\Union All.Outputs[Union All Output 1].Columns[gender]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL Clients\Union All.Inputs[Union All Input 2].Columns[civility]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="civility"
+                      lineageId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Output].Columns[civility]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL Clients\Union All.Outputs[Union All Output 1].Columns[civility]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL Clients\Union All.Inputs[Union All Input 2].Columns[birthdate]"
+                      cachedDataType="dbDate"
+                      cachedName="birthdate"
+                      lineageId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Output].Columns[birthdate]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL Clients\Union All.Outputs[Union All Output 1].Columns[birthdate]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\ETL Clients\Union All.Inputs[Union All Input 3]"
+                  dangling="true"
+                  hasSideEffects="true"
+                  name="Union All Input 3">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ETL Clients\Union All.Outputs[Union All Output 1]"
+                  name="Union All Output 1">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL Clients\Union All.Outputs[Union All Output 1].Columns[code]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\ETL Clients\Union All.Outputs[Union All Output 1].Columns[code]"
+                      name="code" />
+                    <outputColumn
+                      refId="Package\ETL Clients\Union All.Outputs[Union All Output 1].Columns[lastname]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\ETL Clients\Union All.Outputs[Union All Output 1].Columns[lastname]"
+                      name="lastname" />
+                    <outputColumn
+                      refId="Package\ETL Clients\Union All.Outputs[Union All Output 1].Columns[firstname]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\ETL Clients\Union All.Outputs[Union All Output 1].Columns[firstname]"
+                      name="firstname" />
+                    <outputColumn
+                      refId="Package\ETL Clients\Union All.Outputs[Union All Output 1].Columns[street]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\ETL Clients\Union All.Outputs[Union All Output 1].Columns[street]"
+                      name="street" />
+                    <outputColumn
+                      refId="Package\ETL Clients\Union All.Outputs[Union All Output 1].Columns[geography_id]"
+                      dataType="i4"
+                      lineageId="Package\ETL Clients\Union All.Outputs[Union All Output 1].Columns[geography_id]"
+                      name="geography_id" />
+                    <outputColumn
+                      refId="Package\ETL Clients\Union All.Outputs[Union All Output 1].Columns[phone]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      lineageId="Package\ETL Clients\Union All.Outputs[Union All Output 1].Columns[phone]"
+                      name="phone" />
+                    <outputColumn
+                      refId="Package\ETL Clients\Union All.Outputs[Union All Output 1].Columns[email]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\ETL Clients\Union All.Outputs[Union All Output 1].Columns[email]"
+                      name="email" />
+                    <outputColumn
+                      refId="Package\ETL Clients\Union All.Outputs[Union All Output 1].Columns[language]"
+                      dataType="i4"
+                      lineageId="Package\ETL Clients\Union All.Outputs[Union All Output 1].Columns[language]"
+                      name="language" />
+                    <outputColumn
+                      refId="Package\ETL Clients\Union All.Outputs[Union All Output 1].Columns[gender]"
+                      dataType="wstr"
+                      length="1"
+                      lineageId="Package\ETL Clients\Union All.Outputs[Union All Output 1].Columns[gender]"
+                      name="gender" />
+                    <outputColumn
+                      refId="Package\ETL Clients\Union All.Outputs[Union All Output 1].Columns[civility]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\ETL Clients\Union All.Outputs[Union All Output 1].Columns[civility]"
+                      name="civility" />
+                    <outputColumn
+                      refId="Package\ETL Clients\Union All.Outputs[Union All Output 1].Columns[birthdate]"
+                      dataType="dbDate"
+                      lineageId="Package\ETL Clients\Union All.Outputs[Union All Output 1].Columns[birthdate]"
+                      name="birthdate" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\ETL Clients.Paths[Changing Attribute Updates Output]"
+              endId="Package\ETL Clients\OLE DB Command 2.Inputs[OLE DB Command Input]"
+              name="Changing Attribute Updates Output"
+              startId="Package\ETL Clients\Slowly Changing Dimension.Outputs[Changing Attribute Updates Output]" />
+            <path
+              refId="Package\ETL Clients.Paths[Derived Column Output]"
+              endId="Package\ETL Clients\OLE DB Command.Inputs[OLE DB Command Input]"
+              name="Derived Column Output"
+              startId="Package\ETL Clients\Derived Column.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\ETL Clients.Paths[Derived Column Output1]"
+              endId="Package\ETL Clients\Insert Destination.Inputs[OLE DB Destination Input]"
+              name="Derived Column Output"
+              startId="Package\ETL Clients\Derived Column 1.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\ETL Clients.Paths[Historical Attribute Inserts Output]"
+              endId="Package\ETL Clients\Derived Column.Inputs[Derived Column Input]"
+              name="Historical Attribute Inserts Output"
+              startId="Package\ETL Clients\Slowly Changing Dimension.Outputs[Historical Attribute Inserts Output]" />
+            <path
+              refId="Package\ETL Clients.Paths[Inferred Member Updates Output]"
+              endId="Package\ETL Clients\OLE DB Command 1.Inputs[OLE DB Command Input]"
+              name="Inferred Member Updates Output"
+              startId="Package\ETL Clients\Slowly Changing Dimension.Outputs[Inferred Member Updates Output]" />
+            <path
+              refId="Package\ETL Clients.Paths[New Output]"
+              endId="Package\ETL Clients\Union All.Inputs[Union All Input 1]"
+              name="New Output"
+              startId="Package\ETL Clients\Slowly Changing Dimension.Outputs[New Output]" />
+            <path
+              refId="Package\ETL Clients.Paths[OLE DB Command Output]"
+              endId="Package\ETL Clients\Union All.Inputs[Union All Input 2]"
+              name="OLE DB Command Output"
+              startId="Package\ETL Clients\OLE DB Command.Outputs[OLE DB Command Output]" />
+            <path
+              refId="Package\ETL Clients.Paths[OLE DB Source Output]"
+              endId="Package\ETL Clients\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]"
+              name="OLE DB Source Output"
+              startId="Package\ETL Clients\Source OLTPClients STG.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\ETL Clients.Paths[Union All Output 1]"
+              endId="Package\ETL Clients\Derived Column 1.Inputs[Derived Column Input]"
+              name="Union All Output 1"
+              startId="Package\ETL Clients\Union All.Outputs[Union All Output 1]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
       DTS:refId="Package\ETL Commandes"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
       DTS:DTSID="{E03B9F99-F59F-49AE-8DF6-2CEAF58752D1}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -4632,6 +7275,7 @@ WHERE [order_code]=? </property>
       DTS:refId="Package\ETL Exchange"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
       DTS:DTSID="{6f220cf8-7bb2-4182-b5d9-9b34ae894fb9}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -5825,6 +8469,7 @@ WHERE [Date]=? AND [Currency]=?</property>
       DTS:refId="Package\ETL Shipping"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
       DTS:DTSID="{CFA3173F-0288-4999-B7A9-949C253FFCB7}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -8647,6 +11292,7 @@ WHERE [Date]=? AND [Currency]=?</property>
       DTS:refId="Package\ETL ShippingPrice"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
       DTS:DTSID="{5618190D-60A2-47E0-9CAE-66D1446707E4}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -9771,6 +12417,7 @@ WHERE [Date]=? AND [Currency]=?</property>
       DTS:refId="Package\ETL Ventes"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
       DTS:DTSID="{3E9940FA-0890-4BD8-9F30-0FC4F765801B}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -13122,9 +15769,26 @@ where [refTable].[code] = ?</property>
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
+      DTS:refId="Package\Truncate STG Clients"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{EA98B7A9-6C8E-4DBC-AB31-9B57402DC08F}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate STG Clients"
+      DTS:ThreadHint="4">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{42B9EF19-6DF7-4E7B-84E5-BFB199E5915E}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE OLTPClients" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
       DTS:refId="Package\TRUNCATE STG ShippingPrice"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
+      DTS:Disabled="True"
       DTS:DTSID="{4BE03580-C4BF-4789-B664-9220ECAA41F6}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
@@ -13141,6 +15805,7 @@ where [refTable].[code] = ?</property>
       DTS:refId="Package\Vide staging commandes"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
+      DTS:Disabled="True"
       DTS:DTSID="{C31A8A4E-6ECB-495B-BE97-A12919260704}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
@@ -13157,6 +15822,7 @@ where [refTable].[code] = ?</property>
       DTS:refId="Package\Vide staging Exchange"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
+      DTS:Disabled="True"
       DTS:DTSID="{26685dcb-4508-41c7-a438-38c12a547c09}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
@@ -13173,6 +15839,7 @@ where [refTable].[code] = ?</property>
       DTS:refId="Package\Vide staging Ventes"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
+      DTS:Disabled="True"
       DTS:DTSID="{1CFDEA4C-A32F-4F80-816A-A2F5C1F2FF35}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
@@ -13203,6 +15870,14 @@ where [refTable].[code] = ?</property>
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 1"
       DTS:To="Package\ETL Commandes" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 10]"
+      DTS:CreationName=""
+      DTS:DTSID="{02CD6CD6-0E4D-48B5-BF9F-206BAA5033F1}"
+      DTS:From="Package\Chargement STG Clients"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 10"
+      DTS:To="Package\ETL Clients" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
       DTS:CreationName=""
@@ -13259,6 +15934,14 @@ where [refTable].[code] = ?</property>
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 8"
       DTS:To="Package\ETL ShippingPrice" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 9]"
+      DTS:CreationName=""
+      DTS:DTSID="{3B629307-701B-49F5-9DA4-EBAF570C5539}"
+      DTS:From="Package\Truncate STG Clients"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 9"
+      DTS:To="Package\Chargement STG Clients" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -13562,6 +16245,86 @@ where [refTable].[code] = ?</property>
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,39.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="178,42"
+          Id="Package\Truncate STG Clients"
+          TopLeft="831,397" />
+        <NodeLayout
+          Size="194,42"
+          Id="Package\Chargement STG Clients"
+          TopLeft="848,545" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 9]"
+          TopLeft="920,439">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="25,106"
+              Start="0,0"
+              End="25,98.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,49" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,49"
+                    Point2="0,53"
+                    Point3="4,53" />
+                  <mssgle:LineSegment
+                    End="21,53" />
+                  <mssgle:CubicBezierSegment
+                    Point1="21,53"
+                    Point2="25,53"
+                    Point3="25,57" />
+                  <mssgle:LineSegment
+                    End="25,98.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="131,42"
+          Id="Package\ETL Clients"
+          TopLeft="862,629" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 10]"
+          TopLeft="945,587">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-17.5,42"
+              Start="0,0"
+              End="-17.5,34.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17"
+                    Point2="0,21"
+                    Point3="-4,21" />
+                  <mssgle:LineSegment
+                    End="-13.5,21" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-13.5,21"
+                    Point2="-17.5,21"
+                    Point3="-17.5,25" />
+                  <mssgle:LineSegment
+                    End="-17.5,34.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -15749,6 +18512,483 @@ where [refTable].[code] = ?</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Chargement STG Clients">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="160,42"
+          Id="Package\Chargement STG Clients\Extraction Clients"
+          TopLeft="211,55" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Chargement STG Clients\Chargement Clients"
+          TopLeft="206,222" />
+        <EdgeLayout
+          Id="Package\Chargement STG Clients.Paths[OLE DB Source Output]"
+          TopLeft="291.25,97">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,125"
+              Start="0,0"
+              End="0,117.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,117.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <TaskHost
+    design-time-name="Package\ETL Clients">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="193,42"
+          Id="Package\ETL Clients\Source OLTPClients STG"
+          TopLeft="136,5.5" />
+        <NodeLayout
+          Size="209,42"
+          Id="Package\ETL Clients\Slowly Changing Dimension"
+          TopLeft="128,107.5" />
+        <EdgeLayout
+          Id="Package\ETL Clients.Paths[OLE DB Source Output]"
+          TopLeft="232.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="154,42"
+          Id="Package\ETL Clients\Derived Column"
+          TopLeft="17.5,209.5" />
+        <EdgeLayout
+          Id="Package\ETL Clients.Paths[Historical Attribute Inserts Output]"
+          TopLeft="172.2,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-77.7,60.0000000000001"
+              Start="0,0"
+              End="-77.7,52.5000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.8345662407532" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.8345662407532"
+                    Point2="0,17.8345662407532"
+                    Point3="-4,17.8345662407532" />
+                  <mssgle:LineSegment
+                    End="-73.7,17.8345662407532" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-73.7,17.8345662407532"
+                    Point2="-77.7,17.8345662407532"
+                    Point3="-77.7,21.8345662407532" />
+                  <mssgle:LineSegment
+                    End="-77.7,52.5000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-113.90638671875,22.8345662407532,150.1127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="166,42"
+          Id="Package\ETL Clients\OLE DB Command"
+          TopLeft="5.5,311.5" />
+        <EdgeLayout
+          Id="Package\ETL Clients.Paths[Derived Column Output]"
+          TopLeft="91.5,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="121,42"
+          Id="Package\ETL Clients\Union All"
+          TopLeft="172,413.5" />
+        <EdgeLayout
+          Id="Package\ETL Clients.Paths[New Output]"
+          TopLeft="212.4,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="38.9333333333333,264"
+              Start="0,0"
+              End="38.9333333333333,256.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,138.493081663501" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,138.493081663501"
+                    Point2="0,142.493081663501"
+                    Point3="4,142.493081663501" />
+                  <mssgle:LineSegment
+                    End="34.9333333333333,142.493081663501" />
+                  <mssgle:CubicBezierSegment
+                    Point1="34.9333333333333,142.493081663501"
+                    Point2="38.9333333333333,142.493081663501"
+                    Point3="38.9333333333333,146.493081663501" />
+                  <mssgle:LineSegment
+                    End="38.9333333333333,256.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-7.62472005208335,147.493081663501,54.1827734375,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ETL Clients.Paths[OLE DB Command Output]"
+          TopLeft="88.5,353.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="125.166666666667,59.9999999999999"
+              Start="0,0"
+              End="125.166666666667,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.5301794453507" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.5301794453507"
+                    Point2="0,35.5301794453507"
+                    Point3="4,35.5301794453507" />
+                  <mssgle:LineSegment
+                    End="121.166666666667,35.5301794453507" />
+                  <mssgle:CubicBezierSegment
+                    Point1="121.166666666667,35.5301794453507"
+                    Point2="125.166666666667,35.5301794453507"
+                    Point3="125.166666666667,39.5301794453507" />
+                  <mssgle:LineSegment
+                    End="125.166666666667,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="163,42"
+          Id="Package\ETL Clients\Derived Column 1"
+          TopLeft="151,515.5" />
+        <EdgeLayout
+          Id="Package\ETL Clients.Paths[Union All Output 1]"
+          TopLeft="232.5,455.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="163,42"
+          Id="Package\ETL Clients\Insert Destination"
+          TopLeft="151,617.5" />
+        <EdgeLayout
+          Id="Package\ETL Clients.Paths[Derived Column Output1]"
+          TopLeft="232.5,557.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="175,42"
+          Id="Package\ETL Clients\OLE DB Command 1"
+          TopLeft="294,209.5" />
+        <EdgeLayout
+          Id="Package\ETL Clients.Paths[Inferred Member Updates Output]"
+          TopLeft="252.6,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="128.9,60"
+              Start="0,0"
+              End="128.9,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.8078348332451" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.8078348332451"
+                    Point2="0,26.8078348332451"
+                    Point3="4,26.8078348332451" />
+                  <mssgle:LineSegment
+                    End="124.9,26.8078348332451" />
+                  <mssgle:CubicBezierSegment
+                    Point1="124.9,26.8078348332451"
+                    Point2="128.9,26.8078348332451"
+                    Point3="128.9,30.8078348332451" />
+                  <mssgle:LineSegment
+                    End="128.9,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-9.95298828125,31.8078348332451,148.8059765625,11.658203125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="175,42"
+          Id="Package\ETL Clients\OLE DB Command 2"
+          TopLeft="530,209.5" />
+        <EdgeLayout
+          Id="Package\ETL Clients.Paths[Changing Attribute Updates Output]"
+          TopLeft="292.8,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="324.7,60"
+              Start="0,0"
+              End="324.7,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.8345662407532" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.8345662407532"
+                    Point2="0,17.8345662407532"
+                    Point3="4,17.8345662407532" />
+                  <mssgle:LineSegment
+                    End="320.7,17.8345662407532" />
+                  <mssgle:CubicBezierSegment
+                    Point1="320.7,17.8345662407532"
+                    Point2="324.7,17.8345662407532"
+                    Point3="324.7,21.8345662407532" />
+                  <mssgle:LineSegment
+                    End="324.7,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="83.81609375,22.8345662407532,157.0678125,11.6630859375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Chargement STG Clients\Extraction Clients">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">View</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Chargement STG Clients\Chargement Clients">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\ETL Clients\Source OLTPClients STG">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\ETL Clients\Slowly Changing Dimension">
+    <Properties>
+      <Property>
+        <Name>SCDMetadata</Name>
+        <Value
+          type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SCDWizardMetadata xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionID&gt;{7DF0D481-6944-4555-AFB8-DDD5F75EBA66}&lt;/ConnectionID&gt;
+  &lt;TableName&gt;[dbo].[DimClients]&lt;/TableName&gt;
+  &lt;InputToColumnsCollection&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Source OLTPClients STG.Outputs[OLE DB Source Output].Columns[birthdate]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;birthdate&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Source OLTPClients STG.Outputs[OLE DB Source Output].Columns[code]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;code&lt;/ColumnName&gt;
+      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Source OLTPClients STG.Outputs[OLE DB Source Output].Columns[email]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;email&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Source OLTPClients STG.Outputs[OLE DB Source Output].Columns[firstname]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;firstname&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Source OLTPClients STG.Outputs[OLE DB Source Output].Columns[geography_id]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;geography_id&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;HistoricalAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Source OLTPClients STG.Outputs[OLE DB Source Output].Columns[language]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;language&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Source OLTPClients STG.Outputs[OLE DB Source Output].Columns[lastname]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;lastname&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Source OLTPClients STG.Outputs[OLE DB Source Output].Columns[phone]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;phone&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Source OLTPClients STG.Outputs[OLE DB Source Output].Columns[street]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;street&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;HistoricalAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+  &lt;/InputToColumnsCollection&gt;
+  &lt;GeneratedComponentsIdentificationStrings&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Derived Column&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Union All&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Derived Column 1&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Insert Destination&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command 1&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command 2&lt;/anyType&gt;
+  &lt;/GeneratedComponentsIdentificationStrings&gt;
+  &lt;FailFixedAttribute&gt;true&lt;/FailFixedAttribute&gt;
+  &lt;FailChangeAttribute&gt;false&lt;/FailChangeAttribute&gt;
+  &lt;UseStartEndDate&gt;false&lt;/UseStartEndDate&gt;
+  &lt;CurrentIndicatorColumn&gt;current_record&lt;/CurrentIndicatorColumn&gt;
+  &lt;InferredIndicatorColumn /&gt;
+  &lt;ValueCurrent&gt;1&lt;/ValueCurrent&gt;
+  &lt;ValueExpired&gt;0&lt;/ValueExpired&gt;
+  &lt;StartDateColumn /&gt;
+  &lt;EndDateColumn /&gt;
+  &lt;DateVariable /&gt;
+  &lt;EnableInferredSupport&gt;true&lt;/EnableInferredSupport&gt;
+&lt;/SCDWizardMetadata&gt;</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
