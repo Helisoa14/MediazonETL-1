@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="29"
-  DTS:VersionGUID="{E1B74F48-89D1-4D6F-859A-3DBC94B379EB}">
+  DTS:VersionBuild="30"
+  DTS:VersionGUID="{6D1DA139-A881-40F8-A089-E6A2C07057DC}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -5502,6 +5502,2828 @@ WHERE [Date]=? AND [Currency]=?</property>
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
+      DTS:refId="Package\ETL Shipping"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{CFA3173F-0288-4999-B7A9-949C253FFCB7}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="ETL Shipping"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\ETL Shipping\DimShipping DWH"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="DimShipping DWH"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[DimShipping]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ETL Shipping\DimShipping DWH.Connections[OleDbConnection]"
+                  connectionManagerID="{7DF0D481-6944-4555-AFB8-DDD5F75EBA66}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[WServer2019.MediazonDWH]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Output].Columns[id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Output].ExternalColumns[id]"
+                      lineageId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Output].Columns[id]"
+                      name="id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Output].Columns[code]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Output].ExternalColumns[code]"
+                      length="10"
+                      lineageId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Output].Columns[code]"
+                      name="code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Output].Columns[name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Output].ExternalColumns[name]"
+                      length="255"
+                      lineageId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Output].Columns[name]"
+                      name="name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Output].Columns[destination]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Output].ExternalColumns[destination]"
+                      length="255"
+                      lineageId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Output].Columns[destination]"
+                      name="destination"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Output].Columns[delivery_duration]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Output].ExternalColumns[delivery_duration]"
+                      lineageId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Output].Columns[delivery_duration]"
+                      name="delivery_duration"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Output].Columns[delivery_last_dow]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Output].ExternalColumns[delivery_last_dow]"
+                      lineageId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Output].Columns[delivery_last_dow]"
+                      name="delivery_last_dow"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Output].Columns[company]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Output].ExternalColumns[company]"
+                      length="255"
+                      lineageId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Output].Columns[company]"
+                      name="company"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Output].Columns[contact]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Output].ExternalColumns[contact]"
+                      length="255"
+                      lineageId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Output].Columns[contact]"
+                      name="contact"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Output].Columns[street]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Output].ExternalColumns[street]"
+                      length="255"
+                      lineageId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Output].Columns[street]"
+                      name="street"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Output].Columns[zip]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Output].ExternalColumns[zip]"
+                      length="255"
+                      lineageId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Output].Columns[zip]"
+                      name="zip"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Output].Columns[city]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Output].ExternalColumns[city]"
+                      length="255"
+                      lineageId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Output].Columns[city]"
+                      name="city"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Output].Columns[phone]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Output].ExternalColumns[phone]"
+                      length="255"
+                      lineageId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Output].Columns[phone]"
+                      name="phone"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Output].Columns[email]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Output].ExternalColumns[email]"
+                      length="255"
+                      lineageId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Output].Columns[email]"
+                      name="email"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Output].ExternalColumns[id]"
+                      dataType="i4"
+                      name="id" />
+                    <externalMetadataColumn
+                      refId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Output].ExternalColumns[code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="code" />
+                    <externalMetadataColumn
+                      refId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Output].ExternalColumns[name]"
+                      dataType="wstr"
+                      length="255"
+                      name="name" />
+                    <externalMetadataColumn
+                      refId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Output].ExternalColumns[destination]"
+                      dataType="wstr"
+                      length="255"
+                      name="destination" />
+                    <externalMetadataColumn
+                      refId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Output].ExternalColumns[delivery_duration]"
+                      dataType="i4"
+                      name="delivery_duration" />
+                    <externalMetadataColumn
+                      refId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Output].ExternalColumns[delivery_last_dow]"
+                      dataType="i4"
+                      name="delivery_last_dow" />
+                    <externalMetadataColumn
+                      refId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Output].ExternalColumns[company]"
+                      dataType="wstr"
+                      length="255"
+                      name="company" />
+                    <externalMetadataColumn
+                      refId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Output].ExternalColumns[contact]"
+                      dataType="wstr"
+                      length="255"
+                      name="contact" />
+                    <externalMetadataColumn
+                      refId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Output].ExternalColumns[street]"
+                      dataType="wstr"
+                      length="255"
+                      name="street" />
+                    <externalMetadataColumn
+                      refId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Output].ExternalColumns[zip]"
+                      dataType="wstr"
+                      length="255"
+                      name="zip" />
+                    <externalMetadataColumn
+                      refId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Output].ExternalColumns[city]"
+                      dataType="wstr"
+                      length="255"
+                      name="city" />
+                    <externalMetadataColumn
+                      refId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Output].ExternalColumns[phone]"
+                      dataType="wstr"
+                      length="255"
+                      name="phone" />
+                    <externalMetadataColumn
+                      refId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Output].ExternalColumns[email]"
+                      dataType="wstr"
+                      length="255"
+                      name="email" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Error Output].Columns[id]"
+                      dataType="i4"
+                      lineageId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Error Output].Columns[id]"
+                      name="id" />
+                    <outputColumn
+                      refId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Error Output].Columns[code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Error Output].Columns[code]"
+                      name="code" />
+                    <outputColumn
+                      refId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Error Output].Columns[name]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Error Output].Columns[name]"
+                      name="name" />
+                    <outputColumn
+                      refId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Error Output].Columns[destination]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Error Output].Columns[destination]"
+                      name="destination" />
+                    <outputColumn
+                      refId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Error Output].Columns[delivery_duration]"
+                      dataType="i4"
+                      lineageId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Error Output].Columns[delivery_duration]"
+                      name="delivery_duration" />
+                    <outputColumn
+                      refId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Error Output].Columns[delivery_last_dow]"
+                      dataType="i4"
+                      lineageId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Error Output].Columns[delivery_last_dow]"
+                      name="delivery_last_dow" />
+                    <outputColumn
+                      refId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Error Output].Columns[company]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Error Output].Columns[company]"
+                      name="company" />
+                    <outputColumn
+                      refId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Error Output].Columns[contact]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Error Output].Columns[contact]"
+                      name="contact" />
+                    <outputColumn
+                      refId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Error Output].Columns[street]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Error Output].Columns[street]"
+                      name="street" />
+                    <outputColumn
+                      refId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Error Output].Columns[zip]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Error Output].Columns[zip]"
+                      name="zip" />
+                    <outputColumn
+                      refId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Error Output].Columns[city]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Error Output].Columns[city]"
+                      name="city" />
+                    <outputColumn
+                      refId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Error Output].Columns[phone]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Error Output].Columns[phone]"
+                      name="phone" />
+                    <outputColumn
+                      refId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Error Output].Columns[email]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Error Output].Columns[email]"
+                      name="email" />
+                    <outputColumn
+                      refId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ETL Shipping\IMPORTShipping STG"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="IMPORTShipping STG"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[IMPORTShipping]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ETL Shipping\IMPORTShipping STG.Connections[OleDbConnection]"
+                  connectionManagerID="{42B9EF19-6DF7-4E7B-84E5-BFB199E5915E}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[WServer2019.MediazonStaging]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Output].Columns[code]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Output].ExternalColumns[code]"
+                      length="10"
+                      lineageId="Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Output].Columns[code]"
+                      name="code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Output].Columns[name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Output].ExternalColumns[name]"
+                      length="255"
+                      lineageId="Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Output].Columns[name]"
+                      name="name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Output].Columns[destination]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Output].ExternalColumns[destination]"
+                      length="255"
+                      lineageId="Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Output].Columns[destination]"
+                      name="destination"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Output].Columns[delivery_duration]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Output].ExternalColumns[delivery_duration]"
+                      lineageId="Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Output].Columns[delivery_duration]"
+                      name="delivery_duration"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Output].Columns[delivery_last_dow]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Output].ExternalColumns[delivery_last_dow]"
+                      lineageId="Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Output].Columns[delivery_last_dow]"
+                      name="delivery_last_dow"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Output].Columns[company]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Output].ExternalColumns[company]"
+                      length="255"
+                      lineageId="Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Output].Columns[company]"
+                      name="company"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Output].Columns[contact]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Output].ExternalColumns[contact]"
+                      length="255"
+                      lineageId="Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Output].Columns[contact]"
+                      name="contact"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Output].Columns[street]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Output].ExternalColumns[street]"
+                      length="255"
+                      lineageId="Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Output].Columns[street]"
+                      name="street"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Output].Columns[zip]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Output].ExternalColumns[zip]"
+                      length="255"
+                      lineageId="Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Output].Columns[zip]"
+                      name="zip"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Output].Columns[city]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Output].ExternalColumns[city]"
+                      length="255"
+                      lineageId="Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Output].Columns[city]"
+                      name="city"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Output].Columns[phone]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Output].ExternalColumns[phone]"
+                      length="255"
+                      lineageId="Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Output].Columns[phone]"
+                      name="phone"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Output].Columns[email]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Output].ExternalColumns[email]"
+                      length="255"
+                      lineageId="Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Output].Columns[email]"
+                      name="email"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Output].ExternalColumns[code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="code" />
+                    <externalMetadataColumn
+                      refId="Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Output].ExternalColumns[name]"
+                      dataType="wstr"
+                      length="255"
+                      name="name" />
+                    <externalMetadataColumn
+                      refId="Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Output].ExternalColumns[destination]"
+                      dataType="wstr"
+                      length="255"
+                      name="destination" />
+                    <externalMetadataColumn
+                      refId="Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Output].ExternalColumns[delivery_duration]"
+                      dataType="i4"
+                      name="delivery_duration" />
+                    <externalMetadataColumn
+                      refId="Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Output].ExternalColumns[delivery_last_dow]"
+                      dataType="i4"
+                      name="delivery_last_dow" />
+                    <externalMetadataColumn
+                      refId="Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Output].ExternalColumns[company]"
+                      dataType="wstr"
+                      length="255"
+                      name="company" />
+                    <externalMetadataColumn
+                      refId="Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Output].ExternalColumns[contact]"
+                      dataType="wstr"
+                      length="255"
+                      name="contact" />
+                    <externalMetadataColumn
+                      refId="Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Output].ExternalColumns[street]"
+                      dataType="wstr"
+                      length="255"
+                      name="street" />
+                    <externalMetadataColumn
+                      refId="Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Output].ExternalColumns[zip]"
+                      dataType="wstr"
+                      length="255"
+                      name="zip" />
+                    <externalMetadataColumn
+                      refId="Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Output].ExternalColumns[city]"
+                      dataType="wstr"
+                      length="255"
+                      name="city" />
+                    <externalMetadataColumn
+                      refId="Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Output].ExternalColumns[phone]"
+                      dataType="wstr"
+                      length="255"
+                      name="phone" />
+                    <externalMetadataColumn
+                      refId="Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Output].ExternalColumns[email]"
+                      dataType="wstr"
+                      length="255"
+                      name="email" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Error Output].Columns[code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Error Output].Columns[code]"
+                      name="code" />
+                    <outputColumn
+                      refId="Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Error Output].Columns[name]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Error Output].Columns[name]"
+                      name="name" />
+                    <outputColumn
+                      refId="Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Error Output].Columns[destination]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Error Output].Columns[destination]"
+                      name="destination" />
+                    <outputColumn
+                      refId="Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Error Output].Columns[delivery_duration]"
+                      dataType="i4"
+                      lineageId="Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Error Output].Columns[delivery_duration]"
+                      name="delivery_duration" />
+                    <outputColumn
+                      refId="Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Error Output].Columns[delivery_last_dow]"
+                      dataType="i4"
+                      lineageId="Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Error Output].Columns[delivery_last_dow]"
+                      name="delivery_last_dow" />
+                    <outputColumn
+                      refId="Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Error Output].Columns[company]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Error Output].Columns[company]"
+                      name="company" />
+                    <outputColumn
+                      refId="Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Error Output].Columns[contact]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Error Output].Columns[contact]"
+                      name="contact" />
+                    <outputColumn
+                      refId="Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Error Output].Columns[street]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Error Output].Columns[street]"
+                      name="street" />
+                    <outputColumn
+                      refId="Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Error Output].Columns[zip]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Error Output].Columns[zip]"
+                      name="zip" />
+                    <outputColumn
+                      refId="Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Error Output].Columns[city]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Error Output].Columns[city]"
+                      name="city" />
+                    <outputColumn
+                      refId="Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Error Output].Columns[phone]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Error Output].Columns[phone]"
+                      name="phone" />
+                    <outputColumn
+                      refId="Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Error Output].Columns[email]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Error Output].Columns[email]"
+                      name="email" />
+                    <outputColumn
+                      refId="Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ETL Shipping\INSERT Shipping in DWH"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="INSERT Shipping in DWH"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[DimShipping]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ETL Shipping\INSERT Shipping in DWH.Connections[OleDbConnection]"
+                  connectionManagerID="{7DF0D481-6944-4555-AFB8-DDD5F75EBA66}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[WServer2019.MediazonDWH]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\ETL Shipping\INSERT Shipping in DWH.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ETL Shipping\INSERT Shipping in DWH.Inputs[OLE DB Destination Input].Columns[code]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="code"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\ETL Shipping\INSERT Shipping in DWH.Inputs[OLE DB Destination Input].ExternalColumns[code]"
+                      lineageId="Package\ETL Shipping\Merge Join.Outputs[Merge Join Output].Columns[code]" />
+                    <inputColumn
+                      refId="Package\ETL Shipping\INSERT Shipping in DWH.Inputs[OLE DB Destination Input].Columns[name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="name"
+                      externalMetadataColumnId="Package\ETL Shipping\INSERT Shipping in DWH.Inputs[OLE DB Destination Input].ExternalColumns[name]"
+                      lineageId="Package\ETL Shipping\Merge Join.Outputs[Merge Join Output].Columns[name]" />
+                    <inputColumn
+                      refId="Package\ETL Shipping\INSERT Shipping in DWH.Inputs[OLE DB Destination Input].Columns[destination]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="destination"
+                      externalMetadataColumnId="Package\ETL Shipping\INSERT Shipping in DWH.Inputs[OLE DB Destination Input].ExternalColumns[destination]"
+                      lineageId="Package\ETL Shipping\Merge Join.Outputs[Merge Join Output].Columns[destination]" />
+                    <inputColumn
+                      refId="Package\ETL Shipping\INSERT Shipping in DWH.Inputs[OLE DB Destination Input].Columns[delivery_duration]"
+                      cachedDataType="i4"
+                      cachedName="delivery_duration"
+                      externalMetadataColumnId="Package\ETL Shipping\INSERT Shipping in DWH.Inputs[OLE DB Destination Input].ExternalColumns[delivery_duration]"
+                      lineageId="Package\ETL Shipping\Merge Join.Outputs[Merge Join Output].Columns[delivery_duration]" />
+                    <inputColumn
+                      refId="Package\ETL Shipping\INSERT Shipping in DWH.Inputs[OLE DB Destination Input].Columns[delivery_last_dow]"
+                      cachedDataType="i4"
+                      cachedName="delivery_last_dow"
+                      externalMetadataColumnId="Package\ETL Shipping\INSERT Shipping in DWH.Inputs[OLE DB Destination Input].ExternalColumns[delivery_last_dow]"
+                      lineageId="Package\ETL Shipping\Merge Join.Outputs[Merge Join Output].Columns[delivery_last_dow]" />
+                    <inputColumn
+                      refId="Package\ETL Shipping\INSERT Shipping in DWH.Inputs[OLE DB Destination Input].Columns[company]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="company"
+                      externalMetadataColumnId="Package\ETL Shipping\INSERT Shipping in DWH.Inputs[OLE DB Destination Input].ExternalColumns[company]"
+                      lineageId="Package\ETL Shipping\Merge Join.Outputs[Merge Join Output].Columns[company]" />
+                    <inputColumn
+                      refId="Package\ETL Shipping\INSERT Shipping in DWH.Inputs[OLE DB Destination Input].Columns[contact]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="contact"
+                      externalMetadataColumnId="Package\ETL Shipping\INSERT Shipping in DWH.Inputs[OLE DB Destination Input].ExternalColumns[contact]"
+                      lineageId="Package\ETL Shipping\Merge Join.Outputs[Merge Join Output].Columns[contact]" />
+                    <inputColumn
+                      refId="Package\ETL Shipping\INSERT Shipping in DWH.Inputs[OLE DB Destination Input].Columns[street]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="street"
+                      externalMetadataColumnId="Package\ETL Shipping\INSERT Shipping in DWH.Inputs[OLE DB Destination Input].ExternalColumns[street]"
+                      lineageId="Package\ETL Shipping\Merge Join.Outputs[Merge Join Output].Columns[street]" />
+                    <inputColumn
+                      refId="Package\ETL Shipping\INSERT Shipping in DWH.Inputs[OLE DB Destination Input].Columns[zip]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="zip"
+                      externalMetadataColumnId="Package\ETL Shipping\INSERT Shipping in DWH.Inputs[OLE DB Destination Input].ExternalColumns[zip]"
+                      lineageId="Package\ETL Shipping\Merge Join.Outputs[Merge Join Output].Columns[zip]" />
+                    <inputColumn
+                      refId="Package\ETL Shipping\INSERT Shipping in DWH.Inputs[OLE DB Destination Input].Columns[city]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="city"
+                      externalMetadataColumnId="Package\ETL Shipping\INSERT Shipping in DWH.Inputs[OLE DB Destination Input].ExternalColumns[city]"
+                      lineageId="Package\ETL Shipping\Merge Join.Outputs[Merge Join Output].Columns[city]" />
+                    <inputColumn
+                      refId="Package\ETL Shipping\INSERT Shipping in DWH.Inputs[OLE DB Destination Input].Columns[phone]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="phone"
+                      externalMetadataColumnId="Package\ETL Shipping\INSERT Shipping in DWH.Inputs[OLE DB Destination Input].ExternalColumns[phone]"
+                      lineageId="Package\ETL Shipping\Merge Join.Outputs[Merge Join Output].Columns[phone]" />
+                    <inputColumn
+                      refId="Package\ETL Shipping\INSERT Shipping in DWH.Inputs[OLE DB Destination Input].Columns[email]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="email"
+                      externalMetadataColumnId="Package\ETL Shipping\INSERT Shipping in DWH.Inputs[OLE DB Destination Input].ExternalColumns[email]"
+                      lineageId="Package\ETL Shipping\Merge Join.Outputs[Merge Join Output].Columns[email]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\ETL Shipping\INSERT Shipping in DWH.Inputs[OLE DB Destination Input].ExternalColumns[id]"
+                      dataType="i4"
+                      name="id" />
+                    <externalMetadataColumn
+                      refId="Package\ETL Shipping\INSERT Shipping in DWH.Inputs[OLE DB Destination Input].ExternalColumns[code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="code" />
+                    <externalMetadataColumn
+                      refId="Package\ETL Shipping\INSERT Shipping in DWH.Inputs[OLE DB Destination Input].ExternalColumns[name]"
+                      dataType="wstr"
+                      length="255"
+                      name="name" />
+                    <externalMetadataColumn
+                      refId="Package\ETL Shipping\INSERT Shipping in DWH.Inputs[OLE DB Destination Input].ExternalColumns[destination]"
+                      dataType="wstr"
+                      length="255"
+                      name="destination" />
+                    <externalMetadataColumn
+                      refId="Package\ETL Shipping\INSERT Shipping in DWH.Inputs[OLE DB Destination Input].ExternalColumns[delivery_duration]"
+                      dataType="i4"
+                      name="delivery_duration" />
+                    <externalMetadataColumn
+                      refId="Package\ETL Shipping\INSERT Shipping in DWH.Inputs[OLE DB Destination Input].ExternalColumns[delivery_last_dow]"
+                      dataType="i4"
+                      name="delivery_last_dow" />
+                    <externalMetadataColumn
+                      refId="Package\ETL Shipping\INSERT Shipping in DWH.Inputs[OLE DB Destination Input].ExternalColumns[company]"
+                      dataType="wstr"
+                      length="255"
+                      name="company" />
+                    <externalMetadataColumn
+                      refId="Package\ETL Shipping\INSERT Shipping in DWH.Inputs[OLE DB Destination Input].ExternalColumns[contact]"
+                      dataType="wstr"
+                      length="255"
+                      name="contact" />
+                    <externalMetadataColumn
+                      refId="Package\ETL Shipping\INSERT Shipping in DWH.Inputs[OLE DB Destination Input].ExternalColumns[street]"
+                      dataType="wstr"
+                      length="255"
+                      name="street" />
+                    <externalMetadataColumn
+                      refId="Package\ETL Shipping\INSERT Shipping in DWH.Inputs[OLE DB Destination Input].ExternalColumns[zip]"
+                      dataType="wstr"
+                      length="255"
+                      name="zip" />
+                    <externalMetadataColumn
+                      refId="Package\ETL Shipping\INSERT Shipping in DWH.Inputs[OLE DB Destination Input].ExternalColumns[city]"
+                      dataType="wstr"
+                      length="255"
+                      name="city" />
+                    <externalMetadataColumn
+                      refId="Package\ETL Shipping\INSERT Shipping in DWH.Inputs[OLE DB Destination Input].ExternalColumns[phone]"
+                      dataType="wstr"
+                      length="255"
+                      name="phone" />
+                    <externalMetadataColumn
+                      refId="Package\ETL Shipping\INSERT Shipping in DWH.Inputs[OLE DB Destination Input].ExternalColumns[email]"
+                      dataType="wstr"
+                      length="255"
+                      name="email" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ETL Shipping\INSERT Shipping in DWH.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\ETL Shipping\INSERT Shipping in DWH.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL Shipping\INSERT Shipping in DWH.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ETL Shipping\INSERT Shipping in DWH.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ETL Shipping\INSERT Shipping in DWH.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ETL Shipping\INSERT Shipping in DWH.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ETL Shipping\Merge Join"
+              componentClassID="Microsoft.MergeJoin"
+              contactInfo="Merge Join;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combine two sorted data flows into one using the FULL, LEFT, or INNER join. We recommend this transformation when data flows can be sorted at their sources."
+              name="Merge Join"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of join to perform."
+                  name="JoinType"
+                  typeConverter="JoinType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the number of columns in the ordering key."
+                  name="NumKeyColumns">1</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the null values are treated as equal values."
+                  name="TreatNullsAsEqual">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Indicates the requested maximum buffers per input before blocking."
+                  name="MaxBuffersPerInput">5</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\ETL Shipping\Merge Join.Inputs[Merge Join Left Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Left Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ETL Shipping\Merge Join.Inputs[Merge Join Left Input].Columns[code]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="code"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\ETL Shipping\Trier STG.Outputs[Sort Output].Columns[code]" />
+                    <inputColumn
+                      refId="Package\ETL Shipping\Merge Join.Inputs[Merge Join Left Input].Columns[name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="name"
+                      lineageId="Package\ETL Shipping\Trier STG.Outputs[Sort Output].Columns[name]" />
+                    <inputColumn
+                      refId="Package\ETL Shipping\Merge Join.Inputs[Merge Join Left Input].Columns[destination]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="destination"
+                      lineageId="Package\ETL Shipping\Trier STG.Outputs[Sort Output].Columns[destination]" />
+                    <inputColumn
+                      refId="Package\ETL Shipping\Merge Join.Inputs[Merge Join Left Input].Columns[delivery_duration]"
+                      cachedDataType="i4"
+                      cachedName="delivery_duration"
+                      lineageId="Package\ETL Shipping\Trier STG.Outputs[Sort Output].Columns[delivery_duration]" />
+                    <inputColumn
+                      refId="Package\ETL Shipping\Merge Join.Inputs[Merge Join Left Input].Columns[delivery_last_dow]"
+                      cachedDataType="i4"
+                      cachedName="delivery_last_dow"
+                      lineageId="Package\ETL Shipping\Trier STG.Outputs[Sort Output].Columns[delivery_last_dow]" />
+                    <inputColumn
+                      refId="Package\ETL Shipping\Merge Join.Inputs[Merge Join Left Input].Columns[company]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="company"
+                      lineageId="Package\ETL Shipping\Trier STG.Outputs[Sort Output].Columns[company]" />
+                    <inputColumn
+                      refId="Package\ETL Shipping\Merge Join.Inputs[Merge Join Left Input].Columns[contact]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="contact"
+                      lineageId="Package\ETL Shipping\Trier STG.Outputs[Sort Output].Columns[contact]" />
+                    <inputColumn
+                      refId="Package\ETL Shipping\Merge Join.Inputs[Merge Join Left Input].Columns[street]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="street"
+                      lineageId="Package\ETL Shipping\Trier STG.Outputs[Sort Output].Columns[street]" />
+                    <inputColumn
+                      refId="Package\ETL Shipping\Merge Join.Inputs[Merge Join Left Input].Columns[zip]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="zip"
+                      lineageId="Package\ETL Shipping\Trier STG.Outputs[Sort Output].Columns[zip]" />
+                    <inputColumn
+                      refId="Package\ETL Shipping\Merge Join.Inputs[Merge Join Left Input].Columns[city]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="city"
+                      lineageId="Package\ETL Shipping\Trier STG.Outputs[Sort Output].Columns[city]" />
+                    <inputColumn
+                      refId="Package\ETL Shipping\Merge Join.Inputs[Merge Join Left Input].Columns[phone]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="phone"
+                      lineageId="Package\ETL Shipping\Trier STG.Outputs[Sort Output].Columns[phone]" />
+                    <inputColumn
+                      refId="Package\ETL Shipping\Merge Join.Inputs[Merge Join Left Input].Columns[email]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="email"
+                      lineageId="Package\ETL Shipping\Trier STG.Outputs[Sort Output].Columns[email]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\ETL Shipping\Merge Join.Inputs[Merge Join Right Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Right Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ETL Shipping\Merge Join.Inputs[Merge Join Right Input].Columns[code]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="code"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\ETL Shipping\Trier DTW.Outputs[Sort Output].Columns[code]" />
+                    <inputColumn
+                      refId="Package\ETL Shipping\Merge Join.Inputs[Merge Join Right Input].Columns[name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="name"
+                      lineageId="Package\ETL Shipping\Trier DTW.Outputs[Sort Output].Columns[name]" />
+                    <inputColumn
+                      refId="Package\ETL Shipping\Merge Join.Inputs[Merge Join Right Input].Columns[destination]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="destination"
+                      lineageId="Package\ETL Shipping\Trier DTW.Outputs[Sort Output].Columns[destination]" />
+                    <inputColumn
+                      refId="Package\ETL Shipping\Merge Join.Inputs[Merge Join Right Input].Columns[delivery_duration]"
+                      cachedDataType="i4"
+                      cachedName="delivery_duration"
+                      lineageId="Package\ETL Shipping\Trier DTW.Outputs[Sort Output].Columns[delivery_duration]" />
+                    <inputColumn
+                      refId="Package\ETL Shipping\Merge Join.Inputs[Merge Join Right Input].Columns[delivery_last_dow]"
+                      cachedDataType="i4"
+                      cachedName="delivery_last_dow"
+                      lineageId="Package\ETL Shipping\Trier DTW.Outputs[Sort Output].Columns[delivery_last_dow]" />
+                    <inputColumn
+                      refId="Package\ETL Shipping\Merge Join.Inputs[Merge Join Right Input].Columns[company]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="company"
+                      lineageId="Package\ETL Shipping\Trier DTW.Outputs[Sort Output].Columns[company]" />
+                    <inputColumn
+                      refId="Package\ETL Shipping\Merge Join.Inputs[Merge Join Right Input].Columns[contact]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="contact"
+                      lineageId="Package\ETL Shipping\Trier DTW.Outputs[Sort Output].Columns[contact]" />
+                    <inputColumn
+                      refId="Package\ETL Shipping\Merge Join.Inputs[Merge Join Right Input].Columns[street]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="street"
+                      lineageId="Package\ETL Shipping\Trier DTW.Outputs[Sort Output].Columns[street]" />
+                    <inputColumn
+                      refId="Package\ETL Shipping\Merge Join.Inputs[Merge Join Right Input].Columns[zip]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="zip"
+                      lineageId="Package\ETL Shipping\Trier DTW.Outputs[Sort Output].Columns[zip]" />
+                    <inputColumn
+                      refId="Package\ETL Shipping\Merge Join.Inputs[Merge Join Right Input].Columns[city]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="city"
+                      lineageId="Package\ETL Shipping\Trier DTW.Outputs[Sort Output].Columns[city]" />
+                    <inputColumn
+                      refId="Package\ETL Shipping\Merge Join.Inputs[Merge Join Right Input].Columns[phone]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="phone"
+                      lineageId="Package\ETL Shipping\Trier DTW.Outputs[Sort Output].Columns[phone]" />
+                    <inputColumn
+                      refId="Package\ETL Shipping\Merge Join.Inputs[Merge Join Right Input].Columns[email]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="email"
+                      lineageId="Package\ETL Shipping\Trier DTW.Outputs[Sort Output].Columns[email]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ETL Shipping\Merge Join.Outputs[Merge Join Output]"
+                  isSorted="true"
+                  name="Merge Join Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL Shipping\Merge Join.Outputs[Merge Join Output].Columns[code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\ETL Shipping\Merge Join.Outputs[Merge Join Output].Columns[code]"
+                      name="code"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\ETL Shipping\Merge Join.Inputs[Merge Join Left Input].Columns[code]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL Shipping\Merge Join.Outputs[Merge Join Output].Columns[name]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL Shipping\Merge Join.Outputs[Merge Join Output].Columns[name]"
+                      name="name">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\ETL Shipping\Merge Join.Inputs[Merge Join Left Input].Columns[name]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL Shipping\Merge Join.Outputs[Merge Join Output].Columns[destination]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL Shipping\Merge Join.Outputs[Merge Join Output].Columns[destination]"
+                      name="destination">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\ETL Shipping\Merge Join.Inputs[Merge Join Left Input].Columns[destination]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL Shipping\Merge Join.Outputs[Merge Join Output].Columns[delivery_duration]"
+                      dataType="i4"
+                      lineageId="Package\ETL Shipping\Merge Join.Outputs[Merge Join Output].Columns[delivery_duration]"
+                      name="delivery_duration">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\ETL Shipping\Merge Join.Inputs[Merge Join Left Input].Columns[delivery_duration]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL Shipping\Merge Join.Outputs[Merge Join Output].Columns[delivery_last_dow]"
+                      dataType="i4"
+                      lineageId="Package\ETL Shipping\Merge Join.Outputs[Merge Join Output].Columns[delivery_last_dow]"
+                      name="delivery_last_dow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\ETL Shipping\Merge Join.Inputs[Merge Join Left Input].Columns[delivery_last_dow]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL Shipping\Merge Join.Outputs[Merge Join Output].Columns[company]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL Shipping\Merge Join.Outputs[Merge Join Output].Columns[company]"
+                      name="company">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\ETL Shipping\Merge Join.Inputs[Merge Join Left Input].Columns[company]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL Shipping\Merge Join.Outputs[Merge Join Output].Columns[contact]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL Shipping\Merge Join.Outputs[Merge Join Output].Columns[contact]"
+                      name="contact">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\ETL Shipping\Merge Join.Inputs[Merge Join Left Input].Columns[contact]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL Shipping\Merge Join.Outputs[Merge Join Output].Columns[street]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL Shipping\Merge Join.Outputs[Merge Join Output].Columns[street]"
+                      name="street">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\ETL Shipping\Merge Join.Inputs[Merge Join Left Input].Columns[street]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL Shipping\Merge Join.Outputs[Merge Join Output].Columns[zip]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL Shipping\Merge Join.Outputs[Merge Join Output].Columns[zip]"
+                      name="zip">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\ETL Shipping\Merge Join.Inputs[Merge Join Left Input].Columns[zip]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL Shipping\Merge Join.Outputs[Merge Join Output].Columns[city]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL Shipping\Merge Join.Outputs[Merge Join Output].Columns[city]"
+                      name="city">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\ETL Shipping\Merge Join.Inputs[Merge Join Left Input].Columns[city]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL Shipping\Merge Join.Outputs[Merge Join Output].Columns[phone]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL Shipping\Merge Join.Outputs[Merge Join Output].Columns[phone]"
+                      name="phone">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\ETL Shipping\Merge Join.Inputs[Merge Join Left Input].Columns[phone]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL Shipping\Merge Join.Outputs[Merge Join Output].Columns[email]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL Shipping\Merge Join.Outputs[Merge Join Output].Columns[email]"
+                      name="email">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\ETL Shipping\Merge Join.Inputs[Merge Join Left Input].Columns[email]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL Shipping\Merge Join.Outputs[Merge Join Output].Columns[code (1)]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\ETL Shipping\Merge Join.Outputs[Merge Join Output].Columns[code (1)]"
+                      name="code (1)">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\ETL Shipping\Merge Join.Inputs[Merge Join Right Input].Columns[code]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL Shipping\Merge Join.Outputs[Merge Join Output].Columns[name (1)]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL Shipping\Merge Join.Outputs[Merge Join Output].Columns[name (1)]"
+                      name="name (1)">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\ETL Shipping\Merge Join.Inputs[Merge Join Right Input].Columns[name]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL Shipping\Merge Join.Outputs[Merge Join Output].Columns[destination (1)]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL Shipping\Merge Join.Outputs[Merge Join Output].Columns[destination (1)]"
+                      name="destination (1)">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\ETL Shipping\Merge Join.Inputs[Merge Join Right Input].Columns[destination]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL Shipping\Merge Join.Outputs[Merge Join Output].Columns[delivery_duration (1)]"
+                      dataType="i4"
+                      lineageId="Package\ETL Shipping\Merge Join.Outputs[Merge Join Output].Columns[delivery_duration (1)]"
+                      name="delivery_duration (1)">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\ETL Shipping\Merge Join.Inputs[Merge Join Right Input].Columns[delivery_duration]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL Shipping\Merge Join.Outputs[Merge Join Output].Columns[delivery_last_dow (1)]"
+                      dataType="i4"
+                      lineageId="Package\ETL Shipping\Merge Join.Outputs[Merge Join Output].Columns[delivery_last_dow (1)]"
+                      name="delivery_last_dow (1)">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\ETL Shipping\Merge Join.Inputs[Merge Join Right Input].Columns[delivery_last_dow]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL Shipping\Merge Join.Outputs[Merge Join Output].Columns[company (1)]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL Shipping\Merge Join.Outputs[Merge Join Output].Columns[company (1)]"
+                      name="company (1)">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\ETL Shipping\Merge Join.Inputs[Merge Join Right Input].Columns[company]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL Shipping\Merge Join.Outputs[Merge Join Output].Columns[contact (1)]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL Shipping\Merge Join.Outputs[Merge Join Output].Columns[contact (1)]"
+                      name="contact (1)">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\ETL Shipping\Merge Join.Inputs[Merge Join Right Input].Columns[contact]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL Shipping\Merge Join.Outputs[Merge Join Output].Columns[street (1)]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL Shipping\Merge Join.Outputs[Merge Join Output].Columns[street (1)]"
+                      name="street (1)">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\ETL Shipping\Merge Join.Inputs[Merge Join Right Input].Columns[street]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL Shipping\Merge Join.Outputs[Merge Join Output].Columns[zip (1)]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL Shipping\Merge Join.Outputs[Merge Join Output].Columns[zip (1)]"
+                      name="zip (1)">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\ETL Shipping\Merge Join.Inputs[Merge Join Right Input].Columns[zip]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL Shipping\Merge Join.Outputs[Merge Join Output].Columns[city (1)]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL Shipping\Merge Join.Outputs[Merge Join Output].Columns[city (1)]"
+                      name="city (1)">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\ETL Shipping\Merge Join.Inputs[Merge Join Right Input].Columns[city]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL Shipping\Merge Join.Outputs[Merge Join Output].Columns[phone (1)]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL Shipping\Merge Join.Outputs[Merge Join Output].Columns[phone (1)]"
+                      name="phone (1)">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\ETL Shipping\Merge Join.Inputs[Merge Join Right Input].Columns[phone]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL Shipping\Merge Join.Outputs[Merge Join Output].Columns[email (1)]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL Shipping\Merge Join.Outputs[Merge Join Output].Columns[email (1)]"
+                      name="email (1)">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\ETL Shipping\Merge Join.Inputs[Merge Join Right Input].Columns[email]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ETL Shipping\Trier DTW"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Trier DTW"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\ETL Shipping\Trier DTW.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ETL Shipping\Trier DTW.Inputs[Sort Input].Columns[id]"
+                      cachedDataType="i4"
+                      cachedName="id"
+                      lineageId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Output].Columns[id]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL Shipping\Trier DTW.Inputs[Sort Input].Columns[code]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="code"
+                      lineageId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Output].Columns[code]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL Shipping\Trier DTW.Inputs[Sort Input].Columns[name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="name"
+                      lineageId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Output].Columns[name]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL Shipping\Trier DTW.Inputs[Sort Input].Columns[destination]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="destination"
+                      lineageId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Output].Columns[destination]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL Shipping\Trier DTW.Inputs[Sort Input].Columns[delivery_duration]"
+                      cachedDataType="i4"
+                      cachedName="delivery_duration"
+                      lineageId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Output].Columns[delivery_duration]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL Shipping\Trier DTW.Inputs[Sort Input].Columns[delivery_last_dow]"
+                      cachedDataType="i4"
+                      cachedName="delivery_last_dow"
+                      lineageId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Output].Columns[delivery_last_dow]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL Shipping\Trier DTW.Inputs[Sort Input].Columns[company]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="company"
+                      lineageId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Output].Columns[company]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL Shipping\Trier DTW.Inputs[Sort Input].Columns[contact]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="contact"
+                      lineageId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Output].Columns[contact]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL Shipping\Trier DTW.Inputs[Sort Input].Columns[street]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="street"
+                      lineageId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Output].Columns[street]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL Shipping\Trier DTW.Inputs[Sort Input].Columns[zip]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="zip"
+                      lineageId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Output].Columns[zip]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL Shipping\Trier DTW.Inputs[Sort Input].Columns[city]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="city"
+                      lineageId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Output].Columns[city]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL Shipping\Trier DTW.Inputs[Sort Input].Columns[phone]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="phone"
+                      lineageId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Output].Columns[phone]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL Shipping\Trier DTW.Inputs[Sort Input].Columns[email]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="email"
+                      lineageId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Output].Columns[email]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ETL Shipping\Trier DTW.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL Shipping\Trier DTW.Outputs[Sort Output].Columns[id]"
+                      dataType="i4"
+                      lineageId="Package\ETL Shipping\Trier DTW.Outputs[Sort Output].Columns[id]"
+                      name="id">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Output].Columns[id]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL Shipping\Trier DTW.Outputs[Sort Output].Columns[code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\ETL Shipping\Trier DTW.Outputs[Sort Output].Columns[code]"
+                      name="code"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Output].Columns[code]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL Shipping\Trier DTW.Outputs[Sort Output].Columns[name]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL Shipping\Trier DTW.Outputs[Sort Output].Columns[name]"
+                      name="name">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Output].Columns[name]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL Shipping\Trier DTW.Outputs[Sort Output].Columns[destination]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL Shipping\Trier DTW.Outputs[Sort Output].Columns[destination]"
+                      name="destination">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Output].Columns[destination]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL Shipping\Trier DTW.Outputs[Sort Output].Columns[delivery_duration]"
+                      dataType="i4"
+                      lineageId="Package\ETL Shipping\Trier DTW.Outputs[Sort Output].Columns[delivery_duration]"
+                      name="delivery_duration">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Output].Columns[delivery_duration]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL Shipping\Trier DTW.Outputs[Sort Output].Columns[delivery_last_dow]"
+                      dataType="i4"
+                      lineageId="Package\ETL Shipping\Trier DTW.Outputs[Sort Output].Columns[delivery_last_dow]"
+                      name="delivery_last_dow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Output].Columns[delivery_last_dow]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL Shipping\Trier DTW.Outputs[Sort Output].Columns[company]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL Shipping\Trier DTW.Outputs[Sort Output].Columns[company]"
+                      name="company">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Output].Columns[company]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL Shipping\Trier DTW.Outputs[Sort Output].Columns[contact]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL Shipping\Trier DTW.Outputs[Sort Output].Columns[contact]"
+                      name="contact">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Output].Columns[contact]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL Shipping\Trier DTW.Outputs[Sort Output].Columns[street]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL Shipping\Trier DTW.Outputs[Sort Output].Columns[street]"
+                      name="street">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Output].Columns[street]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL Shipping\Trier DTW.Outputs[Sort Output].Columns[zip]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL Shipping\Trier DTW.Outputs[Sort Output].Columns[zip]"
+                      name="zip">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Output].Columns[zip]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL Shipping\Trier DTW.Outputs[Sort Output].Columns[city]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL Shipping\Trier DTW.Outputs[Sort Output].Columns[city]"
+                      name="city">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Output].Columns[city]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL Shipping\Trier DTW.Outputs[Sort Output].Columns[phone]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL Shipping\Trier DTW.Outputs[Sort Output].Columns[phone]"
+                      name="phone">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Output].Columns[phone]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL Shipping\Trier DTW.Outputs[Sort Output].Columns[email]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL Shipping\Trier DTW.Outputs[Sort Output].Columns[email]"
+                      name="email">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Output].Columns[email]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ETL Shipping\Trier STG"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Trier STG"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\ETL Shipping\Trier STG.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ETL Shipping\Trier STG.Inputs[Sort Input].Columns[code]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="code"
+                      lineageId="Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Output].Columns[code]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL Shipping\Trier STG.Inputs[Sort Input].Columns[name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="name"
+                      lineageId="Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Output].Columns[name]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL Shipping\Trier STG.Inputs[Sort Input].Columns[destination]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="destination"
+                      lineageId="Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Output].Columns[destination]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL Shipping\Trier STG.Inputs[Sort Input].Columns[delivery_duration]"
+                      cachedDataType="i4"
+                      cachedName="delivery_duration"
+                      lineageId="Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Output].Columns[delivery_duration]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL Shipping\Trier STG.Inputs[Sort Input].Columns[delivery_last_dow]"
+                      cachedDataType="i4"
+                      cachedName="delivery_last_dow"
+                      lineageId="Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Output].Columns[delivery_last_dow]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL Shipping\Trier STG.Inputs[Sort Input].Columns[company]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="company"
+                      lineageId="Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Output].Columns[company]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL Shipping\Trier STG.Inputs[Sort Input].Columns[contact]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="contact"
+                      lineageId="Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Output].Columns[contact]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL Shipping\Trier STG.Inputs[Sort Input].Columns[street]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="street"
+                      lineageId="Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Output].Columns[street]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL Shipping\Trier STG.Inputs[Sort Input].Columns[zip]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="zip"
+                      lineageId="Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Output].Columns[zip]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL Shipping\Trier STG.Inputs[Sort Input].Columns[city]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="city"
+                      lineageId="Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Output].Columns[city]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL Shipping\Trier STG.Inputs[Sort Input].Columns[phone]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="phone"
+                      lineageId="Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Output].Columns[phone]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL Shipping\Trier STG.Inputs[Sort Input].Columns[email]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="email"
+                      lineageId="Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Output].Columns[email]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ETL Shipping\Trier STG.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL Shipping\Trier STG.Outputs[Sort Output].Columns[code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\ETL Shipping\Trier STG.Outputs[Sort Output].Columns[code]"
+                      name="code"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Output].Columns[code]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL Shipping\Trier STG.Outputs[Sort Output].Columns[name]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL Shipping\Trier STG.Outputs[Sort Output].Columns[name]"
+                      name="name">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Output].Columns[name]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL Shipping\Trier STG.Outputs[Sort Output].Columns[destination]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL Shipping\Trier STG.Outputs[Sort Output].Columns[destination]"
+                      name="destination">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Output].Columns[destination]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL Shipping\Trier STG.Outputs[Sort Output].Columns[delivery_duration]"
+                      dataType="i4"
+                      lineageId="Package\ETL Shipping\Trier STG.Outputs[Sort Output].Columns[delivery_duration]"
+                      name="delivery_duration">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Output].Columns[delivery_duration]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL Shipping\Trier STG.Outputs[Sort Output].Columns[delivery_last_dow]"
+                      dataType="i4"
+                      lineageId="Package\ETL Shipping\Trier STG.Outputs[Sort Output].Columns[delivery_last_dow]"
+                      name="delivery_last_dow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Output].Columns[delivery_last_dow]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL Shipping\Trier STG.Outputs[Sort Output].Columns[company]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL Shipping\Trier STG.Outputs[Sort Output].Columns[company]"
+                      name="company">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Output].Columns[company]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL Shipping\Trier STG.Outputs[Sort Output].Columns[contact]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL Shipping\Trier STG.Outputs[Sort Output].Columns[contact]"
+                      name="contact">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Output].Columns[contact]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL Shipping\Trier STG.Outputs[Sort Output].Columns[street]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL Shipping\Trier STG.Outputs[Sort Output].Columns[street]"
+                      name="street">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Output].Columns[street]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL Shipping\Trier STG.Outputs[Sort Output].Columns[zip]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL Shipping\Trier STG.Outputs[Sort Output].Columns[zip]"
+                      name="zip">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Output].Columns[zip]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL Shipping\Trier STG.Outputs[Sort Output].Columns[city]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL Shipping\Trier STG.Outputs[Sort Output].Columns[city]"
+                      name="city">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Output].Columns[city]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL Shipping\Trier STG.Outputs[Sort Output].Columns[phone]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL Shipping\Trier STG.Outputs[Sort Output].Columns[phone]"
+                      name="phone">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Output].Columns[phone]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL Shipping\Trier STG.Outputs[Sort Output].Columns[email]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL Shipping\Trier STG.Outputs[Sort Output].Columns[email]"
+                      name="email">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Output].Columns[email]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ETL Shipping\UPDATE Shipping DWH"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="UPDATE Shipping DWH"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">UPDATE [DimShipping] SET
+ [name]=?,
+ [destination]=?,
+ [delivery_duration]=?,
+ [delivery_last_dow]=?,
+ [company]=?,
+ [contact]=?,
+ [street]=?,
+ [zip]=?,
+ [city]=?,
+ [phone]=?,
+ [email]=?
+ WHERE [code]=?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ETL Shipping\UPDATE Shipping DWH.Connections[OleDbConnection]"
+                  connectionManagerID="{7DF0D481-6944-4555-AFB8-DDD5F75EBA66}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[WServer2019.MediazonDWH]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\ETL Shipping\UPDATE Shipping DWH.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ETL Shipping\UPDATE Shipping DWH.Inputs[OLE DB Command Input].Columns[name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="name"
+                      externalMetadataColumnId="Package\ETL Shipping\UPDATE Shipping DWH.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\ETL Shipping\Merge Join.Outputs[Merge Join Output].Columns[name]" />
+                    <inputColumn
+                      refId="Package\ETL Shipping\UPDATE Shipping DWH.Inputs[OLE DB Command Input].Columns[destination]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="destination"
+                      externalMetadataColumnId="Package\ETL Shipping\UPDATE Shipping DWH.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\ETL Shipping\Merge Join.Outputs[Merge Join Output].Columns[destination]" />
+                    <inputColumn
+                      refId="Package\ETL Shipping\UPDATE Shipping DWH.Inputs[OLE DB Command Input].Columns[delivery_duration]"
+                      cachedDataType="i4"
+                      cachedName="delivery_duration"
+                      externalMetadataColumnId="Package\ETL Shipping\UPDATE Shipping DWH.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      lineageId="Package\ETL Shipping\Merge Join.Outputs[Merge Join Output].Columns[delivery_duration]" />
+                    <inputColumn
+                      refId="Package\ETL Shipping\UPDATE Shipping DWH.Inputs[OLE DB Command Input].Columns[delivery_last_dow]"
+                      cachedDataType="i4"
+                      cachedName="delivery_last_dow"
+                      externalMetadataColumnId="Package\ETL Shipping\UPDATE Shipping DWH.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      lineageId="Package\ETL Shipping\Merge Join.Outputs[Merge Join Output].Columns[delivery_last_dow]" />
+                    <inputColumn
+                      refId="Package\ETL Shipping\UPDATE Shipping DWH.Inputs[OLE DB Command Input].Columns[company]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="company"
+                      externalMetadataColumnId="Package\ETL Shipping\UPDATE Shipping DWH.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      lineageId="Package\ETL Shipping\Merge Join.Outputs[Merge Join Output].Columns[company]" />
+                    <inputColumn
+                      refId="Package\ETL Shipping\UPDATE Shipping DWH.Inputs[OLE DB Command Input].Columns[contact]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="contact"
+                      externalMetadataColumnId="Package\ETL Shipping\UPDATE Shipping DWH.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                      lineageId="Package\ETL Shipping\Merge Join.Outputs[Merge Join Output].Columns[contact]" />
+                    <inputColumn
+                      refId="Package\ETL Shipping\UPDATE Shipping DWH.Inputs[OLE DB Command Input].Columns[street]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="street"
+                      externalMetadataColumnId="Package\ETL Shipping\UPDATE Shipping DWH.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
+                      lineageId="Package\ETL Shipping\Merge Join.Outputs[Merge Join Output].Columns[street]" />
+                    <inputColumn
+                      refId="Package\ETL Shipping\UPDATE Shipping DWH.Inputs[OLE DB Command Input].Columns[zip]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="zip"
+                      externalMetadataColumnId="Package\ETL Shipping\UPDATE Shipping DWH.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
+                      lineageId="Package\ETL Shipping\Merge Join.Outputs[Merge Join Output].Columns[zip]" />
+                    <inputColumn
+                      refId="Package\ETL Shipping\UPDATE Shipping DWH.Inputs[OLE DB Command Input].Columns[city]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="city"
+                      externalMetadataColumnId="Package\ETL Shipping\UPDATE Shipping DWH.Inputs[OLE DB Command Input].ExternalColumns[Param_8]"
+                      lineageId="Package\ETL Shipping\Merge Join.Outputs[Merge Join Output].Columns[city]" />
+                    <inputColumn
+                      refId="Package\ETL Shipping\UPDATE Shipping DWH.Inputs[OLE DB Command Input].Columns[phone]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="phone"
+                      externalMetadataColumnId="Package\ETL Shipping\UPDATE Shipping DWH.Inputs[OLE DB Command Input].ExternalColumns[Param_9]"
+                      lineageId="Package\ETL Shipping\Merge Join.Outputs[Merge Join Output].Columns[phone]" />
+                    <inputColumn
+                      refId="Package\ETL Shipping\UPDATE Shipping DWH.Inputs[OLE DB Command Input].Columns[email]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="email"
+                      externalMetadataColumnId="Package\ETL Shipping\UPDATE Shipping DWH.Inputs[OLE DB Command Input].ExternalColumns[Param_10]"
+                      lineageId="Package\ETL Shipping\Merge Join.Outputs[Merge Join Output].Columns[email]" />
+                    <inputColumn
+                      refId="Package\ETL Shipping\UPDATE Shipping DWH.Inputs[OLE DB Command Input].Columns[code]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="code"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\ETL Shipping\UPDATE Shipping DWH.Inputs[OLE DB Command Input].ExternalColumns[Param_11]"
+                      lineageId="Package\ETL Shipping\Merge Join.Outputs[Merge Join Output].Columns[code]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\ETL Shipping\UPDATE Shipping DWH.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      dataType="wstr"
+                      length="255"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\ETL Shipping\UPDATE Shipping DWH.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      dataType="wstr"
+                      length="255"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\ETL Shipping\UPDATE Shipping DWH.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      dataType="i4"
+                      name="Param_2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\ETL Shipping\UPDATE Shipping DWH.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      dataType="i4"
+                      name="Param_3">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\ETL Shipping\UPDATE Shipping DWH.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      dataType="wstr"
+                      length="255"
+                      name="Param_4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\ETL Shipping\UPDATE Shipping DWH.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                      dataType="wstr"
+                      length="255"
+                      name="Param_5">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\ETL Shipping\UPDATE Shipping DWH.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
+                      dataType="wstr"
+                      length="255"
+                      name="Param_6">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\ETL Shipping\UPDATE Shipping DWH.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
+                      dataType="wstr"
+                      length="255"
+                      name="Param_7">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\ETL Shipping\UPDATE Shipping DWH.Inputs[OLE DB Command Input].ExternalColumns[Param_8]"
+                      dataType="wstr"
+                      length="255"
+                      name="Param_8">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\ETL Shipping\UPDATE Shipping DWH.Inputs[OLE DB Command Input].ExternalColumns[Param_9]"
+                      dataType="wstr"
+                      length="255"
+                      name="Param_9">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\ETL Shipping\UPDATE Shipping DWH.Inputs[OLE DB Command Input].ExternalColumns[Param_10]"
+                      dataType="wstr"
+                      length="255"
+                      name="Param_10">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\ETL Shipping\UPDATE Shipping DWH.Inputs[OLE DB Command Input].ExternalColumns[Param_11]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="Param_11">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ETL Shipping\UPDATE Shipping DWH.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\ETL Shipping\UPDATE Shipping DWH.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\ETL Shipping\UPDATE Shipping DWH.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\ETL Shipping\UPDATE Shipping DWH.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL Shipping\UPDATE Shipping DWH.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ETL Shipping\UPDATE Shipping DWH.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ETL Shipping\UPDATE Shipping DWH.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ETL Shipping\UPDATE Shipping DWH.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ETL Shipping\UPSERT"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="UPSERT"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\ETL Shipping\UPSERT.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ETL Shipping\UPSERT.Inputs[Conditional Split Input].Columns[code]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="code"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\ETL Shipping\Merge Join.Outputs[Merge Join Output].Columns[code]" />
+                    <inputColumn
+                      refId="Package\ETL Shipping\UPSERT.Inputs[Conditional Split Input].Columns[code (1)]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="code (1)"
+                      lineageId="Package\ETL Shipping\Merge Join.Outputs[Merge Join Output].Columns[code (1)]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ETL Shipping\UPSERT.Outputs[insert]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="insert"
+                  synchronousInputId="Package\ETL Shipping\UPSERT.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">![ISNULL](#{Package\ETL Shipping\Merge Join.Outputs[Merge Join Output].Columns[code]}) &amp;&amp; [ISNULL](#{Package\ETL Shipping\Merge Join.Outputs[Merge Join Output].Columns[code (1)]})</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">!ISNULL(code) &amp;&amp; ISNULL([code (1)])</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\ETL Shipping\UPSERT.Outputs[update]"
+                  description="Output 2 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="update"
+                  synchronousInputId="Package\ETL Shipping\UPSERT.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">![ISNULL](#{Package\ETL Shipping\Merge Join.Outputs[Merge Join Output].Columns[code]}) &amp;&amp; ![ISNULL](#{Package\ETL Shipping\Merge Join.Outputs[Merge Join Output].Columns[code (1)]})</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">!ISNULL(code) &amp;&amp; !ISNULL([code (1)])</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">1</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\ETL Shipping\UPSERT.Outputs[Conditional Split Default Output]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="Conditional Split Default Output"
+                  synchronousInputId="Package\ETL Shipping\UPSERT.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\ETL Shipping\UPSERT.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\ETL Shipping\UPSERT.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL Shipping\UPSERT.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ETL Shipping\UPSERT.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ETL Shipping\UPSERT.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ETL Shipping\UPSERT.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\ETL Shipping.Paths[insert]"
+              endId="Package\ETL Shipping\INSERT Shipping in DWH.Inputs[OLE DB Destination Input]"
+              name="insert"
+              startId="Package\ETL Shipping\UPSERT.Outputs[insert]" />
+            <path
+              refId="Package\ETL Shipping.Paths[Merge Join Output]"
+              endId="Package\ETL Shipping\UPSERT.Inputs[Conditional Split Input]"
+              name="Merge Join Output"
+              startId="Package\ETL Shipping\Merge Join.Outputs[Merge Join Output]" />
+            <path
+              refId="Package\ETL Shipping.Paths[OLE DB Source Output]"
+              endId="Package\ETL Shipping\Trier STG.Inputs[Sort Input]"
+              name="OLE DB Source Output"
+              startId="Package\ETL Shipping\IMPORTShipping STG.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\ETL Shipping.Paths[OLE DB Source Output1]"
+              endId="Package\ETL Shipping\Trier DTW.Inputs[Sort Input]"
+              name="OLE DB Source Output"
+              startId="Package\ETL Shipping\DimShipping DWH.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\ETL Shipping.Paths[Sort Output]"
+              endId="Package\ETL Shipping\Merge Join.Inputs[Merge Join Left Input]"
+              name="Sort Output"
+              startId="Package\ETL Shipping\Trier STG.Outputs[Sort Output]" />
+            <path
+              refId="Package\ETL Shipping.Paths[Sort Output1]"
+              endId="Package\ETL Shipping\Merge Join.Inputs[Merge Join Right Input]"
+              name="Sort Output"
+              startId="Package\ETL Shipping\Trier DTW.Outputs[Sort Output]" />
+            <path
+              refId="Package\ETL Shipping.Paths[update]"
+              endId="Package\ETL Shipping\UPDATE Shipping DWH.Inputs[OLE DB Command Input]"
+              name="update"
+              startId="Package\ETL Shipping\UPSERT.Outputs[update]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
       DTS:refId="Package\ETL Ventes"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
@@ -8953,6 +11775,14 @@ where [refTable].[code] = ?</property>
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 5"
       DTS:To="Package\ETL Exchange" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 6]"
+      DTS:CreationName=""
+      DTS:DTSID="{FC997649-71E7-46F0-B42F-253DEADDD9E5}"
+      DTS:From="Package\ETL Exchange"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 6"
+      DTS:To="Package\ETL Shipping" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -8965,7 +11795,7 @@ where [refTable].[code] = ?</property>
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="234,42"
           Id="Package\Chargement staging commandes"
@@ -9162,6 +11992,44 @@ where [refTable].[code] = ?</property>
                     Point3="18.25,26" />
                   <mssgle:LineSegment
                     End="18.25,36.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="140,42"
+          Id="Package\ETL Shipping"
+          TopLeft="223,612" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 6]"
+          TopLeft="272.5,553">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="20.5,59"
+              Start="0,0"
+              End="20.5,51.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,25.5"
+                    Point2="0,29.5"
+                    Point3="4,29.5" />
+                  <mssgle:LineSegment
+                    End="16.5,29.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="16.5,29.5"
+                    Point2="20.5,29.5"
+                    Point3="20.5,33.5" />
+                  <mssgle:LineSegment
+                    End="20.5,51.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -10352,9 +13220,7 @@ where [refTable].[code] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10388,9 +13254,7 @@ where [refTable].[code] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10412,9 +13276,7 @@ where [refTable].[code] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10448,9 +13310,7 @@ where [refTable].[code] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10472,9 +13332,7 @@ where [refTable].[code] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10721,6 +13579,315 @@ where [refTable].[code] = ?</property>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\ETL Ventes\DWH insert Ventes">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\ETL Shipping">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="181,42"
+          Id="Package\ETL Shipping\IMPORTShipping STG"
+          TopLeft="283,193" />
+        <NodeLayout
+          Size="165,42"
+          Id="Package\ETL Shipping\DimShipping DWH"
+          TopLeft="630,212" />
+        <NodeLayout
+          Size="124,42"
+          Id="Package\ETL Shipping\Trier STG"
+          TopLeft="383,299" />
+        <NodeLayout
+          Size="127,42"
+          Id="Package\ETL Shipping\Trier DTW"
+          TopLeft="679,301" />
+        <EdgeLayout
+          Id="Package\ETL Shipping.Paths[OLE DB Source Output]"
+          TopLeft="373.5,235">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="71.5,64"
+              Start="0,0"
+              End="71.5,56.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,28"
+                    Point2="0,32"
+                    Point3="4,32" />
+                  <mssgle:LineSegment
+                    End="67.5,32" />
+                  <mssgle:CubicBezierSegment
+                    Point1="67.5,32"
+                    Point2="71.5,32"
+                    Point3="71.5,36" />
+                  <mssgle:LineSegment
+                    End="71.5,56.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ETL Shipping.Paths[OLE DB Source Output1]"
+          TopLeft="712.5,254">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="30,47"
+              Start="0,0"
+              End="30,39.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.5"
+                    Point2="0,23.5"
+                    Point3="4,23.5" />
+                  <mssgle:LineSegment
+                    End="26,23.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="26,23.5"
+                    Point2="30,23.5"
+                    Point3="30,27.5" />
+                  <mssgle:LineSegment
+                    End="30,39.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="130,42"
+          Id="Package\ETL Shipping\Merge Join"
+          TopLeft="570,442" />
+        <EdgeLayout
+          Id="Package\ETL Shipping.Paths[Sort Output]"
+          TopLeft="445,341">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="190,101"
+              Start="0,0"
+              End="190,93.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,46.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,46.5"
+                    Point2="0,50.5"
+                    Point3="4,50.5" />
+                  <mssgle:LineSegment
+                    End="186,50.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="186,50.5"
+                    Point2="190,50.5"
+                    Point3="190,54.5" />
+                  <mssgle:LineSegment
+                    End="190,93.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ETL Shipping.Paths[Sort Output1]"
+          TopLeft="742.5,343">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-87.1666666666666,99"
+              Start="0,0"
+              End="-87.1666666666666,91.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,54.677811550152" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,54.677811550152"
+                    Point2="0,58.677811550152"
+                    Point3="-4,58.677811550152" />
+                  <mssgle:LineSegment
+                    End="-83.1666666666666,58.677811550152" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-83.1666666666666,58.677811550152"
+                    Point2="-87.1666666666666,58.677811550152"
+                    Point3="-87.1666666666666,62.677811550152" />
+                  <mssgle:LineSegment
+                    End="-87.1666666666666,91.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="117,42"
+          Id="Package\ETL Shipping\UPSERT"
+          TopLeft="595,540" />
+        <EdgeLayout
+          Id="Package\ETL Shipping.Paths[Merge Join Output]"
+          TopLeft="635,484">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="18.5,56"
+              Start="0,0"
+              End="18.5,48.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24"
+                    Point2="0,28"
+                    Point3="4,28" />
+                  <mssgle:LineSegment
+                    End="14.5,28" />
+                  <mssgle:CubicBezierSegment
+                    Point1="14.5,28"
+                    Point2="18.5,28"
+                    Point3="18.5,32" />
+                  <mssgle:LineSegment
+                    End="18.5,48.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="198,42"
+          Id="Package\ETL Shipping\INSERT Shipping in DWH"
+          TopLeft="550,635" />
+        <EdgeLayout
+          Id="Package\ETL Shipping.Paths[insert]"
+          TopLeft="651.25,582">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,53"
+              Start="0,0"
+              End="0,45.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,45.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-12.94998046875,18.0244140625,25.8999609375,9.451171875"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="189,42"
+          Id="Package\ETL Shipping\UPDATE Shipping DWH"
+          TopLeft="765,624" />
+        <EdgeLayout
+          Id="Package\ETL Shipping.Paths[update]"
+          TopLeft="671.666666666667,582">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="187.833333333333,42"
+              Start="0,0"
+              End="187.833333333333,34.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.1399662731872" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.1399662731872"
+                    Point2="0,17.1399662731872"
+                    Point3="4,17.1399662731872" />
+                  <mssgle:LineSegment
+                    End="183.833333333333,17.1399662731872" />
+                  <mssgle:CubicBezierSegment
+                    Point1="183.833333333333,17.1399662731872"
+                    Point2="187.833333333333,17.1399662731872"
+                    Point3="187.833333333333,21.1399662731872" />
+                  <mssgle:LineSegment
+                    End="187.833333333333,34.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="78.1141666666667,22.1399662731872,31.605,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\ETL Shipping\IMPORTShipping STG">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\ETL Shipping\DimShipping DWH">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\ETL Shipping\INSERT Shipping in DWH">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
