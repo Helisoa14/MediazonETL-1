@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="30"
-  DTS:VersionGUID="{6D1DA139-A881-40F8-A089-E6A2C07057DC}">
+  DTS:VersionBuild="36"
+  DTS:VersionGUID="{892B23E0-E23F-48F0-8DEB-490F5EA9FCB8}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -1461,6 +1461,326 @@
               endId="Package\Chargement staging Ventes\STG Ventes.Inputs[OLE DB Destination Input]"
               name="OLE DB Source Output"
               startId="Package\Chargement staging Ventes\OLTP Ventes.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Chargement STG ShippingPrice"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{085E3FF5-B8FB-4E0A-ADC9-FFF4A58E92D9}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Chargement STG ShippingPrice"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Chargement STG ShippingPrice\OLTP ShippingPrices"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLTP ShippingPrices"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[UTILShippingPrices]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Chargement STG ShippingPrice\OLTP ShippingPrices.Connections[OleDbConnection]"
+                  connectionManagerID="{297C2D91-97A6-4CA2-894C-5C8852A66426}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[86.119.30.142.Mediazon2020_DWH_source.mediazon]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Chargement STG ShippingPrice\OLTP ShippingPrices.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Chargement STG ShippingPrice\OLTP ShippingPrices.Outputs[OLE DB Source Output].Columns[service]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement STG ShippingPrice\OLTP ShippingPrices.Outputs[OLE DB Source Output].ExternalColumns[service]"
+                      length="5"
+                      lineageId="Package\Chargement STG ShippingPrice\OLTP ShippingPrices.Outputs[OLE DB Source Output].Columns[service]"
+                      name="service"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Chargement STG ShippingPrice\OLTP ShippingPrices.Outputs[OLE DB Source Output].Columns[price]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement STG ShippingPrice\OLTP ShippingPrices.Outputs[OLE DB Source Output].ExternalColumns[price]"
+                      lineageId="Package\Chargement STG ShippingPrice\OLTP ShippingPrices.Outputs[OLE DB Source Output].Columns[price]"
+                      name="price"
+                      precision="6"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Chargement STG ShippingPrice\OLTP ShippingPrices.Outputs[OLE DB Source Output].Columns[update_date]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement STG ShippingPrice\OLTP ShippingPrices.Outputs[OLE DB Source Output].ExternalColumns[update_date]"
+                      lineageId="Package\Chargement STG ShippingPrice\OLTP ShippingPrices.Outputs[OLE DB Source Output].Columns[update_date]"
+                      name="update_date"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Chargement STG ShippingPrice\OLTP ShippingPrices.Outputs[OLE DB Source Output].ExternalColumns[service]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      name="service" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement STG ShippingPrice\OLTP ShippingPrices.Outputs[OLE DB Source Output].ExternalColumns[price]"
+                      dataType="numeric"
+                      name="price"
+                      precision="6"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement STG ShippingPrice\OLTP ShippingPrices.Outputs[OLE DB Source Output].ExternalColumns[update_date]"
+                      dataType="i4"
+                      name="update_date" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Chargement STG ShippingPrice\OLTP ShippingPrices.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Chargement STG ShippingPrice\OLTP ShippingPrices.Outputs[OLE DB Source Error Output].Columns[service]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      lineageId="Package\Chargement STG ShippingPrice\OLTP ShippingPrices.Outputs[OLE DB Source Error Output].Columns[service]"
+                      name="service" />
+                    <outputColumn
+                      refId="Package\Chargement STG ShippingPrice\OLTP ShippingPrices.Outputs[OLE DB Source Error Output].Columns[price]"
+                      dataType="numeric"
+                      lineageId="Package\Chargement STG ShippingPrice\OLTP ShippingPrices.Outputs[OLE DB Source Error Output].Columns[price]"
+                      name="price"
+                      precision="6"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\Chargement STG ShippingPrice\OLTP ShippingPrices.Outputs[OLE DB Source Error Output].Columns[update_date]"
+                      dataType="i4"
+                      lineageId="Package\Chargement STG ShippingPrice\OLTP ShippingPrices.Outputs[OLE DB Source Error Output].Columns[update_date]"
+                      name="update_date" />
+                    <outputColumn
+                      refId="Package\Chargement STG ShippingPrice\OLTP ShippingPrices.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Chargement STG ShippingPrice\OLTP ShippingPrices.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Chargement STG ShippingPrice\OLTP ShippingPrices.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Chargement STG ShippingPrice\OLTP ShippingPrices.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Chargement STG ShippingPrice\STG ShippingPrices"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="STG ShippingPrices"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[UTILShippingPrices]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Chargement STG ShippingPrice\STG ShippingPrices.Connections[OleDbConnection]"
+                  connectionManagerID="{42B9EF19-6DF7-4E7B-84E5-BFB199E5915E}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[WServer2019.MediazonStaging]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Chargement STG ShippingPrice\STG ShippingPrices.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Chargement STG ShippingPrice\STG ShippingPrices.Inputs[OLE DB Destination Input].Columns[service]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="5"
+                      cachedName="service"
+                      externalMetadataColumnId="Package\Chargement STG ShippingPrice\STG ShippingPrices.Inputs[OLE DB Destination Input].ExternalColumns[service]"
+                      lineageId="Package\Chargement STG ShippingPrice\OLTP ShippingPrices.Outputs[OLE DB Source Output].Columns[service]" />
+                    <inputColumn
+                      refId="Package\Chargement STG ShippingPrice\STG ShippingPrices.Inputs[OLE DB Destination Input].Columns[price]"
+                      cachedDataType="numeric"
+                      cachedName="price"
+                      cachedPrecision="6"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Chargement STG ShippingPrice\STG ShippingPrices.Inputs[OLE DB Destination Input].ExternalColumns[price]"
+                      lineageId="Package\Chargement STG ShippingPrice\OLTP ShippingPrices.Outputs[OLE DB Source Output].Columns[price]" />
+                    <inputColumn
+                      refId="Package\Chargement STG ShippingPrice\STG ShippingPrices.Inputs[OLE DB Destination Input].Columns[update_date]"
+                      cachedDataType="i4"
+                      cachedName="update_date"
+                      externalMetadataColumnId="Package\Chargement STG ShippingPrice\STG ShippingPrices.Inputs[OLE DB Destination Input].ExternalColumns[update_date]"
+                      lineageId="Package\Chargement STG ShippingPrice\OLTP ShippingPrices.Outputs[OLE DB Source Output].Columns[update_date]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Chargement STG ShippingPrice\STG ShippingPrices.Inputs[OLE DB Destination Input].ExternalColumns[service]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      name="service" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement STG ShippingPrice\STG ShippingPrices.Inputs[OLE DB Destination Input].ExternalColumns[price]"
+                      dataType="numeric"
+                      name="price"
+                      precision="6"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement STG ShippingPrice\STG ShippingPrices.Inputs[OLE DB Destination Input].ExternalColumns[update_date]"
+                      dataType="i4"
+                      name="update_date" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Chargement STG ShippingPrice\STG ShippingPrices.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Chargement STG ShippingPrice\STG ShippingPrices.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Chargement STG ShippingPrice\STG ShippingPrices.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Chargement STG ShippingPrice\STG ShippingPrices.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Chargement STG ShippingPrice\STG ShippingPrices.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Chargement STG ShippingPrice\STG ShippingPrices.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Chargement STG ShippingPrice.Paths[OLE DB Source Output]"
+              endId="Package\Chargement STG ShippingPrice\STG ShippingPrices.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Chargement STG ShippingPrice\OLTP ShippingPrices.Outputs[OLE DB Source Output]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -8324,6 +8644,1130 @@ WHERE [Date]=? AND [Currency]=?</property>
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
+      DTS:refId="Package\ETL ShippingPrice"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{5618190D-60A2-47E0-9CAE-66D1446707E4}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="ETL ShippingPrice"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\ETL ShippingPrice\DWH ShippingPrice"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="DWH ShippingPrice"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[DimShippingPrice]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ETL ShippingPrice\DWH ShippingPrice.Connections[OleDbConnection]"
+                  connectionManagerID="{7DF0D481-6944-4555-AFB8-DDD5F75EBA66}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[WServer2019.MediazonDWH]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\ETL ShippingPrice\DWH ShippingPrice.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ETL ShippingPrice\DWH ShippingPrice.Inputs[OLE DB Destination Input].Columns[service]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="5"
+                      cachedName="service"
+                      cachedSortKeyPosition="2"
+                      externalMetadataColumnId="Package\ETL ShippingPrice\DWH ShippingPrice.Inputs[OLE DB Destination Input].ExternalColumns[service]"
+                      lineageId="Package\ETL ShippingPrice\Merge Join.Outputs[Merge Join Output].Columns[service]" />
+                    <inputColumn
+                      refId="Package\ETL ShippingPrice\DWH ShippingPrice.Inputs[OLE DB Destination Input].Columns[price]"
+                      cachedDataType="numeric"
+                      cachedName="price"
+                      cachedPrecision="6"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\ETL ShippingPrice\DWH ShippingPrice.Inputs[OLE DB Destination Input].ExternalColumns[price]"
+                      lineageId="Package\ETL ShippingPrice\Merge Join.Outputs[Merge Join Output].Columns[price]" />
+                    <inputColumn
+                      refId="Package\ETL ShippingPrice\DWH ShippingPrice.Inputs[OLE DB Destination Input].Columns[update_date]"
+                      cachedDataType="i4"
+                      cachedName="update_date"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\ETL ShippingPrice\DWH ShippingPrice.Inputs[OLE DB Destination Input].ExternalColumns[update_date]"
+                      lineageId="Package\ETL ShippingPrice\Merge Join.Outputs[Merge Join Output].Columns[update_date]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\ETL ShippingPrice\DWH ShippingPrice.Inputs[OLE DB Destination Input].ExternalColumns[id]"
+                      dataType="i4"
+                      name="id" />
+                    <externalMetadataColumn
+                      refId="Package\ETL ShippingPrice\DWH ShippingPrice.Inputs[OLE DB Destination Input].ExternalColumns[service]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      name="service" />
+                    <externalMetadataColumn
+                      refId="Package\ETL ShippingPrice\DWH ShippingPrice.Inputs[OLE DB Destination Input].ExternalColumns[price]"
+                      dataType="numeric"
+                      name="price"
+                      precision="6"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\ETL ShippingPrice\DWH ShippingPrice.Inputs[OLE DB Destination Input].ExternalColumns[update_date]"
+                      dataType="i4"
+                      name="update_date" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ETL ShippingPrice\DWH ShippingPrice.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\ETL ShippingPrice\DWH ShippingPrice.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL ShippingPrice\DWH ShippingPrice.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ETL ShippingPrice\DWH ShippingPrice.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ETL ShippingPrice\DWH ShippingPrice.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ETL ShippingPrice\DWH ShippingPrice.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ETL ShippingPrice\INSERT ShippingPrice"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="INSERT ShippingPrice"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\ETL ShippingPrice\INSERT ShippingPrice.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ETL ShippingPrice\INSERT ShippingPrice.Inputs[Conditional Split Input].Columns[service]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="5"
+                      cachedName="service"
+                      cachedSortKeyPosition="2"
+                      lineageId="Package\ETL ShippingPrice\Merge Join.Outputs[Merge Join Output].Columns[service]" />
+                    <inputColumn
+                      refId="Package\ETL ShippingPrice\INSERT ShippingPrice.Inputs[Conditional Split Input].Columns[service (1)]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="5"
+                      cachedName="service (1)"
+                      lineageId="Package\ETL ShippingPrice\Merge Join.Outputs[Merge Join Output].Columns[service (1)]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ETL ShippingPrice\INSERT ShippingPrice.Outputs[insert]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="insert"
+                  synchronousInputId="Package\ETL ShippingPrice\INSERT ShippingPrice.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">![ISNULL](#{Package\ETL ShippingPrice\Merge Join.Outputs[Merge Join Output].Columns[service]}) &amp;&amp; [ISNULL](#{Package\ETL ShippingPrice\Merge Join.Outputs[Merge Join Output].Columns[service (1)]})</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">!ISNULL(service) &amp;&amp; ISNULL([service (1)])</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\ETL ShippingPrice\INSERT ShippingPrice.Outputs[Conditional Split Default Output]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="Conditional Split Default Output"
+                  synchronousInputId="Package\ETL ShippingPrice\INSERT ShippingPrice.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\ETL ShippingPrice\INSERT ShippingPrice.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\ETL ShippingPrice\INSERT ShippingPrice.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL ShippingPrice\INSERT ShippingPrice.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ETL ShippingPrice\INSERT ShippingPrice.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ETL ShippingPrice\INSERT ShippingPrice.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ETL ShippingPrice\INSERT ShippingPrice.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ETL ShippingPrice\Merge Join"
+              componentClassID="Microsoft.MergeJoin"
+              contactInfo="Merge Join;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combine two sorted data flows into one using the FULL, LEFT, or INNER join. We recommend this transformation when data flows can be sorted at their sources."
+              name="Merge Join"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of join to perform."
+                  name="JoinType"
+                  typeConverter="JoinType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the number of columns in the ordering key."
+                  name="NumKeyColumns">2</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the null values are treated as equal values."
+                  name="TreatNullsAsEqual">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Indicates the requested maximum buffers per input before blocking."
+                  name="MaxBuffersPerInput">5</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\ETL ShippingPrice\Merge Join.Inputs[Merge Join Left Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Left Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ETL ShippingPrice\Merge Join.Inputs[Merge Join Left Input].Columns[service]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="5"
+                      cachedName="service"
+                      cachedSortKeyPosition="2"
+                      lineageId="Package\ETL ShippingPrice\Sort STG.Outputs[Sort Output].Columns[service]" />
+                    <inputColumn
+                      refId="Package\ETL ShippingPrice\Merge Join.Inputs[Merge Join Left Input].Columns[update_date]"
+                      cachedDataType="i4"
+                      cachedName="update_date"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\ETL ShippingPrice\Sort STG.Outputs[Sort Output].Columns[update_date]" />
+                    <inputColumn
+                      refId="Package\ETL ShippingPrice\Merge Join.Inputs[Merge Join Left Input].Columns[price]"
+                      cachedDataType="numeric"
+                      cachedName="price"
+                      cachedPrecision="6"
+                      cachedScale="2"
+                      lineageId="Package\ETL ShippingPrice\Sort STG.Outputs[Sort Output].Columns[price]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\ETL ShippingPrice\Merge Join.Inputs[Merge Join Right Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Right Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ETL ShippingPrice\Merge Join.Inputs[Merge Join Right Input].Columns[service]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="5"
+                      cachedName="service"
+                      cachedSortKeyPosition="2"
+                      lineageId="Package\ETL ShippingPrice\Sort DWH.Outputs[Sort Output].Columns[service]" />
+                    <inputColumn
+                      refId="Package\ETL ShippingPrice\Merge Join.Inputs[Merge Join Right Input].Columns[update_date]"
+                      cachedDataType="i4"
+                      cachedName="update_date"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\ETL ShippingPrice\Sort DWH.Outputs[Sort Output].Columns[update_date]" />
+                    <inputColumn
+                      refId="Package\ETL ShippingPrice\Merge Join.Inputs[Merge Join Right Input].Columns[price]"
+                      cachedDataType="numeric"
+                      cachedName="price"
+                      cachedPrecision="6"
+                      cachedScale="2"
+                      lineageId="Package\ETL ShippingPrice\Sort DWH.Outputs[Sort Output].Columns[price]" />
+                    <inputColumn
+                      refId="Package\ETL ShippingPrice\Merge Join.Inputs[Merge Join Right Input].Columns[id]"
+                      cachedDataType="i4"
+                      cachedName="id"
+                      lineageId="Package\ETL ShippingPrice\Sort DWH.Outputs[Sort Output].Columns[id]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ETL ShippingPrice\Merge Join.Outputs[Merge Join Output]"
+                  isSorted="true"
+                  name="Merge Join Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL ShippingPrice\Merge Join.Outputs[Merge Join Output].Columns[service]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      lineageId="Package\ETL ShippingPrice\Merge Join.Outputs[Merge Join Output].Columns[service]"
+                      name="service"
+                      sortKeyPosition="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\ETL ShippingPrice\Merge Join.Inputs[Merge Join Left Input].Columns[service]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL ShippingPrice\Merge Join.Outputs[Merge Join Output].Columns[price]"
+                      dataType="numeric"
+                      lineageId="Package\ETL ShippingPrice\Merge Join.Outputs[Merge Join Output].Columns[price]"
+                      name="price"
+                      precision="6"
+                      scale="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\ETL ShippingPrice\Merge Join.Inputs[Merge Join Left Input].Columns[price]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL ShippingPrice\Merge Join.Outputs[Merge Join Output].Columns[update_date]"
+                      dataType="i4"
+                      lineageId="Package\ETL ShippingPrice\Merge Join.Outputs[Merge Join Output].Columns[update_date]"
+                      name="update_date"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\ETL ShippingPrice\Merge Join.Inputs[Merge Join Left Input].Columns[update_date]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL ShippingPrice\Merge Join.Outputs[Merge Join Output].Columns[service (1)]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      lineageId="Package\ETL ShippingPrice\Merge Join.Outputs[Merge Join Output].Columns[service (1)]"
+                      name="service (1)">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\ETL ShippingPrice\Merge Join.Inputs[Merge Join Right Input].Columns[service]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL ShippingPrice\Merge Join.Outputs[Merge Join Output].Columns[price (1)]"
+                      dataType="numeric"
+                      lineageId="Package\ETL ShippingPrice\Merge Join.Outputs[Merge Join Output].Columns[price (1)]"
+                      name="price (1)"
+                      precision="6"
+                      scale="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\ETL ShippingPrice\Merge Join.Inputs[Merge Join Right Input].Columns[price]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL ShippingPrice\Merge Join.Outputs[Merge Join Output].Columns[update_date (1)]"
+                      dataType="i4"
+                      lineageId="Package\ETL ShippingPrice\Merge Join.Outputs[Merge Join Output].Columns[update_date (1)]"
+                      name="update_date (1)">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\ETL ShippingPrice\Merge Join.Inputs[Merge Join Right Input].Columns[update_date]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL ShippingPrice\Merge Join.Outputs[Merge Join Output].Columns[id]"
+                      dataType="i4"
+                      lineageId="Package\ETL ShippingPrice\Merge Join.Outputs[Merge Join Output].Columns[id]"
+                      name="id">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\ETL ShippingPrice\Merge Join.Inputs[Merge Join Right Input].Columns[id]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ETL ShippingPrice\ShippingPrice DWH"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="ShippingPrice DWH"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[DimShippingPrice]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ETL ShippingPrice\ShippingPrice DWH.Connections[OleDbConnection]"
+                  connectionManagerID="{7DF0D481-6944-4555-AFB8-DDD5F75EBA66}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[WServer2019.MediazonDWH]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\ETL ShippingPrice\ShippingPrice DWH.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL ShippingPrice\ShippingPrice DWH.Outputs[OLE DB Source Output].Columns[service]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL ShippingPrice\ShippingPrice DWH.Outputs[OLE DB Source Output].ExternalColumns[service]"
+                      length="5"
+                      lineageId="Package\ETL ShippingPrice\ShippingPrice DWH.Outputs[OLE DB Source Output].Columns[service]"
+                      name="service"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL ShippingPrice\ShippingPrice DWH.Outputs[OLE DB Source Output].Columns[price]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL ShippingPrice\ShippingPrice DWH.Outputs[OLE DB Source Output].ExternalColumns[price]"
+                      lineageId="Package\ETL ShippingPrice\ShippingPrice DWH.Outputs[OLE DB Source Output].Columns[price]"
+                      name="price"
+                      precision="6"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL ShippingPrice\ShippingPrice DWH.Outputs[OLE DB Source Output].Columns[update_date]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL ShippingPrice\ShippingPrice DWH.Outputs[OLE DB Source Output].ExternalColumns[update_date]"
+                      lineageId="Package\ETL ShippingPrice\ShippingPrice DWH.Outputs[OLE DB Source Output].Columns[update_date]"
+                      name="update_date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL ShippingPrice\ShippingPrice DWH.Outputs[OLE DB Source Output].Columns[id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL ShippingPrice\ShippingPrice DWH.Outputs[OLE DB Source Output].ExternalColumns[id]"
+                      lineageId="Package\ETL ShippingPrice\ShippingPrice DWH.Outputs[OLE DB Source Output].Columns[id]"
+                      name="id"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\ETL ShippingPrice\ShippingPrice DWH.Outputs[OLE DB Source Output].ExternalColumns[service]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      name="service" />
+                    <externalMetadataColumn
+                      refId="Package\ETL ShippingPrice\ShippingPrice DWH.Outputs[OLE DB Source Output].ExternalColumns[price]"
+                      dataType="numeric"
+                      name="price"
+                      precision="6"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\ETL ShippingPrice\ShippingPrice DWH.Outputs[OLE DB Source Output].ExternalColumns[update_date]"
+                      dataType="i4"
+                      name="update_date" />
+                    <externalMetadataColumn
+                      refId="Package\ETL ShippingPrice\ShippingPrice DWH.Outputs[OLE DB Source Output].ExternalColumns[id]"
+                      dataType="i4"
+                      name="id" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\ETL ShippingPrice\ShippingPrice DWH.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL ShippingPrice\ShippingPrice DWH.Outputs[OLE DB Source Error Output].Columns[id]"
+                      dataType="i4"
+                      lineageId="Package\ETL ShippingPrice\ShippingPrice DWH.Outputs[OLE DB Source Error Output].Columns[id]"
+                      name="id" />
+                    <outputColumn
+                      refId="Package\ETL ShippingPrice\ShippingPrice DWH.Outputs[OLE DB Source Error Output].Columns[service]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      lineageId="Package\ETL ShippingPrice\ShippingPrice DWH.Outputs[OLE DB Source Error Output].Columns[service]"
+                      name="service" />
+                    <outputColumn
+                      refId="Package\ETL ShippingPrice\ShippingPrice DWH.Outputs[OLE DB Source Error Output].Columns[price]"
+                      dataType="numeric"
+                      lineageId="Package\ETL ShippingPrice\ShippingPrice DWH.Outputs[OLE DB Source Error Output].Columns[price]"
+                      name="price"
+                      precision="6"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\ETL ShippingPrice\ShippingPrice DWH.Outputs[OLE DB Source Error Output].Columns[update_date]"
+                      dataType="i4"
+                      lineageId="Package\ETL ShippingPrice\ShippingPrice DWH.Outputs[OLE DB Source Error Output].Columns[update_date]"
+                      name="update_date" />
+                    <outputColumn
+                      refId="Package\ETL ShippingPrice\ShippingPrice DWH.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ETL ShippingPrice\ShippingPrice DWH.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ETL ShippingPrice\ShippingPrice DWH.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ETL ShippingPrice\ShippingPrice DWH.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ETL ShippingPrice\Sort DWH"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort DWH"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\ETL ShippingPrice\Sort DWH.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ETL ShippingPrice\Sort DWH.Inputs[Sort Input].Columns[service]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="5"
+                      cachedName="service"
+                      lineageId="Package\ETL ShippingPrice\ShippingPrice DWH.Outputs[OLE DB Source Output].Columns[service]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL ShippingPrice\Sort DWH.Inputs[Sort Input].Columns[price]"
+                      cachedDataType="numeric"
+                      cachedName="price"
+                      cachedPrecision="6"
+                      cachedScale="2"
+                      lineageId="Package\ETL ShippingPrice\ShippingPrice DWH.Outputs[OLE DB Source Output].Columns[price]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL ShippingPrice\Sort DWH.Inputs[Sort Input].Columns[update_date]"
+                      cachedDataType="i4"
+                      cachedName="update_date"
+                      lineageId="Package\ETL ShippingPrice\ShippingPrice DWH.Outputs[OLE DB Source Output].Columns[update_date]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL ShippingPrice\Sort DWH.Inputs[Sort Input].Columns[id]"
+                      cachedDataType="i4"
+                      cachedName="id"
+                      lineageId="Package\ETL ShippingPrice\ShippingPrice DWH.Outputs[OLE DB Source Output].Columns[id]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ETL ShippingPrice\Sort DWH.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL ShippingPrice\Sort DWH.Outputs[Sort Output].Columns[service]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      lineageId="Package\ETL ShippingPrice\Sort DWH.Outputs[Sort Output].Columns[service]"
+                      name="service"
+                      sortKeyPosition="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\ETL ShippingPrice\ShippingPrice DWH.Outputs[OLE DB Source Output].Columns[service]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL ShippingPrice\Sort DWH.Outputs[Sort Output].Columns[price]"
+                      dataType="numeric"
+                      lineageId="Package\ETL ShippingPrice\Sort DWH.Outputs[Sort Output].Columns[price]"
+                      name="price"
+                      precision="6"
+                      scale="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\ETL ShippingPrice\ShippingPrice DWH.Outputs[OLE DB Source Output].Columns[price]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL ShippingPrice\Sort DWH.Outputs[Sort Output].Columns[update_date]"
+                      dataType="i4"
+                      lineageId="Package\ETL ShippingPrice\Sort DWH.Outputs[Sort Output].Columns[update_date]"
+                      name="update_date"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\ETL ShippingPrice\ShippingPrice DWH.Outputs[OLE DB Source Output].Columns[update_date]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL ShippingPrice\Sort DWH.Outputs[Sort Output].Columns[id]"
+                      dataType="i4"
+                      lineageId="Package\ETL ShippingPrice\Sort DWH.Outputs[Sort Output].Columns[id]"
+                      name="id">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\ETL ShippingPrice\ShippingPrice DWH.Outputs[OLE DB Source Output].Columns[id]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ETL ShippingPrice\Sort STG"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort STG"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\ETL ShippingPrice\Sort STG.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ETL ShippingPrice\Sort STG.Inputs[Sort Input].Columns[service]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="5"
+                      cachedName="service"
+                      lineageId="Package\ETL ShippingPrice\STG ShippingPrice.Outputs[OLE DB Source Output].Columns[service]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL ShippingPrice\Sort STG.Inputs[Sort Input].Columns[price]"
+                      cachedDataType="numeric"
+                      cachedName="price"
+                      cachedPrecision="6"
+                      cachedScale="2"
+                      lineageId="Package\ETL ShippingPrice\STG ShippingPrice.Outputs[OLE DB Source Output].Columns[price]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL ShippingPrice\Sort STG.Inputs[Sort Input].Columns[update_date]"
+                      cachedDataType="i4"
+                      cachedName="update_date"
+                      lineageId="Package\ETL ShippingPrice\STG ShippingPrice.Outputs[OLE DB Source Output].Columns[update_date]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ETL ShippingPrice\Sort STG.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL ShippingPrice\Sort STG.Outputs[Sort Output].Columns[service]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      lineageId="Package\ETL ShippingPrice\Sort STG.Outputs[Sort Output].Columns[service]"
+                      name="service"
+                      sortKeyPosition="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\ETL ShippingPrice\STG ShippingPrice.Outputs[OLE DB Source Output].Columns[service]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL ShippingPrice\Sort STG.Outputs[Sort Output].Columns[price]"
+                      dataType="numeric"
+                      lineageId="Package\ETL ShippingPrice\Sort STG.Outputs[Sort Output].Columns[price]"
+                      name="price"
+                      precision="6"
+                      scale="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\ETL ShippingPrice\STG ShippingPrice.Outputs[OLE DB Source Output].Columns[price]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL ShippingPrice\Sort STG.Outputs[Sort Output].Columns[update_date]"
+                      dataType="i4"
+                      lineageId="Package\ETL ShippingPrice\Sort STG.Outputs[Sort Output].Columns[update_date]"
+                      name="update_date"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\ETL ShippingPrice\STG ShippingPrice.Outputs[OLE DB Source Output].Columns[update_date]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ETL ShippingPrice\STG ShippingPrice"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="STG ShippingPrice"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[UTILShippingPrices]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ETL ShippingPrice\STG ShippingPrice.Connections[OleDbConnection]"
+                  connectionManagerID="{42B9EF19-6DF7-4E7B-84E5-BFB199E5915E}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[WServer2019.MediazonStaging]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\ETL ShippingPrice\STG ShippingPrice.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL ShippingPrice\STG ShippingPrice.Outputs[OLE DB Source Output].Columns[service]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL ShippingPrice\STG ShippingPrice.Outputs[OLE DB Source Output].ExternalColumns[service]"
+                      length="5"
+                      lineageId="Package\ETL ShippingPrice\STG ShippingPrice.Outputs[OLE DB Source Output].Columns[service]"
+                      name="service"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL ShippingPrice\STG ShippingPrice.Outputs[OLE DB Source Output].Columns[price]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL ShippingPrice\STG ShippingPrice.Outputs[OLE DB Source Output].ExternalColumns[price]"
+                      lineageId="Package\ETL ShippingPrice\STG ShippingPrice.Outputs[OLE DB Source Output].Columns[price]"
+                      name="price"
+                      precision="6"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL ShippingPrice\STG ShippingPrice.Outputs[OLE DB Source Output].Columns[update_date]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL ShippingPrice\STG ShippingPrice.Outputs[OLE DB Source Output].ExternalColumns[update_date]"
+                      lineageId="Package\ETL ShippingPrice\STG ShippingPrice.Outputs[OLE DB Source Output].Columns[update_date]"
+                      name="update_date"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\ETL ShippingPrice\STG ShippingPrice.Outputs[OLE DB Source Output].ExternalColumns[service]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      name="service" />
+                    <externalMetadataColumn
+                      refId="Package\ETL ShippingPrice\STG ShippingPrice.Outputs[OLE DB Source Output].ExternalColumns[price]"
+                      dataType="numeric"
+                      name="price"
+                      precision="6"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\ETL ShippingPrice\STG ShippingPrice.Outputs[OLE DB Source Output].ExternalColumns[update_date]"
+                      dataType="i4"
+                      name="update_date" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\ETL ShippingPrice\STG ShippingPrice.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL ShippingPrice\STG ShippingPrice.Outputs[OLE DB Source Error Output].Columns[service]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      lineageId="Package\ETL ShippingPrice\STG ShippingPrice.Outputs[OLE DB Source Error Output].Columns[service]"
+                      name="service" />
+                    <outputColumn
+                      refId="Package\ETL ShippingPrice\STG ShippingPrice.Outputs[OLE DB Source Error Output].Columns[price]"
+                      dataType="numeric"
+                      lineageId="Package\ETL ShippingPrice\STG ShippingPrice.Outputs[OLE DB Source Error Output].Columns[price]"
+                      name="price"
+                      precision="6"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\ETL ShippingPrice\STG ShippingPrice.Outputs[OLE DB Source Error Output].Columns[update_date]"
+                      dataType="i4"
+                      lineageId="Package\ETL ShippingPrice\STG ShippingPrice.Outputs[OLE DB Source Error Output].Columns[update_date]"
+                      name="update_date" />
+                    <outputColumn
+                      refId="Package\ETL ShippingPrice\STG ShippingPrice.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ETL ShippingPrice\STG ShippingPrice.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ETL ShippingPrice\STG ShippingPrice.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ETL ShippingPrice\STG ShippingPrice.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\ETL ShippingPrice.Paths[insert]"
+              endId="Package\ETL ShippingPrice\DWH ShippingPrice.Inputs[OLE DB Destination Input]"
+              name="insert"
+              startId="Package\ETL ShippingPrice\INSERT ShippingPrice.Outputs[insert]" />
+            <path
+              refId="Package\ETL ShippingPrice.Paths[Merge Join Output]"
+              endId="Package\ETL ShippingPrice\INSERT ShippingPrice.Inputs[Conditional Split Input]"
+              name="Merge Join Output"
+              startId="Package\ETL ShippingPrice\Merge Join.Outputs[Merge Join Output]" />
+            <path
+              refId="Package\ETL ShippingPrice.Paths[OLE DB Source Output]"
+              endId="Package\ETL ShippingPrice\Sort STG.Inputs[Sort Input]"
+              name="OLE DB Source Output"
+              startId="Package\ETL ShippingPrice\STG ShippingPrice.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\ETL ShippingPrice.Paths[OLE DB Source Output1]"
+              endId="Package\ETL ShippingPrice\Sort DWH.Inputs[Sort Input]"
+              name="OLE DB Source Output"
+              startId="Package\ETL ShippingPrice\ShippingPrice DWH.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\ETL ShippingPrice.Paths[Sort Output]"
+              endId="Package\ETL ShippingPrice\Merge Join.Inputs[Merge Join Left Input]"
+              name="Sort Output"
+              startId="Package\ETL ShippingPrice\Sort STG.Outputs[Sort Output]" />
+            <path
+              refId="Package\ETL ShippingPrice.Paths[Sort Output1]"
+              endId="Package\ETL ShippingPrice\Merge Join.Inputs[Merge Join Right Input]"
+              name="Sort Output"
+              startId="Package\ETL ShippingPrice\Sort DWH.Outputs[Sort Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
       DTS:refId="Package\ETL Ventes"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
@@ -11678,6 +13122,22 @@ where [refTable].[code] = ?</property>
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
+      DTS:refId="Package\TRUNCATE STG ShippingPrice"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{4BE03580-C4BF-4789-B664-9220ECAA41F6}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="TRUNCATE STG ShippingPrice"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{42B9EF19-6DF7-4E7B-84E5-BFB199E5915E}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE [UTILShippingPrices]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
       DTS:refId="Package\Vide staging commandes"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
@@ -11685,7 +13145,7 @@ where [refTable].[code] = ?</property>
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Vide staging commandes"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="3">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -11701,7 +13161,7 @@ where [refTable].[code] = ?</property>
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Vide staging Exchange"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -11783,6 +13243,22 @@ where [refTable].[code] = ?</property>
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 6"
       DTS:To="Package\ETL Shipping" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 7]"
+      DTS:CreationName=""
+      DTS:DTSID="{CFA9F10B-CC42-4258-A466-18963F141F3B}"
+      DTS:From="Package\TRUNCATE STG ShippingPrice"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 7"
+      DTS:To="Package\Chargement STG ShippingPrice" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 8]"
+      DTS:CreationName=""
+      DTS:DTSID="{A4AC4EC9-E0C7-4E53-9176-B35C17432E3F}"
+      DTS:From="Package\Chargement STG ShippingPrice"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 8"
+      DTS:To="Package\ETL ShippingPrice" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -12038,6 +13514,62 @@ where [refTable].[code] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="225,42"
+          Id="Package\Chargement STG ShippingPrice"
+          TopLeft="485,513" />
+        <NodeLayout
+          Size="220,42"
+          Id="Package\TRUNCATE STG ShippingPrice"
+          TopLeft="494,414" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 7]"
+          TopLeft="600.75,456">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,57"
+              Start="0,0"
+              End="0,49.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,49.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="163,42"
+          Id="Package\ETL ShippingPrice"
+          TopLeft="522,602" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 8]"
+          TopLeft="600.5,555">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,47"
+              Start="0,0"
+              End="0,39.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -12225,7 +13757,7 @@ where [refTable].[code] = ?</property>
     design-time-name="Package\Chargement staging Ventes">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="139,42"
           Id="Package\Chargement staging Ventes\OLTP Ventes"
@@ -12265,9 +13797,7 @@ where [refTable].[code] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -12515,9 +14045,7 @@ where [refTable].[code] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -12551,9 +14079,7 @@ where [refTable].[code] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -12587,9 +14113,7 @@ where [refTable].[code] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -12611,9 +14135,7 @@ where [refTable].[code] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -12647,9 +14169,7 @@ where [refTable].[code] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -13888,6 +15408,339 @@ where [refTable].[code] = ?</property>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\ETL Shipping\INSERT Shipping in DWH">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Chargement STG ShippingPrice">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="175,42"
+          Id="Package\Chargement STG ShippingPrice\OLTP ShippingPrices"
+          TopLeft="363,214" />
+        <NodeLayout
+          Size="169,42"
+          Id="Package\Chargement STG ShippingPrice\STG ShippingPrices"
+          TopLeft="353,353" />
+        <EdgeLayout
+          Id="Package\Chargement STG ShippingPrice.Paths[OLE DB Source Output]"
+          TopLeft="450.5,256">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-13,97"
+              Start="0,0"
+              End="-13,89.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,44.5"
+                    Point2="0,48.5"
+                    Point3="-4,48.5" />
+                  <mssgle:LineSegment
+                    End="-9,48.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-9,48.5"
+                    Point2="-13,48.5"
+                    Point3="-13,52.5" />
+                  <mssgle:LineSegment
+                    End="-13,89.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <TaskHost
+    design-time-name="Package\ETL ShippingPrice">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="165,42"
+          Id="Package\ETL ShippingPrice\STG ShippingPrice"
+          TopLeft="234,98" />
+        <NodeLayout
+          Size="169,42"
+          Id="Package\ETL ShippingPrice\DWH ShippingPrice"
+          TopLeft="330,563" />
+        <NodeLayout
+          Size="169,42"
+          Id="Package\ETL ShippingPrice\ShippingPrice DWH"
+          TopLeft="539,96" />
+        <NodeLayout
+          Size="121,42"
+          Id="Package\ETL ShippingPrice\Sort STG"
+          TopLeft="305,172" />
+        <NodeLayout
+          Size="126,42"
+          Id="Package\ETL ShippingPrice\Sort DWH"
+          TopLeft="533,174" />
+        <EdgeLayout
+          Id="Package\ETL ShippingPrice.Paths[OLE DB Source Output]"
+          TopLeft="316.5,140">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="49,32"
+              Start="0,0"
+              End="49,24.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12"
+                    Point2="0,16"
+                    Point3="4,16" />
+                  <mssgle:LineSegment
+                    End="45,16" />
+                  <mssgle:CubicBezierSegment
+                    Point1="45,16"
+                    Point2="49,16"
+                    Point3="49,20" />
+                  <mssgle:LineSegment
+                    End="49,24.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ETL ShippingPrice.Paths[OLE DB Source Output1]"
+          TopLeft="623.5,138">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-27.5,36"
+              Start="0,0"
+              End="-27.5,28.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14"
+                    Point2="0,18"
+                    Point3="-4,18" />
+                  <mssgle:LineSegment
+                    End="-23.5,18" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-23.5,18"
+                    Point2="-27.5,18"
+                    Point3="-27.5,22" />
+                  <mssgle:LineSegment
+                    End="-27.5,28.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="130,42"
+          Id="Package\ETL ShippingPrice\Merge Join"
+          TopLeft="344,294" />
+        <EdgeLayout
+          Id="Package\ETL ShippingPrice.Paths[Sort Output]"
+          TopLeft="365.5,214">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="43.5,80"
+              Start="0,0"
+              End="43.5,72.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,36"
+                    Point2="0,40"
+                    Point3="4,40" />
+                  <mssgle:LineSegment
+                    End="39.5,40" />
+                  <mssgle:CubicBezierSegment
+                    Point1="39.5,40"
+                    Point2="43.5,40"
+                    Point3="43.5,44" />
+                  <mssgle:LineSegment
+                    End="43.5,72.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ETL ShippingPrice.Paths[Sort Output1]"
+          TopLeft="596,216">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-166.666666666667,78"
+              Start="0,0"
+              End="-166.666666666667,70.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,42.2310030395137" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,42.2310030395137"
+                    Point2="0,46.2310030395137"
+                    Point3="-4,46.2310030395137" />
+                  <mssgle:LineSegment
+                    End="-162.666666666667,46.2310030395137" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-162.666666666667,46.2310030395137"
+                    Point2="-166.666666666667,46.2310030395137"
+                    Point3="-166.666666666667,50.2310030395137" />
+                  <mssgle:LineSegment
+                    End="-166.666666666667,70.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="181,42"
+          Id="Package\ETL ShippingPrice\INSERT ShippingPrice"
+          TopLeft="318,394" />
+        <EdgeLayout
+          Id="Package\ETL ShippingPrice.Paths[Merge Join Output]"
+          TopLeft="408.75,336">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,58"
+              Start="0,0"
+              End="0,50.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,50.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ETL ShippingPrice.Paths[insert]"
+          TopLeft="411.5,436">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,127"
+              Start="0,0"
+              End="0,119.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,119.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-12.94998046875,55.0244140625,25.8999609375,9.451171875"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Chargement STG ShippingPrice\OLTP ShippingPrices">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">View</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Chargement STG ShippingPrice\STG ShippingPrices">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\ETL ShippingPrice\STG ShippingPrice">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\ETL ShippingPrice\DWH ShippingPrice">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\ETL ShippingPrice\ShippingPrice DWH">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
