@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="24"
-  DTS:VersionGUID="{13594F97-127C-45AB-A984-F1FFF385C50B}">
+  DTS:VersionBuild="29"
+  DTS:VersionGUID="{E1B74F48-89D1-4D6F-859A-3DBC94B379EB}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -519,7 +519,6 @@
       DTS:refId="Package\Chargement staging Exchange"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:Disabled="True"
       DTS:DTSID="{26d94adc-be34-4e0c-9678-927c7df0d8ec}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -530,6 +529,84 @@
         <pipeline
           version="1">
           <components>
+            <component
+              refId="Package\Chargement staging Exchange\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Chargement staging Exchange\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Chargement staging Exchange\Data Conversion.Inputs[Data Conversion Input].Columns[Currency]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="Currency"
+                      lineageId="Package\Chargement staging Exchange\OLTP Exchange.Outputs[OLE DB Source Output].Columns[Currency]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Chargement staging Exchange\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Chargement staging Exchange\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Chargement staging Exchange\Data Conversion.Outputs[Data Conversion Output].Columns[StrCurrency]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="3"
+                      lineageId="Package\Chargement staging Exchange\Data Conversion.Outputs[Data Conversion Output].Columns[StrCurrency]"
+                      name="StrCurrency"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Chargement staging Exchange\OLTP Exchange.Outputs[OLE DB Source Output].Columns[Currency]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Chargement staging Exchange\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Chargement staging Exchange\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Chargement staging Exchange\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Chargement staging Exchange\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Chargement staging Exchange\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Chargement staging Exchange\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
             <component
               refId="Package\Chargement staging Exchange\OLTP Exchange"
               componentClassID="Microsoft.OLEDBSource"
@@ -757,19 +834,18 @@
                       externalMetadataColumnId="Package\Chargement staging Exchange\STG Exchange.Inputs[OLE DB Destination Input].ExternalColumns[Date]"
                       lineageId="Package\Chargement staging Exchange\OLTP Exchange.Outputs[OLE DB Source Output].Columns[Date]" />
                     <inputColumn
-                      refId="Package\Chargement staging Exchange\STG Exchange.Inputs[OLE DB Destination Input].Columns[Currency]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="3"
-                      cachedName="Currency"
-                      externalMetadataColumnId="Package\Chargement staging Exchange\STG Exchange.Inputs[OLE DB Destination Input].ExternalColumns[Currency]"
-                      lineageId="Package\Chargement staging Exchange\OLTP Exchange.Outputs[OLE DB Source Output].Columns[Currency]" />
-                    <inputColumn
                       refId="Package\Chargement staging Exchange\STG Exchange.Inputs[OLE DB Destination Input].Columns[Exchange]"
                       cachedDataType="r4"
                       cachedName="Exchange"
                       externalMetadataColumnId="Package\Chargement staging Exchange\STG Exchange.Inputs[OLE DB Destination Input].ExternalColumns[Exchange]"
                       lineageId="Package\Chargement staging Exchange\OLTP Exchange.Outputs[OLE DB Source Output].Columns[Exchange]" />
+                    <inputColumn
+                      refId="Package\Chargement staging Exchange\STG Exchange.Inputs[OLE DB Destination Input].Columns[StrCurrency]"
+                      cachedDataType="wstr"
+                      cachedLength="3"
+                      cachedName="StrCurrency"
+                      externalMetadataColumnId="Package\Chargement staging Exchange\STG Exchange.Inputs[OLE DB Destination Input].ExternalColumns[Currency]"
+                      lineageId="Package\Chargement staging Exchange\Data Conversion.Outputs[Data Conversion Output].Columns[StrCurrency]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -817,8 +893,13 @@
           </components>
           <paths>
             <path
-              refId="Package\Chargement staging Exchange.Paths[OLE DB Source Output]"
+              refId="Package\Chargement staging Exchange.Paths[Data Conversion Output]"
               endId="Package\Chargement staging Exchange\STG Exchange.Inputs[OLE DB Destination Input]"
+              name="Data Conversion Output"
+              startId="Package\Chargement staging Exchange\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Chargement staging Exchange.Paths[OLE DB Source Output]"
+              endId="Package\Chargement staging Exchange\Data Conversion.Inputs[Data Conversion Input]"
               name="OLE DB Source Output"
               startId="Package\Chargement staging Exchange\OLTP Exchange.Outputs[OLE DB Source Output]" />
           </paths>
@@ -5679,14 +5760,13 @@ WHERE [Date]=? AND [Currency]=?</property>
 [customer_id]=?
 ,[order_date]=?
 ,[warehouse_id]=?
-,[product_id]=?
 ,[type_id]=?
 ,[currency_id]=?
 ,[qty]=?
 ,[price]=?
 ,[price_excl]=?
 ,[sales]=?
-WHERE [order_code]=?
+WHERE [order_code]=? AND [product_id]=?
 </property>
                 <property
                   dataType="System.Int32"
@@ -5732,46 +5812,8 @@ WHERE [order_code]=?
                       cachedDataType="i4"
                       cachedName="product_id"
                       cachedSortKeyPosition="2"
-                      externalMetadataColumnId="Package\ETL Ventes\DWH update Ventes.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      externalMetadataColumnId="Package\ETL Ventes\DWH update Ventes.Inputs[OLE DB Command Input].ExternalColumns[Param_10]"
                       lineageId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[product_id]" />
-                    <inputColumn
-                      refId="Package\ETL Ventes\DWH update Ventes.Inputs[OLE DB Command Input].Columns[type_id]"
-                      cachedDataType="i4"
-                      cachedName="type_id"
-                      externalMetadataColumnId="Package\ETL Ventes\DWH update Ventes.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
-                      lineageId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[type_id]" />
-                    <inputColumn
-                      refId="Package\ETL Ventes\DWH update Ventes.Inputs[OLE DB Command Input].Columns[currency_id]"
-                      cachedDataType="wstr"
-                      cachedLength="3"
-                      cachedName="currency_id"
-                      externalMetadataColumnId="Package\ETL Ventes\DWH update Ventes.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
-                      lineageId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[currency_id]" />
-                    <inputColumn
-                      refId="Package\ETL Ventes\DWH update Ventes.Inputs[OLE DB Command Input].Columns[qty]"
-                      cachedDataType="i4"
-                      cachedName="qty"
-                      externalMetadataColumnId="Package\ETL Ventes\DWH update Ventes.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
-                      lineageId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[qty]" />
-                    <inputColumn
-                      refId="Package\ETL Ventes\DWH update Ventes.Inputs[OLE DB Command Input].Columns[price]"
-                      cachedDataType="r8"
-                      cachedName="price"
-                      externalMetadataColumnId="Package\ETL Ventes\DWH update Ventes.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
-                      lineageId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[price]" />
-                    <inputColumn
-                      refId="Package\ETL Ventes\DWH update Ventes.Inputs[OLE DB Command Input].Columns[price_excl]"
-                      cachedDataType="r8"
-                      cachedName="price_excl"
-                      externalMetadataColumnId="Package\ETL Ventes\DWH update Ventes.Inputs[OLE DB Command Input].ExternalColumns[Param_8]"
-                      lineageId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[price_excl]" />
-                    <inputColumn
-                      refId="Package\ETL Ventes\DWH update Ventes.Inputs[OLE DB Command Input].Columns[sales]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="sales"
-                      externalMetadataColumnId="Package\ETL Ventes\DWH update Ventes.Inputs[OLE DB Command Input].ExternalColumns[Param_9]"
-                      lineageId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[sales]" />
                     <inputColumn
                       refId="Package\ETL Ventes\DWH update Ventes.Inputs[OLE DB Command Input].Columns[order_code]"
                       cachedCodepage="1252"
@@ -5779,8 +5821,46 @@ WHERE [order_code]=?
                       cachedLength="15"
                       cachedName="order_code"
                       cachedSortKeyPosition="1"
-                      externalMetadataColumnId="Package\ETL Ventes\DWH update Ventes.Inputs[OLE DB Command Input].ExternalColumns[Param_10]"
+                      externalMetadataColumnId="Package\ETL Ventes\DWH update Ventes.Inputs[OLE DB Command Input].ExternalColumns[Param_9]"
                       lineageId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[order_code]" />
+                    <inputColumn
+                      refId="Package\ETL Ventes\DWH update Ventes.Inputs[OLE DB Command Input].Columns[sales]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="sales"
+                      externalMetadataColumnId="Package\ETL Ventes\DWH update Ventes.Inputs[OLE DB Command Input].ExternalColumns[Param_8]"
+                      lineageId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[sales]" />
+                    <inputColumn
+                      refId="Package\ETL Ventes\DWH update Ventes.Inputs[OLE DB Command Input].Columns[price_excl]"
+                      cachedDataType="r8"
+                      cachedName="price_excl"
+                      externalMetadataColumnId="Package\ETL Ventes\DWH update Ventes.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
+                      lineageId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[price_excl]" />
+                    <inputColumn
+                      refId="Package\ETL Ventes\DWH update Ventes.Inputs[OLE DB Command Input].Columns[price]"
+                      cachedDataType="r8"
+                      cachedName="price"
+                      externalMetadataColumnId="Package\ETL Ventes\DWH update Ventes.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
+                      lineageId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[price]" />
+                    <inputColumn
+                      refId="Package\ETL Ventes\DWH update Ventes.Inputs[OLE DB Command Input].Columns[qty]"
+                      cachedDataType="i4"
+                      cachedName="qty"
+                      externalMetadataColumnId="Package\ETL Ventes\DWH update Ventes.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                      lineageId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[qty]" />
+                    <inputColumn
+                      refId="Package\ETL Ventes\DWH update Ventes.Inputs[OLE DB Command Input].Columns[currency_id]"
+                      cachedDataType="wstr"
+                      cachedLength="3"
+                      cachedName="currency_id"
+                      externalMetadataColumnId="Package\ETL Ventes\DWH update Ventes.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      lineageId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[currency_id]" />
+                    <inputColumn
+                      refId="Package\ETL Ventes\DWH update Ventes.Inputs[OLE DB Command Input].Columns[type_id]"
+                      cachedDataType="i4"
+                      cachedName="type_id"
+                      externalMetadataColumnId="Package\ETL Ventes\DWH update Ventes.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      lineageId="Package\ETL Ventes\Merge Join 1.Outputs[Merge Join Output].Columns[type_id]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -5830,7 +5910,8 @@ WHERE [order_code]=?
                     </externalMetadataColumn>
                     <externalMetadataColumn
                       refId="Package\ETL Ventes\DWH update Ventes.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
-                      dataType="i4"
+                      dataType="wstr"
+                      length="3"
                       name="Param_4">
                       <properties>
                         <property
@@ -5841,8 +5922,7 @@ WHERE [order_code]=?
                     </externalMetadataColumn>
                     <externalMetadataColumn
                       refId="Package\ETL Ventes\DWH update Ventes.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
-                      dataType="wstr"
-                      length="3"
+                      dataType="i4"
                       name="Param_5">
                       <properties>
                         <property
@@ -5853,7 +5933,7 @@ WHERE [order_code]=?
                     </externalMetadataColumn>
                     <externalMetadataColumn
                       refId="Package\ETL Ventes\DWH update Ventes.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
-                      dataType="i4"
+                      dataType="r8"
                       name="Param_6">
                       <properties>
                         <property
@@ -5875,7 +5955,8 @@ WHERE [order_code]=?
                     </externalMetadataColumn>
                     <externalMetadataColumn
                       refId="Package\ETL Ventes\DWH update Ventes.Inputs[OLE DB Command Input].ExternalColumns[Param_8]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="255"
                       name="Param_8">
                       <properties>
                         <property
@@ -5886,8 +5967,9 @@ WHERE [order_code]=?
                     </externalMetadataColumn>
                     <externalMetadataColumn
                       refId="Package\ETL Ventes\DWH update Ventes.Inputs[OLE DB Command Input].ExternalColumns[Param_9]"
-                      dataType="wstr"
-                      length="255"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
                       name="Param_9">
                       <properties>
                         <property
@@ -5898,9 +5980,7 @@ WHERE [order_code]=?
                     </externalMetadataColumn>
                     <externalMetadataColumn
                       refId="Package\ETL Ventes\DWH update Ventes.Inputs[OLE DB Command Input].ExternalColumns[Param_10]"
-                      codePage="1252"
-                      dataType="str"
-                      length="15"
+                      dataType="i4"
                       name="Param_10">
                       <properties>
                         <property
@@ -8783,7 +8863,7 @@ where [refTable].[code] = ?</property>
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Vide staging commandes"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="2">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -8795,12 +8875,11 @@ where [refTable].[code] = ?</property>
       DTS:refId="Package\Vide staging Exchange"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:Disabled="True"
       DTS:DTSID="{26685dcb-4508-41c7-a438-38c12a547c09}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Vide staging Exchange"
-      DTS:ThreadHint="2">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -8892,6 +8971,10 @@ where [refTable].[code] = ?</property>
           Id="Package\Chargement staging commandes"
           TopLeft="97.25,129.25" />
         <NodeLayout
+          Size="222,42"
+          Id="Package\Chargement staging Exchange"
+          TopLeft="143.25,425" />
+        <NodeLayout
           Size="209,42"
           Id="Package\Chargement staging Ventes"
           TopLeft="511,153" />
@@ -8900,6 +8983,10 @@ where [refTable].[code] = ?</property>
           Id="Package\ETL Commandes"
           TopLeft="136,251" />
         <NodeLayout
+          Size="145,42"
+          Id="Package\ETL Exchange"
+          TopLeft="200,511" />
+        <NodeLayout
           Size="132,42"
           Id="Package\ETL Ventes"
           TopLeft="584,244" />
@@ -8907,6 +8994,10 @@ where [refTable].[code] = ?</property>
           Size="196,42"
           Id="Package\Vide staging commandes"
           TopLeft="110.5,31" />
+        <NodeLayout
+          Size="185,42"
+          Id="Package\Vide staging Exchange"
+          TopLeft="160,330" />
         <NodeLayout
           Size="172,42"
           Id="Package\Vide staging Ventes"
@@ -9023,14 +9114,6 @@ where [refTable].[code] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="185,42"
-          Id="Package\Vide staging Exchange"
-          TopLeft="160,330" />
-        <NodeLayout
-          Size="222,42"
-          Id="Package\Chargement staging Exchange"
-          TopLeft="143.25,425" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 4]"
           TopLeft="253.375,372">
@@ -9053,10 +9136,6 @@ where [refTable].[code] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="145,42"
-          Id="Package\ETL Exchange"
-          TopLeft="200,511" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 5]"
           TopLeft="254.25,467">
@@ -9098,7 +9177,7 @@ where [refTable].[code] = ?</property>
     design-time-name="Package\Chargement staging commandes">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="160,42"
           Id="Package\Chargement staging commandes\STG Commandes"
@@ -9138,7 +9217,9 @@ where [refTable].[code] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -9171,10 +9252,112 @@ where [refTable].[code] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <TaskHost
+    design-time-name="Package\Chargement staging Exchange">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="147,42"
+          Id="Package\Chargement staging Exchange\STG Exchange"
+          TopLeft="99.5,319.5" />
+        <NodeLayout
+          Size="152,42"
+          Id="Package\Chargement staging Exchange\OLTP Exchange"
+          TopLeft="79,48" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\Chargement staging Exchange\Data Conversion"
+          TopLeft="84,162" />
+        <EdgeLayout
+          Id="Package\Chargement staging Exchange.Paths[OLE DB Source Output]"
+          TopLeft="158.5,90">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,72"
+              Start="0,0"
+              End="0,64.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,64.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Chargement staging Exchange.Paths[Data Conversion Output]"
+          TopLeft="162,204">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="11,115.5"
+              Start="0,0"
+              End="11,108">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,53.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,53.75"
+                    Point2="0,57.75"
+                    Point3="4,57.75" />
+                  <mssgle:LineSegment
+                    End="7,57.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="7,57.75"
+                    Point2="11,57.75"
+                    Point3="11,61.75" />
+                  <mssgle:LineSegment
+                    End="11,108" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Chargement staging Exchange\OLTP Exchange">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">View</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Chargement staging Exchange\STG Exchange">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
     design-time-name="Package\Chargement staging Ventes">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="139,42"
           Id="Package\Chargement staging Ventes\OLTP Ventes"
@@ -9214,7 +9397,9 @@ where [refTable].[code] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -9462,7 +9647,9 @@ where [refTable].[code] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9496,7 +9683,9 @@ where [refTable].[code] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9530,7 +9719,9 @@ where [refTable].[code] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9552,7 +9743,9 @@ where [refTable].[code] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9586,7 +9779,9 @@ where [refTable].[code] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9725,6 +9920,291 @@ where [refTable].[code] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <TaskHost
+    design-time-name="Package\ETL Exchange">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="126,42"
+          Id="Package\ETL Exchange\Sort DWH"
+          TopLeft="363,459" />
+        <NodeLayout
+          Size="187,42"
+          Id="Package\ETL Exchange\DWH update Exchange"
+          TopLeft="534,838" />
+        <NodeLayout
+          Size="147,42"
+          Id="Package\ETL Exchange\STG Exchange"
+          TopLeft="64,60" />
+        <NodeLayout
+          Size="121,42"
+          Id="Package\ETL Exchange\Sort STG"
+          TopLeft="79,451" />
+        <NodeLayout
+          Size="168,42"
+          Id="Package\ETL Exchange\DWH insert Ventes"
+          TopLeft="229,836" />
+        <NodeLayout
+          Size="165,42"
+          Id="Package\ETL Exchange\UPSERT Exchange"
+          TopLeft="218,717" />
+        <NodeLayout
+          Size="172,42"
+          Id="Package\ETL Exchange\DWH Exchange join"
+          TopLeft="339,359" />
+        <NodeLayout
+          Size="130,42"
+          Id="Package\ETL Exchange\Merge Join"
+          TopLeft="229,603" />
+        <EdgeLayout
+          Id="Package\ETL Exchange.Paths[Update]"
+          TopLeft="326.666666666667,759">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="300.833333333333,79"
+              Start="0,0"
+              End="300.833333333333,71.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.0552220888355" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,28.0552220888355"
+                    Point2="0,32.0552220888355"
+                    Point3="4,32.0552220888355" />
+                  <mssgle:LineSegment
+                    End="296.833333333333,32.0552220888355" />
+                  <mssgle:CubicBezierSegment
+                    Point1="296.833333333333,32.0552220888355"
+                    Point2="300.833333333333,32.0552220888355"
+                    Point3="300.833333333333,36.0552220888355" />
+                  <mssgle:LineSegment
+                    End="300.833333333333,71.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="134.136373697917,37.0552220888355,32.5605859375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ETL Exchange.Paths[Sort Output1]"
+          TopLeft="426,501">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-111.666666666667,102"
+              Start="0,0"
+              End="-111.666666666667,94.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,56.4559270516717" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,56.4559270516717"
+                    Point2="0,60.4559270516717"
+                    Point3="-4,60.4559270516717" />
+                  <mssgle:LineSegment
+                    End="-107.666666666667,60.4559270516717" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-107.666666666667,60.4559270516717"
+                    Point2="-111.666666666667,60.4559270516717"
+                    Point3="-111.666666666667,64.4559270516717" />
+                  <mssgle:LineSegment
+                    End="-111.666666666667,94.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ETL Exchange.Paths[Sort Output]"
+          TopLeft="139.5,493">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="134.166666666667,110"
+              Start="0,0"
+              End="134.166666666667,102.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,61.1975683890577" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,61.1975683890577"
+                    Point2="0,65.1975683890577"
+                    Point3="4,65.1975683890577" />
+                  <mssgle:LineSegment
+                    End="130.166666666667,65.1975683890577" />
+                  <mssgle:CubicBezierSegment
+                    Point1="130.166666666667,65.1975683890577"
+                    Point2="134.166666666667,65.1975683890577"
+                    Point3="134.166666666667,69.1975683890577" />
+                  <mssgle:LineSegment
+                    End="134.166666666667,102.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ETL Exchange.Paths[OLE DB Source Output1]"
+          TopLeft="138.5,102">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,349"
+              Start="0,0"
+              End="0,341.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,341.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ETL Exchange.Paths[OLE DB Source Output]"
+          TopLeft="425.5,401">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,58"
+              Start="0,0"
+              End="0,50.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,50.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ETL Exchange.Paths[Merge Join Output]"
+          TopLeft="297.25,645">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,72"
+              Start="0,0"
+              End="0,64.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,64.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ETL Exchange.Paths[Insert]"
+          TopLeft="274.333333333333,759">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="38.6666666666667,77"
+              Start="0,0"
+              End="38.6666666666667,69.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.2436974789916" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27.2436974789916"
+                    Point2="0,31.2436974789916"
+                    Point3="4,31.2436974789916" />
+                  <mssgle:LineSegment
+                    End="34.6666666666667,31.2436974789916" />
+                  <mssgle:CubicBezierSegment
+                    Point1="34.6666666666667,31.2436974789916"
+                    Point2="38.6666666666667,31.2436974789916"
+                    Point3="38.6666666666667,35.2436974789916" />
+                  <mssgle:LineSegment
+                    End="38.6666666666667,69.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="5.58034505208334,36.2436974789916,27.5059765625,9.40234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\ETL Exchange\STG Exchange">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\ETL Exchange\DWH insert Ventes">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\ETL Exchange\DWH Exchange join">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
     design-time-name="Package\ETL Ventes">
     <LayoutInfo>
       <GraphLayout
@@ -9738,9 +10218,9 @@ where [refTable].[code] = ?</property>
           Id="Package\ETL Ventes\Lookup product"
           TopLeft="67,372" />
         <NodeLayout
-          Size="126,42"
-          Id="Package\ETL Ventes\Sort DWH"
-          TopLeft="363,459" />
+          Size="121,42"
+          Id="Package\ETL Ventes\Sort STG"
+          TopLeft="122,451" />
         <NodeLayout
           Size="133,42"
           Id="Package\ETL Ventes\Update test"
@@ -9762,13 +10242,17 @@ where [refTable].[code] = ?</property>
           Id="Package\ETL Ventes\STG Ventes"
           TopLeft="64,60" />
         <NodeLayout
-          Size="121,42"
-          Id="Package\ETL Ventes\Sort STG"
-          TopLeft="122,451" />
+          Size="126,42"
+          Id="Package\ETL Ventes\Sort DWH"
+          TopLeft="363,459" />
         <NodeLayout
           Size="157,42"
           Id="Package\ETL Ventes\Lookup currency"
           TopLeft="67,278" />
+        <NodeLayout
+          Size="139,42"
+          Id="Package\ETL Ventes\Merge Join 1"
+          TopLeft="224,603" />
         <NodeLayout
           Size="174,42"
           Id="Package\ETL Ventes\DWH update Ventes"
@@ -9838,6 +10322,78 @@ where [refTable].[code] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package\ETL Ventes.Paths[Sort Output1]"
+          TopLeft="426,501">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-110.666666666667,102"
+              Start="0,0"
+              End="-110.666666666667,94.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,56.5035561877667" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,56.5035561877667"
+                    Point2="0,60.5035561877667"
+                    Point3="-4,60.5035561877667" />
+                  <mssgle:LineSegment
+                    End="-106.666666666667,60.5035561877667" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-106.666666666667,60.5035561877667"
+                    Point2="-110.666666666667,60.5035561877667"
+                    Point3="-110.666666666667,64.5035561877667" />
+                  <mssgle:LineSegment
+                    End="-110.666666666667,94.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ETL Ventes.Paths[Sort Output]"
+          TopLeft="182.5,493">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="89.1666666666667,110"
+              Start="0,0"
+              End="89.1666666666667,102.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,61.24893314367" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,61.24893314367"
+                    Point2="0,65.24893314367"
+                    Point3="4,65.24893314367" />
+                  <mssgle:LineSegment
+                    End="85.1666666666667,65.24893314367" />
+                  <mssgle:CubicBezierSegment
+                    Point1="85.1666666666667,65.24893314367"
+                    Point2="89.1666666666667,65.24893314367"
+                    Point3="89.1666666666667,69.24893314367" />
+                  <mssgle:LineSegment
+                    End="89.1666666666667,102.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package\ETL Ventes.Paths[OLE DB Source Output1]"
           TopLeft="422.25,401">
           <EdgeLayout.Curve>
@@ -9856,7 +10412,9 @@ where [refTable].[code] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9890,7 +10448,33 @@ where [refTable].[code] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ETL Ventes.Paths[Merge Join Output]"
+          TopLeft="293.75,645">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,72"
+              Start="0,0"
+              End="0,64.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,64.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10037,100 +10621,6 @@ where [refTable].[code] = ?</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="139,42"
-          Id="Package\ETL Ventes\Merge Join 1"
-          TopLeft="224,603" />
-        <EdgeLayout
-          Id="Package\ETL Ventes.Paths[Sort Output]"
-          TopLeft="182.5,493">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="111,110"
-              Start="0,0"
-              End="111,102.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,51" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,51"
-                    Point2="0,55"
-                    Point3="4,55" />
-                  <mssgle:LineSegment
-                    End="107,55" />
-                  <mssgle:CubicBezierSegment
-                    Point1="107,55"
-                    Point2="111,55"
-                    Point3="111,59" />
-                  <mssgle:LineSegment
-                    End="111,102.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\ETL Ventes.Paths[Sort Output1]"
-          TopLeft="426,501">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-110.666666666667,102"
-              Start="0,0"
-              End="-110.666666666667,94.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,56.5035561877667" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,56.5035561877667"
-                    Point2="0,60.5035561877667"
-                    Point3="-4,60.5035561877667" />
-                  <mssgle:LineSegment
-                    End="-106.666666666667,60.5035561877667" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-106.666666666667,60.5035561877667"
-                    Point2="-110.666666666667,60.5035561877667"
-                    Point3="-110.666666666667,64.5035561877667" />
-                  <mssgle:LineSegment
-                    End="-110.666666666667,94.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\ETL Ventes.Paths[Merge Join Output]"
-          TopLeft="293.75,645">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,72"
-              Start="0,0"
-              End="0,64.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,64.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
@@ -10231,355 +10721,6 @@ where [refTable].[code] = ?</property>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\ETL Ventes\DWH insert Ventes">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\Chargement staging Exchange">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="152,42"
-          Id="Package\Chargement staging Exchange\OLTP Exchange"
-          TopLeft="79,48" />
-        <NodeLayout
-          Size="147,42"
-          Id="Package\Chargement staging Exchange\STG Exchange"
-          TopLeft="74.5,185.5" />
-        <EdgeLayout
-          Id="Package\Chargement staging Exchange.Paths[OLE DB Source Output]"
-          TopLeft="151.5,90">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,95.5"
-              Start="0,0"
-              End="0,88">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,88" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Chargement staging Exchange\OLTP Exchange">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">View</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Chargement staging Exchange\STG Exchange">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\ETL Exchange">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="172,42"
-          Id="Package\ETL Exchange\DWH Exchange join"
-          TopLeft="339,359" />
-        <NodeLayout
-          Size="126,42"
-          Id="Package\ETL Exchange\Sort DWH"
-          TopLeft="363,459" />
-        <NodeLayout
-          Size="165,42"
-          Id="Package\ETL Exchange\UPSERT Exchange"
-          TopLeft="218,717" />
-        <NodeLayout
-          Size="147,42"
-          Id="Package\ETL Exchange\STG Exchange"
-          TopLeft="64,60" />
-        <NodeLayout
-          Size="121,42"
-          Id="Package\ETL Exchange\Sort STG"
-          TopLeft="79,451" />
-        <NodeLayout
-          Size="130,42"
-          Id="Package\ETL Exchange\Merge Join"
-          TopLeft="229,603" />
-        <NodeLayout
-          Size="187,42"
-          Id="Package\ETL Exchange\DWH update Exchange"
-          TopLeft="534,838" />
-        <NodeLayout
-          Size="168,42"
-          Id="Package\ETL Exchange\DWH insert Ventes"
-          TopLeft="229,836" />
-        <EdgeLayout
-          Id="Package\ETL Exchange.Paths[Insert]"
-          TopLeft="274.333333333333,759">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="38.6666666666667,77"
-              Start="0,0"
-              End="38.6666666666667,69.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,27.2436974789916" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,27.2436974789916"
-                    Point2="0,31.2436974789916"
-                    Point3="4,31.2436974789916" />
-                  <mssgle:LineSegment
-                    End="34.6666666666667,31.2436974789916" />
-                  <mssgle:CubicBezierSegment
-                    Point1="34.6666666666667,31.2436974789916"
-                    Point2="38.6666666666667,31.2436974789916"
-                    Point3="38.6666666666667,35.2436974789916" />
-                  <mssgle:LineSegment
-                    End="38.6666666666667,69.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="5.58034505208334,36.2436974789916,27.5059765625,9.40234375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\ETL Exchange.Paths[Sort Output1]"
-          TopLeft="426,501">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-111.666666666667,102"
-              Start="0,0"
-              End="-111.666666666667,94.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,56.4559270516717" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,56.4559270516717"
-                    Point2="0,60.4559270516717"
-                    Point3="-4,60.4559270516717" />
-                  <mssgle:LineSegment
-                    End="-107.666666666667,60.4559270516717" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-107.666666666667,60.4559270516717"
-                    Point2="-111.666666666667,60.4559270516717"
-                    Point3="-111.666666666667,64.4559270516717" />
-                  <mssgle:LineSegment
-                    End="-111.666666666667,94.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\ETL Exchange.Paths[Sort Output]"
-          TopLeft="139.5,493">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="134.166666666667,110"
-              Start="0,0"
-              End="134.166666666667,102.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,61.1975683890577" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,61.1975683890577"
-                    Point2="0,65.1975683890577"
-                    Point3="4,65.1975683890577" />
-                  <mssgle:LineSegment
-                    End="130.166666666667,65.1975683890577" />
-                  <mssgle:CubicBezierSegment
-                    Point1="130.166666666667,65.1975683890577"
-                    Point2="134.166666666667,65.1975683890577"
-                    Point3="134.166666666667,69.1975683890577" />
-                  <mssgle:LineSegment
-                    End="134.166666666667,102.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\ETL Exchange.Paths[OLE DB Source Output]"
-          TopLeft="425.5,401">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,58"
-              Start="0,0"
-              End="0,50.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,50.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\ETL Exchange.Paths[Merge Join Output]"
-          TopLeft="297.25,645">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,72"
-              Start="0,0"
-              End="0,64.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,64.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\ETL Exchange.Paths[OLE DB Source Output1]"
-          TopLeft="138.5,102">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,349"
-              Start="0,0"
-              End="0,341.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,341.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\ETL Exchange.Paths[Update]"
-          TopLeft="326.666666666667,759">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="300.833333333333,79"
-              Start="0,0"
-              End="300.833333333333,71.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,28.0552220888355" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,28.0552220888355"
-                    Point2="0,32.0552220888355"
-                    Point3="4,32.0552220888355" />
-                  <mssgle:LineSegment
-                    End="296.833333333333,32.0552220888355" />
-                  <mssgle:CubicBezierSegment
-                    Point1="296.833333333333,32.0552220888355"
-                    Point2="300.833333333333,32.0552220888355"
-                    Point3="300.833333333333,36.0552220888355" />
-                  <mssgle:LineSegment
-                    End="300.833333333333,71.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="134.136373697917,37.0552220888355,32.5605859375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\ETL Exchange\DWH Exchange join">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\ETL Exchange\STG Exchange">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\ETL Exchange\DWH insert Ventes">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
