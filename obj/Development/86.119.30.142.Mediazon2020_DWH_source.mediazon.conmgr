@@ -8,7 +8,7 @@
       DTS:ConnectionString="Data Source=86.119.30.142;User ID=mediazon;Initial Catalog=Mediazon2020_DWH_source;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
       <DTS:Password
         DTS:Name="Password"
-        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAzj8yCMXyu0SvzFJNspE3WgAAAAACAAAAAAAQZgAAAAEAACAAAAD/b2kzweWQjdPUQePaHA8V2kDgLZVRAi0mhoNdoPkRTAAAAAAOgAAAAAIAACAAAACTbuqrCy3VvdhryexwGFsnUpgsfyP/XZSjwEvS56y2WoAAAAA5Sn831bvAuRQI47XoaKFotuZhmDiFZIQNffIvef++NFQH94A3Me/oupl84uLStwd30fbIu2tDClSfCmswbHYQdD+XDE5hh0JXqIVN9p/EtHL+p+BqXSKqhAHddgFqEozlFdlq3xQtA4ZFXhXn5U2zIzIqiOHl61i8cnBiYsPm+EAAAAAS5WGVCeJA9Psl78P/eMJK+fKpLdYAmd1lClFihrRC96CeRZHOaX4tvUB4qymfSBJQAf5sNYM/A1/YyCMLuYze</DTS:Password>
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAzj8yCMXyu0SvzFJNspE3WgAAAAACAAAAAAAQZgAAAAEAACAAAABbjFzoJrkIlmXVGICeFsa+pTYq7Sjjifi17iXF86BZpgAAAAAOgAAAAAIAACAAAACfVw4ZVHa8UAF7ITRhccQfGpD5CMhu+Rz7sRVYl67OUYAAAAChS/inpQo1zI1YogN6jPhdYLbhm75eedHIIsRu27XDlCJvXKPkzQBMRoeDSUqFkpJNuLs9xX/kKWq4I73EWjGKppBYV1VKT5/wWH137cih70DtojWu76rxujZxXLZgQa9W5du9tuozdnnk0ld6/HpMpMO1kL64YydgB86HmgyEpUAAAACV+FBQsdsCQ8gPq2NhseZEmXv+QumsSMXY3E2jUH2m0y7afp0tr81FQHGcozppKCf1L2mVLKeeo6YmJ0MXhZbh</DTS:Password>
     </DTS:ConnectionManager>
   </DTS:ObjectData>
 </DTS:ConnectionManager>
